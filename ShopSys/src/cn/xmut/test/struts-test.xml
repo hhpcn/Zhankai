@@ -1,0 +1,14 @@
+<!DOCTYPE struts PUBLIC  
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-test" namespace="/test" extends="struts-base">
+		<!-- 测试 -->
+		<action name="newsAction_*" class="newsAction" method="{1}">
+			<result name="list" type="json">
+				<param name="root">map</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>  

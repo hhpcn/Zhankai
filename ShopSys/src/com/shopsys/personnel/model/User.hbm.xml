@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.shopsys.personnel.model" default-access="field">
+<class name="User" lazy="false"  table="user_table">
+  <id name="id" type="java.lang.Integer">
+   		<column name="id"/>
+   		<generator class="native"/>
+  </id>
+  <property  name="roleCode" type="java.lang.String">
+   		<column length="45" name="roleCode" not-null="true"/>
+  </property>
+  <property  name="roleName" type="java.lang.String">
+   		<column length="45" name="roleName" not-null="true"/>
+  </property>
+  
+  <property name="userName" type="java.lang.String">
+   		<column length="45" name="userName" not-null="true"/>
+  </property>
+  <property  name="realName" type="java.lang.String">
+   		<column length="45" name="realName"/>
+  </property>
+  <property  name="password" type="java.lang.String">
+   		<column length="45" name="password" not-null="true"/>
+  </property>
+  <property  name="nickName" type="java.lang.String">
+   		<column length="45" name="nickName"/>
+  </property>
+  <property  name="email" type="java.lang.String">
+   		<column length="45" name="email"/>
+  </property>
+  <property  name="tel" type="java.lang.String">
+   		<column length="45" name="tel"/>
+  </property>
+  <property  name="source" type="java.lang.String">
+   		<column length="45" name="source"/>
+  </property>
+  <property  name="lastLoginTime" type="java.lang.String">
+   		<column length="45" name="lastLoginTime"/>
+  </property>
+  <property  name="registerTime" type="java.lang.String">
+   		<column length="45" name="registerTime"/>
+  </property>
+  <property  name="status" type="java.lang.String">
+   		<column length="45" name="status"/>
+  </property>
+  <property  name="introduction" type="java.lang.String">
+   		<column length="300" name="introduction"/>
+  </property>
+  
+    <property name="sex" type="java.lang.Boolean">
+		 <column name="sex"></column>
+	</property>
+   <property  name="age" type="java.lang.Integer">
+  		 <column  name="age"/>
+  </property>
+   <property  name="birthday" type="java.lang.String">
+   		<column length="45" name="birthday"/>
+  </property>
+   <property  name="portrait" type="java.lang.String">
+   		<column length="45" name="portrait"/>
+  </property>
+   <property  name="address" type="java.lang.String">
+  		<column length="45" name="address"/>
+  </property>
+   <property  name="identification" type="java.lang.String">
+   		<column length="45" name="identification"/>
+  </property>
+ </class>
+</hibernate-mapping>

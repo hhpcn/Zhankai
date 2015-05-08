@@ -1,0 +1,15 @@
+<!DOCTYPE struts PUBLIC  
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-personnel" namespace="/personnel" extends="struts-base">
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="loginsuccess" type="redirect">/back/index.jsp</result>
+			
+			<result name="snsns" type="json">
+				<param name="root">str</param>
+			</result>
+		</action>
+	</package>
+</struts> 
+ 
