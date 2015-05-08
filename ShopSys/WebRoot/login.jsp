@@ -40,9 +40,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script src="common/ace/assets/js/respond.js"></script>
 		<![endif]-->
 		
-	<script type="text/javascript" src="/ShopSys/js/common/rsa/Barrett.js"></script>  
+	<!-- <script type="text/javascript" src="/ShopSys/js/common/rsa/Barrett.js"></script>  
     <script type="text/javascript" src="/ShopSys/js/common/rsa/BigInt.js"></script>  
-    <script type="text/javascript" src="/ShopSys/js/common/rsa/RSA.js"></script>   
+    <script type="text/javascript" src="/ShopSys/js/common/rsa/RSA.js"></script>    -->
     
       
 <script type="text/javascript">  
@@ -435,17 +435,7 @@ function bodyRSA(){
 								dataType : "json",
 								success : function(data) {
 								alert(data);
-									<%-- if(data.success){
-										if(data.msg=="恭喜,注册成功!"){
-											$.W.alert("系统消息","恭喜,注册成功!即将跳转到登录页面...",true,function(){
-												window.location.href ='<%=path%>'+"/login.jsp";
-											});
-										}else{
-											$.W.alert("系统消息",data.msg,true);
-										}
-									}else{
-										$.W.alert("系统消息",data.msg,true);
-									} --%>
+								
 								}
 							}) ;
 		    		  }

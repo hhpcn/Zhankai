@@ -15,10 +15,10 @@ public class User implements java.io.Serializable {
 	public static final String SOURCE_APP="客户端注册";
 	
 	private Integer id;
-	private String roleCode;//角色编号
+	private String roleCode="3";//角色编号
 	private String roleName;//角色名称
 	private String userName;//登录账号
-	private String password;//密码
+	private String password="123456";//密码
 	private String realName;//真实姓名
 	private String nickName;//昵称，显示名称
 	private String email;//邮箱
