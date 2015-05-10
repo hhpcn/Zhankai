@@ -16,7 +16,9 @@
 <link type="text/css" href="/ShopSys/css/front/4001.min.css" rel="stylesheet" id="templateFrame" class="templateFrameClass">
 <link type="text/css" href="/ShopSys/css/front/pattern3.min.css" rel="stylesheet">
 <link type="text/css" href="/ShopSys/css/front/mulModuleColStyle1.min.css" rel="stylesheet">
-				
+
+<link media="screen" rel="stylesheet" href="/ShopSys/css/front/navheader.css"/>
+<script src="/ShopSys/common/ace/assets/js/jquery.js" type="text/javascript"></script>		
 
 
 
@@ -100,273 +102,342 @@
 #module392 .formMiddle392 .formMiddleCenter392{background:none;}
 #module392 .formMiddleContent392{background:none;}
 </style>
-<style id="styleHeaderTop" type="text/css">
+
+
+<style id="footer"  type="text/css">
+  #myfooter a:HOVER {
+	color: #ffffff;
+	text-decoration:underline;
+  }
+   #myfooter a:LINK{
+     font-size: 12px;
+   }
+  .myline{
+  	width:40px;
+  	text-align:center;
+  	padding: 0 15px;
+  }
+  .mylink{
+ 	width:40px;
+ 	text-align:center;
+ 	padding: 0 25px;
+  }
 </style>
 
-<style id="styleWebSite" type="text/css">
-</style>
+
 <style id="stylenav" type="text/css">
 #nav {top:45px;}
 #nav {left:454px;}
 </style>
 
-
-
-
-
-
-
-
-
-
 <style type="text/css" id="stylefooter">#webFooterTable div.footerItemPic{display:block;}
 #webFooterTable li.footerItemSection{height:40px;}
-#webFooterTable li.footerItemSpacing{height:40px;}</style></head>
+#webFooterTable li.footerItemSpacing{height:40px;}</style>
+</head>
 
 <body class="g_body g_locale2052 ">
 
+	
+<div id="web" class="g_web " style="background-color: #dde2ed">
+	
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		var qcloud={};
+		$('[_t_nav]').hover(function(){
+			var _nav = $(this).attr('_t_nav');
+			clearTimeout( qcloud[ _nav + '_timer' ] );
+			qcloud[ _nav + '_timer' ] = setTimeout(function(){
+			$('[_t_nav]').each(function(){
+			$(this)[ _nav == $(this).attr('_t_nav') ? 'addClass':'removeClass' ]('nav-up-selected');
+			});
+			$('#'+_nav).stop(true,true).slideDown(200);
+			}, 150);
+		},function(){
+			var _nav = $(this).attr('_t_nav');
+			clearTimeout( qcloud[ _nav + '_timer' ] );
+			qcloud[ _nav + '_timer' ] = setTimeout(function(){
+			$('[_t_nav]').removeClass('nav-up-selected');
+			$('#'+_nav).stop(true,true).slideUp(200);
+			}, 150);
+		});
+	});
+	</script>
+  
+ <!--  第一块 -->
+ <div id="myheader">
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<div id="g_main" class="g_main g_col2 " style="top: 0px; width: 1349px;">
-	<div id="web" class="g_web ">
-		<table class="webTopTable" cellpadding="0" cellspacing="0">
-			<tbody><tr>
-				<td align="center">
-					<div id="webTop" class="webTop">
-								
-						<div id="logo" class="logo logo2" style="top:5px;left:-100px;">
+   <div> <!-- logo和导航栏 -->
+   	<div class="head-v3" >
+		<div class="navigation-up">
+			<div class="navigation-inner">
+			    <div style="float:left;">
+			    	<div id="logo" class="logo logo2" style="top:10px;left:-100px;">
 						<a id="logoLink" hidefocus="true" class="link-p" link="javascript:;" onclick="">
-						<img id="logoImg" title="福州战凯军科贸易有限公司" alt="福州战凯军科贸易有限公司" style="float:left;" height="150" width="541" src="/ShopSys/image/ABUIABAEGAAg0bbdqQUoiJqj9wIwvAU4rAI.png">
+						<img id="logoImg" title="福州战凯军科贸易有限公司" alt="福州战凯军科贸易有限公司" 
+						style="float:left;" height="40" width="241" src="/ShopSys/image/logo.png">
 						</a>
-						</div>
 					</div>
-				</td>
-			</tr>
-		</tbody></table>
-
-		<table class="absTopTable" cellpadding="0" cellspacing="0">
-			<tbody><tr>
-				<td align="center">
-					<div id="absTopForms" class="forms sideForms absForms">
-						<div style="position:absolute;"></div><!-- for ie6 -->
-						<div id="module392" _indexclass="formIndex1" class="form  formIndex1 formStyle62" title="" style="position:absolute;top:30px;left:731px;width:250px;" _side="0" _intab="0" _inmulmcol="0" _infullmeasure="0" _autoheight="1" _global="true" _independent="false">
-								<table class="formTop formTop392" cellpadding="0" cellspacing="0">
-									<tbody>
-										<tr>
-											<td class="left">
-											</td>
-											<td class="center">
-											</td>
-											<td class="right">
-											</td>
-										</tr>
-									</tbody>
-								</table>
-								<table class="formMiddle formMiddle392" style="" cellpadding="0" cellspacing="0">
-									<tbody>
-										<tr>
-											<td class="formMiddleLeft formMiddleLeft392"></td>
-											<td class="formMiddleCenter formMiddleCenter392" valign="top">
-												<div class="formMiddleContent formMiddleContent392  ">
-													<div class="searchBox">
-														<div class="searchBoxContainer">
-															<input class="g_itext" placeholder="" value="" _nsl="[]" maxlength="100">
-															<a class="g_btn searchBoxBtn" href="javascript:;" onclick="Site.searchInSite(392);">
-																<span>搜索</span>
-															</a>
-														</div>
-													</div>
-													<div class="recommandKeyBox" style="vertical-align: 7px;">
-														<div class="linkKeys">
-															<a class="recommandKey" href="javascript:;" onclick="">
-																<span></span>
-															</a>
-														</div>
-													</div>
-												</div>
-											</td>
-											<td class="formMiddleRight formMiddleRight392"></td>
-										</tr>
-									</tbody>
-								</table>
-								<table class="formBottom formBottom392" cellpadding="0" cellspacing="0">
-									<tbody>
-										 <tr>
-											  <td class="left left392">
-											  </td>
-											  <td class="center center392">
-											  </td>
-											  <td class="right right392">
-											  </td>
-										 </tr>
-									</tbody>
-								</table>
-								<div class="clearfloat clearfloat392"></div>
-                       </div>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-		</table>
-		
-		<table class="webNavTable" cellpadding="0" cellspacing="0">
-		  <tbody>
-		    <tr>
-			 <td align="center">
-				<div id="webNav" class="webNav webNavDefault">
-				<div id="nav" class="nav nav2">
-				<div class="navMainContent">
-				<table class="navTop" cellpadding="0" cellspacing="0">
-					<tbody>
-						<tr>
-							<td class="navTopLeft"></td>
-							<td class="navTopCenter"></td>
-							<td class="navTopRight"></td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="navContent" cellpadding="0" cellspacing="0">
-				<tbody>
-				<tr>
-				<td class="navLeft"></td>
-				<td class="navCenterContent" id="navCenterContent" valign="top" align="left">
-					<div id="navCenter" class="navCenter" style="width: 480px;">
-					    <div class="itemPrev" style="display: none;"></div>
-						<div class="itemContainer" style="width: 480px;">
-						<table class="item itemCol2 itemIndex1 itemSelected itemSelectedIndex1" cellpadding="0" cellspacing="0" colid="2" id="nav2" onclick="">
-							<tbody>
-								<tr>
-									<td class="itemLeft"></td>
-									<td class="itemCenter">
-										<a hidefocus="true" style="outline:none;" href="/ShopSys/front/福州战凯军科贸易有限公司.html" onclick="">
-											<span class="itemName0">首页</span>
-										</a>
-									</td>
-									<td class="itemRight"></td>
-								</tr>
-						   </tbody>
-						</table>
-						<div class="itemSep">
-						</div>
-						<table class="item itemCol101 itemIndex2" cellpadding="0" cellspacing="0" colid="101" id="nav101" onclick="">
-							<tbody>
-								<tr>
-									<td class="itemLeft"></td>
-									<td class="itemCenter">
-										<a hidefocus="true" style="outline:none;" href="http://www.k8woke.icoc.cc/col.jsp?id=101" onclick="">
-											<span class="itemName0">关于我们</span>
-										</a>
-									</td>
-									<td class="itemRight"></td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="itemSep"></div>
-						<table class="item itemCol3 itemIndex3" cellpadding="0" cellspacing="0" colid="3" id="nav3" onclick="">
-							<tbody>
-							    <tr>
-									<td class="itemLeft"></td>
-									<td class="itemCenter">
-										<a hidefocus="true" style="outline:none;" href="http://www.k8woke.icoc.cc/pl.jsp" onclick="">
-											<span class="itemName0">产品展示</span>
-										</a>
-									</td>
-									<td class="itemRight"></td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="itemSep"></div>
-						<table class="item itemCol12 itemIndex4" cellpadding="0" cellspacing="0" colid="12" id="nav12" onclick="">
-							<tbody>
-								<tr>
-									<td class="itemLeft"></td>
-									<td class="itemCenter">
-										<a hidefocus="true" style="outline:none;" href="http://www.k8woke.icoc.cc/pr.jsp" onclick="">
-											<span class="itemName0">新品推荐</span>
-										</a>
-									</td>
-									<td class="itemRight"></td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="itemSep"></div>
-						<table class="item itemCol102 itemIndex5" cellpadding="0" cellspacing="0" colid="102" id="nav102" onclick="">
-							<tbody>
-							<tr>
-								<td class="itemLeft"></td>
-								<td class="itemCenter">
-									<a hidefocus="true" style="outline:none;" href="http://www.k8woke.icoc.cc/col.jsp?id=102" onclick="">
-										<span class="itemName0">联系我们</span>
-									</a>
-								</td>
-								<td class="itemRight"></td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="itemNext" style="display: none;"></div>
+			    </div>
+				<div class="navigation-v3">
+					<ul>
+						<li class="nav-up-selected-inpage" _t_nav="home">
+							<h2>
+								<a href="http://sc.chinaz.com/">首页</a>
+							</h2>
+						</li>
+						<li class="" _t_nav="introduction">
+							<h2>
+								<a href="http://weixin.qcloud.com/market">关于我们</a>
+							</h2>
+						</li>
+						<li class="" _t_nav="ZHXLQC">
+							<h2>
+								<a href="http://sc.chinaz.com/?product/product.php">指挥训练器材</a>
+							</h2>
+						</li>
+						
+						<li _t_nav="BGWJ">
+							<h2>
+								<a href="http://sc.chinaz.com/?wiki.php">办公文具</a>
+							</h2>
+						</li>
+						<li _t_nav="sports">
+							<h2>
+								<a href="http://sc.chinaz.com/?wiki.php">体育用品</a>
+							</h2>
+						</li>
+						<li class="" _t_nav="JQRYP">
+							<h2>
+								<a href="http://sc.chinaz.com/">节庆日用品</a>
+							</h2>
+						</li>
+						<li _t_nav="newProduct">
+							<h2>
+								<a href="http://sc.chinaz.com/?wiki.php">新品推荐</a>
+							</h2>
+						</li>
+						
+					</ul>
 				</div>
-				</td>
-				<td class="navRight"></td>
-				</tr>
-				</tbody>
-				</table>
-				<table class="navBottom" cellpadding="0" cellspacing="0">
-					<tbody>
-						<tr>
-							<td class="navBottomLeft"></td>
-							<td class="navBottomCenter"></td>
-							<td class="navBottomRight"></td>
-						</tr>
-					</tbody>
-				</table>
-				     </div>
-				     </div>
-					 </div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<table class="webHeaderTable" cellpadding="0" cellspacing="0" id="webHeaderTable">
-			<tbody>
-			 <tr>
-				<td align="center" class="webHeaderTd">
-					<div id="webHeader" class="webHeader">
-						<table class="headerTable" cellpadding="0" cellspacing="0">
-							<tbody>
-							 <tr>
-								<td class="headerCusLeft"></td>
-								<td class="headerCusMiddle" align="center" valign="top">
-									<div class="headerNav"></div>
-								</td>
-								<td class="headerCusRight"></td>
-							</tr>
-						 </tbody>
-						</table>
-					</div>
-				</td>
-			 </tr>
-		 </tbody>
-		</table>
+			</div>
+		</div>
+		
+		<div class="navigation-down">
+			<div id="introduction" class="nav-down-menu menu-1" style="display: none;" _t_nav="introduction">
+				<div class="navigation-down-inner">
+				   
+					<dl style="margin-left: 100px;">
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">关于战凯</a>
+						</dd>
+						
+					</dl>
+					<dl style="margin-left: 100px;">
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">战凯宗旨</a>
+						</dd>
+						
+					</dl>
+					<dl style="margin-left: 100px;">
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">联系战凯</a>
+						</dd>
+						
+					</dl>
+				</div>
+		    </div>
+		</div>
+		<div class="navigation-down">
+	    <div id="ZHXLQC" class="nav-down-menu menu-1" style="display: none;" _t_nav="ZHXLQC">
+				<div class="navigation-down-inner">
+				   
+					<dl style="margin-left: 100px;">
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">指挥尺</a>
+						</dd>
+						
+					</dl>
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">蛇尺曲线板</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">迷彩箱包</a>
+						</dd>
+					</dl>
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.devtool1" href="http://sc.chinaz.com/?product/product.php?item=mna">靶纸靶板</a>
+						</dd>
+						
+				</dl>
+				<dl>	
+					<dd>
+						<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">标图画笔</a>
+					</dd>
+			   </dl>
+					<dl>
+					
+					<dd>
+						<a hotrep="hp.header.product.service1" href="http://sc.chinaz.com/?special/security.php">检查镜</a>
+					</dd>
+					
+				</dl>
+				
+				<dl>
+					<dd>
+						<a hotrep="hp.header.product.service1" href="http://sc.chinaz.com/?special/security.php">行军桌椅</a>
+					</dd>
+					
+				</dl>
+				<dl>
+					<dd>
+						<a hotrep="hp.header.product.service1" href="http://sc.chinaz.com/?special/security.php">其他器材</a>
+					</dd>
+					
+				</dl>
+			</div>
+		</div>
+	</div>
+		<div class="navigation-down">
+			<div id="BGWJ" class="nav-down-menu menu-1" style="display: none;" _t_nav="BGWJ">
+				<div class="navigation-down-inner">
+				   
+					<dl style="margin-left: 150px;">
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">得力文具</a>
+						</dd>
+						
+					</dl>
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">金丝猴文具</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">晨光文具</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">美术书法用品</a>
+						</dd>
+					</dl>
+	                <dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">其他</a>
+						</dd>
+					</dl>
+	   
+	 			</div>
+			</div>
+		</div>
+	    <div class="navigation-down">
+			<div id="sports" class="nav-down-menu menu-1" style="display: none;" _t_nav="sports">
+				<div class="navigation-down-inner">
+				   
+					<dl style="margin-left: 150px;">
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">球类</a>
+						</dd>
+						
+					</dl>
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">护具</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">健身</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">棋牌类</a>
+						</dd>
+					</dl>
+	                <dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">其他</a>
+						</dd>
+					</dl>
+	   
+	 			</div>
+			</div>
+		</div>
+	    <div class="navigation-down">
+			<div id="JQRYP" class="nav-down-menu menu-1" style="display: none;" _t_nav="JQRYP">
+				<div class="navigation-down-inner">
+				   
+					<dl style="margin-left: 150px;">
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">灯笼彩纸类</a>
+						</dd>
+						
+					</dl>
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">日用品</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">日用五金</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">电脑耗材</a>
+						</dd>
+					</dl>
+	                <dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">其他</a>
+						</dd>
+					</dl>
+	   
+	 			</div>
+			</div>
+		</div>
+	</div>
+   </div>
+			
 
-		<table class="webBannerTable" cellpadding="0" cellspacing="0">
+		<table class="webBannerTable" cellpadding="0" cellspacing="0" style="margin-top:-10px;">
 			<tbody>
 			 <tr>
 				<td align="center">
@@ -377,7 +448,7 @@
 								<td class="bannerLeft"></td>
 								<td class="bannerCenter" align="center" valign="top">
 									<div class="bannerTop"></div>
-									<div id="banner" class="banner extBanner" style="height: 436px; overflow: hidden; display: block; background: none;" normalheight="436" defaultwidth="1440">			
+									<div id="banner" class="banner extBanner" style="height: 380px; overflow: hidden; display: block; background: none;" normalheight="436" defaultwidth="1440">			
 										<div class="imageSwitchShowName photoSwitchBg" style="position: absolute; display: none; z-index: 2; width: 1349px; height: 30px; line-height: 30px; top: 406px; left: 0px;">
 											<span class="spanHiddenName spanShowName" style="margin-left: 10px;"></span>
 											<span class="spanHiddenName" style="margin-left: 10px;"></span>
@@ -396,15 +467,15 @@
 										</div>
 										<div class="switchGroup" style="width: 100%; position: relative; height: 1308px; overflow: hidden; margin: 0px auto;">
 											<div class="numImg" id="numImg0" style="position: absolute; width: 100%; padding-top: 0px;">
-												<a class="J_bannerItem" hidefocus="true" title="" href="javascript:;" target="" style="width: 946px; height: 436px; cursor: default; overflow: hidden; display: block; outline: none; margin: 0px auto; position: relative; z-index: 1; background-image: url(http://2380410.s21i-2.faidns.com/2/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw.jpg); background-position: 50% 50%; background-repeat: no-repeat;" onclick="">
+												<a class="J_bannerItem" hidefocus="true" title="" href="javascript:;" target="" style="width: 1349px; height: 380px; cursor: default; overflow: hidden; display: block; outline: none; margin: 0px auto; position: relative; z-index: 1; background-image: url(/ShopSys/image/120001.jpg); background-position: 50% 50%; background-repeat: no-repeat;" onclick="">
 												</a>
 											</div>
-											<div class="numImg" id="numImg1" style="position: absolute; width: 100%; padding-top: 28px;">
-												<a class="J_bannerItem" hidefocus="true" title="" href="javascript:;" target="" style="width: 1349px; height: 380px; cursor: default; overflow: hidden; display: none; outline: none; margin: 0px auto; position: relative; z-index: 1; background-image: url(http://0.ss.faidns.com/image/template/banners/130001.jpg?v=20150129); background-position: 50% 50%; background-repeat: no-repeat;" onclick="">
+											<div class="numImg" id="numImg1" style="position: absolute; width: 100%; padding-top: 0px;">
+												<a class="J_bannerItem" hidefocus="true" title="" href="javascript:;" target="" style="width: 1349px; height: 380px; cursor: default; overflow: hidden; display: none; outline: none; margin: 0px auto; position: relative; z-index: 1; background-image: url(/ShopSys/image/130001.jpg); background-position: 50% 50%; background-repeat: no-repeat;" onclick="">
 												</a>
 											</div>
-											<div class="numImg" id="numImg2" style="position: absolute; width: 100%; padding-top: 28px;">
-												<a class="J_bannerItem" hidefocus="true" title="" href="javascript:;" target="" style="width: 1349px; height: 380px; cursor: default; overflow: hidden; display: none; outline: none; margin: 0px auto; position: relative; z-index: 1; background-image: url(http://0.ss.faidns.com/image/template/banners/40001.jpg?v=20150129); background-position: 50% 50%; background-repeat: no-repeat;" onclick="">
+											<div class="numImg" id="numImg2" style="position: absolute; width: 100%; padding-top: 0px;">
+												<a class="J_bannerItem" hidefocus="true" title="" href="javascript:;" target="" style="width: 1349px; height: 380px; cursor: default; overflow: hidden; display: none; outline: none; margin: 0px auto; position: relative; z-index: 1; background-image: url(/ShopSys/image/40001.jpg); background-position: 50% 50%; background-repeat: no-repeat;" onclick="">
 												</a>
 											</div>
 										</div>
@@ -419,1000 +490,834 @@
 			</tr>
 		 </tbody>
 		</table>
-
-		<table class="absMiddleTable" cellpadding="0" cellspacing="0">
-			<tbody>
-			   <tr>
-					<td align="center">
-						<div id="absForms" class="forms sideForms absForms"></div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<div id="fullmeasureTopForms" class="fullmeasureContainer forms sideForms fullmeasureForms fullmeasureTopForms" style="display:none">	
-		<wbr></div>
+  </div>   
+  <!-- 第一块结束 -->
+	
 		
 		
 		
+<!-- 第二块 -->	
+<div id="mymaincontainer" style="padding-bottom: 10px;">	
 <table id="webContainerTable" class="webContainerTable" cellpadding="0" cellspacing="0">
  <tbody>
    <tr>
      <td align="center">
 		<div id="webContainer" class="webContainer">
 	    <div id="container" class="container">
-	<table class="containerTop" cellpadding="0" cellspacing="0">
-		<tbody>
-		<tr valign="top">
-			<td class="left"></td>
-			<td class="center"></td>
-			<td class="right"></td>
-		</tr>
-	  </tbody>
-	</table>
-
-  <table class="containerMiddle" cellpadding="0" cellspacing="0">
-		<tbody>
-		  <tr valign="top">
-			<td id="containerMiddleLeft" class="containerMiddleLeft"></td>
-			<td class="containerMiddleCenter">
-				<div id="containerMiddleCenterTop" class="containerMiddleCenterTop"></div>
-
-				<div id="containerForms" class="containerForms">
-					<div id="topForms" class="column forms mainForms topForms">
-						<div id="module311" _indexclass="formIndex1" class="form form311 formIndex1 formStyle35 layoutModule  formStyle35_2  modulePattern modulePattern60" title="" style="" _side="0" _intab="0" _inmulmcol="0" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
-							<table class="formTop formTop311" cellpadding="0" cellspacing="0">
-								<tbody>
+	     <table class="containerTop" cellpadding="0" cellspacing="0">
+			<tbody>
+			<tr valign="top">
+				<td class="left"></td>
+				<td class="center"></td>
+				<td class="right"></td>
+			</tr>
+		  </tbody>
+		 </table>
+ 		 <table class="containerMiddle" cellpadding="0" cellspacing="0">
+		  <tbody>
+		   <tr valign="top">
+				<td id="containerMiddleLeft" class="containerMiddleLeft"></td>
+				<td class="containerMiddleCenter">
+					<div id="containerMiddleCenterTop" class="containerMiddleCenterTop"></div>
+					<div id="containerForms" class="containerForms">
+						<div id="topForms" class="column forms mainForms topForms">
+							
+							<!-- 中间三块	 -->				
+							 <div id="module311" _indexclass="formIndex1" class="form form311 formIndex1 formStyle35 layoutModule  formStyle35_2  modulePattern modulePattern60" title="" style="" _side="0" _intab="0" _inmulmcol="0" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
+								 <table class="formTop formTop311" cellpadding="0" cellspacing="0">
+								   <tbody>
+										<tr>
+											<td class="left"></td>
+											<td class="center"></td>
+											<td class="right"></td>
+										</tr>
+									</tbody>
+								</table>
+													
+													
+													
+								  <table class="formMiddle formMiddle311" style="" cellpadding="0" cellspacing="0">
+									 <tbody>
+									  <tr>
+										<td class="formMiddleLeft formMiddleLeft311"></td>
+										<td class="formMiddleCenter formMiddleCenter311" valign="top">
+										  <div class="formMiddleContent formMiddleContent311  multiColFormMiddleContent mulModuleColStyle mulModuleColStyle2">
+											<div class="mulMColContent" id="mulMColContent311" style="background-color: #dde2ed">
+											   <table width="100%" border="0" cellspacing="0" class="mulMColContentTable" cellpadding="0">
+												 <tbody>
+													 <tr>
+													  <td class=" mulColLayout mulColPadding" style="">
+														 <div style="width:310px;margin-right: 8px ;border: 1px solid #adadad;height: 435px;background-color: #ffffff">
+														  <div id="mulMCol311_cid_1" class="mulMColList">
+														   <div id="module317" class="form form317 formStyle1 formInMulMCol " title="" style="" _side="0" _intab="0" _inmulmcol="311" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
+															 <table class="formTop formTop317" cellpadding="0" cellspacing="0">
+																	<tbody>
+																		<tr>
+																			<td class="left"></td>
+																			<td class="center"></td>
+																			<td class="right"></td>
+																		</tr>
+																	</tbody>
+															</table>
+															 <table class="formBanner formBanner317" cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																	<td class="left left317"></td>
+																	<td class="center center317" valign="top">
+																		<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle317">
+																		<tbody>
+																			<tr>
+																				<td class="titleLeft titleLeft317" valign="top"></td>
+																				<td class="titleCenter titleCenter317" valign="top">
+																					<div class="titleText titleText317">
+																					<span>关于我们</span>
+																					</div>
+																				</td>
+																				<td class="titleRight titleRight317" valign="top"></td>
+																			</tr>
+																		</tbody>
+																		</table>
+																	</td>
+																	<td class="right right317"></td>
+																	</tr>
+																</tbody>
+															</table>
+															 <table class="formMiddle formMiddle317" style="" cellpadding="0" cellspacing="0"> 
+																<tbody>
+																	<tr>
+																		<td class="formMiddleLeft formMiddleLeft317"></td>
+																		<td class="formMiddleCenter formMiddleCenter317" valign="top">
+																			<div class="formMiddleContent formMiddleContent317 " >
+																				<div class="richModuleSlaveImgContainer textImg3">
+																					<img class="richModuleSlaveImg" alt="js" title="js" src="/ShopSys/image/ABUIABAEGAAgi7KklQUo-rbN7AQw8AE4dg.png" style="width:282px;height:139px;">
+																					<div class="richEditPic" _onmousein="0" onclick="Site.changeRichPic(317);">
+																						<a class="edit" id="uploadButton" title="编辑图片"></a>
+																					</div>
+																				</div>
+																				<div class="richContent richContent3">
+																					<p style="line-height:1.75em;">
+																						<span style="color:#333333;"> &nbsp;</span>
+																					</p>
+																					<p style="line-height:1.75em;">
+																						<span style="color:#333333;"> &nbsp; &nbsp; 广东XX科技有限公司成立于1998年是国内发</span>
+																					</p>
+																					<p style="line-height:1.75em;">
+																						<span style="color:#333333;"> &nbsp; &nbsp; 展早、规模大、服务网络广的企业信息化服</span>
+																					</p>
+																					<p style="line-height:1.75em;">
+																						<span style="color:#333333;"> &nbsp; &nbsp; 务商。自成立以来，XX一直致力于为企业提</span>
+																					</p>
+																					<p style="line-height:1.75em;">
+																					 <span style="line-height:1.8;color:#333333;"> &nbsp; &nbsp; 供全方位的信息化解决方案……</span>
+																					</p>
+																					<p><br></p>
+																				</div>
+																			</div>
+																		</td>
+																		<td class="formMiddleRight formMiddleRight317"></td>
+																	</tr>
+																</tbody>
+															</table>
+															 <table class="formBottom formBottom317" cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td class="left left317"></td>
+																		<td class="center center317"></td>
+																		<td class="right right317"></td>
+																	</tr>
+																</tbody>
+															</table>
+														     <div class="clearfloat clearfloat317"></div>
+													       </div>
+													    </div>
+													   </div>
+													     <div class="mulModuleColStyleLine" style="border-color: #adadad"></div>
+													  </td>
+													  <td class=" mulColLayout mulColPadding" style="" >
+														 <div style="width:310px;margin-right: 8px ;margin-left:4px;border: 1px solid #adadad;height: 435px;background-color: #ffffff">
+														  <div id="mulMCol311_cid_2" class="mulMColList">
+															<div id="module320" class="form form320 formStyle1 formInMulMCol  modulePattern modulePattern60" title="" style="" _side="0" _intab="0" _inmulmcol="311" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
+															  <table class="formTop formTop320" cellpadding="0" cellspacing="0">
+																  <tbody>
+																	  <tr>
+																		  <td class="left"></td>
+																		  <td class="center"></td>
+																		  <td class="right"></td>
+																	  </tr>
+																  </tbody>
+															  </table>
+															  <table class="formBanner formBanner320" cellpadding="0" cellspacing="0">
+															   <tbody>
+															    <tr>
+																  <td class="left left320"></td>
+																  <td class="center center320" valign="top">
+																	<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle320">
+																		<tbody>
+																			<tr>
+																				<td class="titleLeft titleLeft320" valign="top"></td>
+																				<td class="titleCenter titleCenter320" valign="top">
+																					<div class="titleText titleText320">
+																						<span>我们的宗旨</span>
+																					</div>
+																				</td>
+																				<td class="titleRight titleRight320" valign="top"></td>
+																			</tr>
+																		</tbody>
+																		</table>
+																  </td>
+															      <td class="right right320"></td>
+															    </tr>
+															   </tbody>
+															 </table>
+														      <table class="formMiddle formMiddle320" style="" cellpadding="0" cellspacing="0">
+														        <tbody>
+														          <tr>
+																	<td class="formMiddleLeft formMiddleLeft320"></td>
+																	<td class="formMiddleCenter formMiddleCenter320" valign="top">
+																	 <div class="formMiddleContent formMiddleContent320  ">
+																		 <div class="richContent richContent0">
+																			 <p>
+																				 <span style="font-size:14px;color:#333333;"> &nbsp;宗旨与使命</span>
+																			 </p>
+																			 <p>
+																			 	<span style="color:#333333;"> &nbsp; 弘扬中国制造，服务中小企业，促进全球贸易</span>
+																			 </p>
+																			 <p>
+																			 	<span style="font-size:14px;"><br></span>
+																			 </p>
+																			 <p>
+																			 	<span style="font-size:14px;color:#333333;"> &nbsp;愿景与目标</span>
+																			 </p>
+																			 <p>
+																			 	<span style="color:#333333;"> &nbsp; 愿景：成为全球领先的电子商务服务提供商</span>
+																			 </p>
+																			 <p>
+																			 	<span style="color:#333333;"> &nbsp; 目标：未来3－5年的行业第一</span>
+																			 </p>
+																			 <p>
+																			 	<span style="font-size:14px;"><br></span>
+																			 </p>
+																			 <p>
+																			 	<span style="font-size:14px;color:#333333;"> &nbsp;价值观</span>
+																			 </p>
+																			 <p>
+																			 	<span style="color:#333333;"> &nbsp; 核心价值观：努力创造客户认可的产品和服务</span>
+																			 </p>
+																			 <p>
+																			 	<span style="color:#333333;"> &nbsp; 四个基本理念：客户、务实、创新、团队</span>
+																			 </p>
+																			 <p><br></p>
+																 		</div>
+																	 </div>
+																    </td>
+															   	    <td class="formMiddleRight formMiddleRight320"></td>
+															      </tr>
+															   </tbody>
+														     </table>
+															  <table class="formBottom formBottom320" cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td class="left left320"></td>
+																		<td class="center center320"></td>
+																		<td class="right right320"></td>
+																	</tr>
+																</tbody>
+															 </table>
+															  <div class="clearfloat clearfloat320"></div>
+															</div>
+														  </div>
+														 </div>
+														 <div class="mulModuleColStyleLine" style=""></div>
+													 </td>
+													  <td class="mulColLayout" style="">
+														<div style="width:310px;margin-left:8px;border: 1px solid #adadad;height: 435px;background-color: #ffffff">
+														  <div id="mulMCol311_cid_3" class="mulMColList">
+															<div id="module313" class="form form313 formStyle7 formInMulMCol " title="" style="" _side="0" _intab="0" _inmulmcol="311" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
+															  <table class="formTop formTop313" cellpadding="0" cellspacing="0">
+																<tbody>
+																  <tr>
+																	<td class="left"></td>
+																	<td class="center"></td>
+																	<td class="right"></td>
+																  </tr>
+																</tbody>
+															  </table>
+															  <table class="formBanner formBanner313" cellpadding="0" cellspacing="0">
+																<tbody>
+																  <tr>
+																	<td class="left left313"></td>
+																	<td class="center center313" valign="top">
+																		<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle313">
+																			<tbody>
+																			   <tr>
+																				  <td class="titleLeft titleLeft313" valign="top"></td>
+																				  <td class="titleCenter titleCenter313" valign="top">
+																					 <div class="titleText titleText313">
+																						<span>新品推荐</span>
+																					 </div>
+																				  </td>
+																				  <td class="titleRight titleRight313" valign="top"></td>
+																			   </tr>
+																		    </tbody>
+																		</table>
+																		<div class="formBannerOther formBannerOther313">
+																			<div class="formBannerMore formBannerMore313" style="">
+																				<span style="_display:inline-block;_position:relative;">
+																					<a hidefocus="true" href="http://www.k8woke.icoc.cc/nr.jsp">
+																						<span>更多&gt;&gt;</span>
+																					</a>
+																				</span>
+																			</div>
+																			&nbsp;
+																		</div>
+																	</td>
+																	<td class="right right313"></td>
+																  </tr>
+																</tbody>
+															 </table>
+															  <table class="formMiddle formMiddle313" style="" cellpadding="0" cellspacing="0">
+															     <tbody>
+																	<tr>
+																		<td class="formMiddleLeft formMiddleLeft313"></td>
+																		<td class="formMiddleCenter formMiddleCenter313" valign="top">
+																			<div class="formMiddleContent formMiddleContent313  ">
+																				<div>
+																					<div class="newsList pic-mixNewsList" id="newsList313">
+																						<div topclassname="top1" topswitch="on" newsid="10" newsname="Foodex China 2012 成功..." class="line noHover wWLine " style="padding:0;height:auto;overflow:hidden;">
+																							<table id="lineBody10" class="lineBody" cellpadding="0" cellspacing="0">
+																								<tbody>
+																									<tr id="module313tr10">
+																										<td class="newsTitle mixNewsTitle" valign="top" style="width: 100%;">
+																										  <div class="articlePhotoBox" newid="10">
+																											<a href="http://www.k8woke.icoc.cc/nd.jsp?id=10&_np=2_313" target="_blank" style="display:block;width:85px;height:66px;overflow:hidden;">
+																												<img alt="文章附图" title="" src="/ShopSys/image/ABUIABAEGAAgyLiflQUol8WapwMwSDhJ.png" style="width:75px;height:66px;float:left;">
+																											</a>
+																										 </div>
+																										  <div class="mixNewsStyleTitleContainer">
+																											<div class="" style="margin:0;position:relative;">
+																												<a class="no-mixNewsStyleTitleTip" href="http://www.k8woke.icoc.cc/nd.jsp?id=10&_np=2_313" target="_blank">
+																												</a>
+																											</div>
+																											<a hidefocus="true" href="http://www.k8woke.icoc.cc/nd.jsp?id=10&_np=2_313" target="_blank" title="" class="mixNewsStyleTitle  pic-mixNewsStyleTitle " style="display:inline;" mix="0">Foodex China 2012 成功...
+																											</a>
+																										</div>
+																										  <p class="mixNewsStyleSummary  pic-mixNewsStyleSummary ">11月22日，由食品商务网主办的浙江国际食品（Foodex China 2012）与饮料展暨浙江国际葡萄酒及烈酒展...</p>
+																										</td>
+																									</tr>
+																								</tbody>
+																							</table>
+																						</div>
+																						<div class="separatorLine g_separator  pic-separatorLine "></div>
+																						<div topclassname="top1" topswitch="on" newsid="9" newsname="食品商务网七年蝉联中国行业电子商务网站TOP100" class="line noHover wWLine " style="padding:0;height:auto;overflow:hidden;">
+																							<table id="lineBody9" class="lineBody" cellpadding="0" cellspacing="0">
+																								<tbody>
+																									<tr id="module313tr9">
+																										<td class="newsTitle mixNewsTitle" valign="top" style="width: 100%;">
+																											<div class="articlePhotoBox" newid="9">
+																												<a href="http://www.k8woke.icoc.cc/nd.jsp?id=9&_np=2_313" target="_blank" style="display:block;width:85px;height:66px;overflow:hidden;">
+																													<img alt="文章附图" title="" src="/ShopSys/image/000009.jpg" style="width:75px;height:66px;float:left;">
+																												</a>
+																											</div>
+																										    <div class="mixNewsStyleTitleContainer">
+																											   <div class="" style="margin:0;position:relative;">
+																													<a class="no-mixNewsStyleTitleTip" href="http://www.k8woke.icoc.cc/nd.jsp?id=9&_np=2_313" target="_blank">
+																													</a>
+																											   </div>
+																											   <a hidefocus="true" href="http://www.k8woke.icoc.cc/nd.jsp?id=9&_np=2_313" target="_blank" title="" class="mixNewsStyleTitle  pic-mixNewsStyleTitle " style="display:inline;" mix="0">食品商务网七年蝉联中国行业电子商务网站TOP100
+																											   </a>
+																										    </div>
+																										    <p class="mixNewsStyleSummary  pic-mixNewsStyleSummary ">2012年4月20日、21日，由亿邦动力网主办的2012第七届中小企业电子商务大会暨2011年度中国行业电子商务网...
+																										    </p>
+																										</td>
+																									</tr>
+																								</tbody>
+																							</table>
+																						</div>
+																						<div class="separatorLine g_separator  pic-separatorLine "></div>
+																						<div topclassname="top1" topswitch="on" newsid="8" newsname="追逐梦想：2012法国SIAL展全记录" class="line noHover wWLine " style="padding:0;height:auto;overflow:hidden;">
+																							<table id="lineBody8" class="lineBody" cellpadding="0" cellspacing="0">
+																								<tbody>
+																									<tr id="module313tr8">
+																										<td class="newsTitle mixNewsTitle" valign="top" style="width: 100%;">
+																										  <div class="articlePhotoBox" newid="8">
+																											<a href="http://www.k8woke.icoc.cc/nd.jsp?id=8&_np=2_313" target="_blank" style="display:block;width:85px;height:66px;overflow:hidden;">
+																												<img alt="文章附图" title="" src="/ShopSys/image/ABUIABAEGAAg06_klQUotPXOAjBIOEk.png" style="width:75px;height:66px;float:left;">
+																											</a>
+																										 </div>
+																										  <div class="mixNewsStyleTitleContainer">
+																											<div class="" style="margin:0;position:relative;">
+																												<a class="no-mixNewsStyleTitleTip" href="http://www.k8woke.icoc.cc/nd.jsp?id=8&_np=2_313" target="_blank">
+																												</a>
+																											</div>
+																											<a hidefocus="true" href="http://www.k8woke.icoc.cc/nd.jsp?id=8&_np=2_313" target="_blank" title="" class="mixNewsStyleTitle  pic-mixNewsStyleTitle " style="display:inline;" mix="0">追逐梦想：2012法国SIAL展全记录</a>
+																										 </div>
+																										  <p class="mixNewsStyleSummary  pic-mixNewsStyleSummary ">21FOOD领队手记 &nbsp;“21Food，怎么每次展会都可以看到你们啊！”没错，这一次，我们又来了。经历过2006年...
+																										  </p>
+																										</td>
+																									</tr>
+																								</tbody>
+																							</table>
+																						</div>
+																						<div class="separatorLine g_separator " style="border-color:transparent"></div>
+																						<div class="clearfloat"></div>
+																				    </div>
+																				</div>
+																			</div>
+																		</td>
+																		<td class="formMiddleRight formMiddleRight313"></td>
+																	</tr>
+																 </tbody>
+															  </table>
+															  <table class="formBottom formBottom313" cellpadding="0" cellspacing="0">
+																 <tbody>
+																	<tr>
+																	   <td class="left left313"></td>
+																	   <td class="center center313"></td>
+																	   <td class="right right313"></td>
+																	</tr>
+																</tbody>
+															 </table>
+															  <div class="clearfloat clearfloat313"></div>
+															</div>
+														  </div>
+														</div>
+													  </td>
+													 </tr>
+												 </tbody>
+											   </table>
+											</div>
+										  </div>
+										</td>
+										<td class="formMiddleRight formMiddleRight311"></td>
+						              </tr>
+						             </tbody>
+						          </table>
+						
+						
+						         <table class="formBottom formBottom311" cellpadding="0" cellspacing="0">
+							        <tbody>
+								     <tr>
+										<td class="left left311"></td>
+										<td class="center center311"></td>
+										<td class="right right311"></td>
+						             </tr>
+							        </tbody>
+						         </table>
+						         <div class="clearfloat clearfloat311"></div>
+						     </div>
+						
+						
+						     <!-- 滚动框 -->
+						     <div id="module386" _indexclass="formIndex2" class="form form386 formIndex2 formStyle3" title="" style="border: 1px solid #adadad" _side="0" _intab="0" _inmulmcol="0" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
+								<table class="formTop formTop386" cellpadding="0" cellspacing="0">	
+									<tbody>
+										<tr>
+											<td class="left"></td>
+											<td class="center"></td>
+											<td class="right"></td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="formBanner formBanner386" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td class="left left386"></td>
+											<td class="center center386" valign="top">
+												<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle386">
+													<tbody>
+														<tr>
+															<td class="titleLeft titleLeft386" valign="top"></td>
+															<td class="titleCenter titleCenter386" valign="top">
+																<div class="titleText titleText386">
+																	<span>产品展示</span>
+																</div>
+															</td>
+															<td class="titleRight titleRight386" valign="top"></td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										    <td class="right right386"></td>
+										</tr>
+									</tbody>
+								</table>
+							    <table class="formMiddle formMiddle386" style="" cellpadding="0" cellspacing="0">
+								  <tbody>
+									  <tr>
+										<td class="formMiddleLeft formMiddleLeft386"></td>
+										<td class="formMiddleCenter formMiddleCenter386" valign="top">
+											<div class="formMiddleContent formMiddleContent386  ">
+											  <div class="productMarqueeForms" newmarqueetoward="0">
+												 <div class="demo" style="height: 186px;">
+													<div class="demo0" id="demo0386" style="width: 1900px;">
+														<div topclassname="top1" topswitch="on" productid="1" productname="产品1" class="productMarqueeForm " faiwidth="160" faiheight="160">
+															<div id="m386marqueeProduct1" class="imgDiv">
+																<table cellpadding="0" cellspacing="0">
+																	<tbody>
+																		<tr>
+																			<td valign="middle" align="center">
+																				<a hidefocus="true" href="/ShopSys/front/productDetails.html" target="_blank">
+																					<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品1" title="">
+																				</a>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+															<div class="propDiv productName propWordWrapDiv" style="text-align: center; width: 160px; height: 16px;">
+																<a hidefocus="true" title="产品1" href="/ShopSys/front/productDetails.html" target="_blank">产品1</a>
+															</div>
+														</div>
+													    <div topclassname="top1" topswitch="on" productid="2" productname="产品2" class="productMarqueeForm " faiwidth="160" faiheight="160">
+														  <div id="m386marqueeProduct2" class="imgDiv">
+															<table cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td valign="middle" align="center">
+																			<a hidefocus="true" href="/ShopSys/front/productDetails.html" target="_blank">
+																				<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品2" title="">
+																			</a>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														  </div>
+														  <div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">	
+															<a hidefocus="true" title="产品2" href="/ShopSys/front/productDetails.html" target="_blank">产品2</a>
+														  </div>
+													    </div>
+													    <div topclassname="top1" topswitch="on" productid="3" productname="产品3" class="productMarqueeForm " faiwidth="160" faiheight="160">
+														   <div id="m386marqueeProduct3" class="imgDiv">
+															 <table cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td valign="middle" align="center">
+																			<a hidefocus="true" href="/ShopSys/front/productDetails.html" target="_blank">
+																				<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品3" title="">
+																			</a>
+																		</td>
+																	</tr>
+																</tbody>
+															 </table>
+														   </div>
+														   <div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;"><a hidefocus="true" title="产品3" href="http://www.k8woke.icoc.cc/pd.jsp?id=3&_pp=2_386" target="_blank">产品3</a>
+														   </div>
+													    </div>
+													    <div topclassname="top1" topswitch="on" productid="4" productname="产品4" class="productMarqueeForm " faiwidth="160" faiheight="160">
+														  <div id="m386marqueeProduct4" class="imgDiv">
+															<table cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td valign="middle" align="center">
+																			<a hidefocus="true" href="/ShopSys/front/productDetails.html" target="_blank">
+																				<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品4" title="">
+																			</a>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														  </div>
+														  <div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">	
+															<a hidefocus="true" title="产品4" href="/ShopSys/front/productDetails.html" target="_blank">产品4</a>
+														  </div>
+													    </div>
+													    <div topclassname="top1" topswitch="on" productid="5" productname="产品5" class="productMarqueeForm " faiwidth="160" faiheight="160">
+														  <div id="m386marqueeProduct5" class="imgDiv">
+															<table cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td valign="middle" align="center">
+																			<a hidefocus="true" href="/ShopSys/front/productDetails.html" target="_blank">
+																				<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品5" title="">
+																			</a>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														  </div>
+													      <div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
+														    <a hidefocus="true" title="产品5" href="/ShopSys/front/productDetails.html" target="_blank">产品5</a>
+													      </div>
+													    </div>
+													    <div topclassname="top1" topswitch="on" productid="1" productname="产品1" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
+														  <div id="m386marqueeProduct1_clone" class="imgDiv">
+															<table cellpadding="0" cellspacing="0">
+															  <tbody>
+																<tr>
+																	<td valign="middle" align="center">
+																		<a hidefocus="true" href="/ShopSys/front/productDetails.html" target="_blank">
+																			<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品1" title="">
+																		</a>
+																	</td>
+																</tr>
+															 </tbody>
+															</table>
+														  </div>
+														  <div class="propDiv productName propWordWrapDiv" style="text-align: center; width: 160px; height: 16px;">
+															<a hidefocus="true" title="产品1" href="/ShopSys/front/productDetails.html" target="_blank">产品1</a>
+														  </div>
+													    </div>
+													    <div topclassname="top1" topswitch="on" productid="2" productname="产品2" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
+														  <div id="m386marqueeProduct2_clone" class="imgDiv">
+															<table cellpadding="0" cellspacing="0">
+																<tbody>	
+																	<tr>
+																		<td valign="middle" align="center">
+																			<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=2&_pp=2_386" target="_blank">
+																				<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品2" title="">
+																			</a>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														  </div>
+														  <div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
+															<a hidefocus="true" title="产品2" href="http://www.k8woke.icoc.cc/pd.jsp?id=2&_pp=2_386" target="_blank">产品2</a>
+														  </div>
+													   </div>
+													    <div topclassname="top1" topswitch="on" productid="3" productname="产品3" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
+														  <div id="m386marqueeProduct3_clone" class="imgDiv">
+														    <table cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td valign="middle" align="center">
+																			<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=3&_pp=2_386" target="_blank">
+																				<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品3" title="">
+																			</a>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														  </div>
+														  <div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
+															  <a hidefocus="true" title="产品3" href="http://www.k8woke.icoc.cc/pd.jsp?id=3&_pp=2_386" target="_blank">产品3</a>
+														  </div>
+													    </div>
+												        <div topclassname="top1" topswitch="on" productid="4" productname="产品4" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
+														  <div id="m386marqueeProduct4_clone" class="imgDiv">
+															 <table cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td valign="middle" align="center">
+																			<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=4&_pp=2_386" target="_blank">
+																				<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品4" title="">
+																			</a>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														  </div>
+														  <div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
+															<a hidefocus="true" title="产品4" href="http://www.k8woke.icoc.cc/pd.jsp?id=4&_pp=2_386" target="_blank">产品4</a>
+														  </div>
+													    </div>
+													    <div topclassname="top1" topswitch="on" productid="5" productname="产品5" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
+														   <div id="m386marqueeProduct5_clone" class="imgDiv">
+															 <table cellpadding="0" cellspacing="0">
+																<tbody>
+																	<tr>
+																		<td valign="middle" align="center">
+																			<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=5&_pp=2_386" target="_blank">
+																				<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品5" title="">
+																			</a>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														   </div>
+														   <div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
+															  <a hidefocus="true" title="产品5" href="http://www.k8woke.icoc.cc/pd.jsp?id=5&_pp=2_386" target="_blank">产品5</a>
+														   </div>
+													    </div>
+													</div>
+											     </div>
+											  </div>
+											</div>
+										</td>
+										<td class="formMiddleRight formMiddleRight386"></td>
+									  </tr>
+								  </tbody>
+							    </table>
+							    <table class="formBottom formBottom386" cellpadding="0" cellspacing="0">
+								  <tbody>
+									<tr>
+										<td class="left left386"></td>
+										<td class="center center386"></td>
+										<td class="right right386"></td>
+									</tr>
+								</tbody>
+							    </table>
+							    <div class="clearfloat clearfloat386"></div>
+						    </div>
+						
+						     <!-- 联系信息 -->
+						    <div id="module395" _indexclass="formIndex3" class="form form395 formIndex3 formStyle1" title="" style="border: 1px solid #adadad" _side="0" _intab="0" _inmulmcol="0" _infullmeasure="0" _autoheight="1" _global="true" _independent="false">
+							   <table class="formTop formTop395" cellpadding="0" cellspacing="0">
+								 <tbody>
 									<tr>
 										<td class="left"></td>
 										<td class="center"></td>
 										<td class="right"></td>
 									</tr>
 								</tbody>
-							</table>
-							<table class="formMiddle formMiddle311" style="" cellpadding="0" cellspacing="0">
-							 <tbody>
-							  <tr>
-								<td class="formMiddleLeft formMiddleLeft311"></td>
-								<td class="formMiddleCenter formMiddleCenter311" valign="top">
-									<div class="formMiddleContent formMiddleContent311  multiColFormMiddleContent mulModuleColStyle mulModuleColStyle2">
-										<div class="mulMColContent" id="mulMColContent311">
-										 <table width="100%" border="0" cellspacing="0" class="mulMColContentTable" cellpadding="0">
-										 <tbody>
-											 <tr>
-												 <td class=" mulColLayout mulColPadding" style="width:310px;">
-												 <div id="mulMCol311_cid_1" class="mulMColList">
-												   <div id="module317" class="form form317 formStyle1 formInMulMCol " title="" style="" _side="0" _intab="0" _inmulmcol="311" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
-													 <table class="formTop formTop317" cellpadding="0" cellspacing="0">
-															<tbody>
-																<tr>
-																	<td class="left"></td>
-																	<td class="center"></td>
-																	<td class="right"></td>
-																</tr>
-															</tbody>
-													</table>
-													<table class="formBanner formBanner317" cellpadding="0" cellspacing="0">
-														<tbody>
-															<tr>
-															<td class="left left317"></td>
-															<td class="center center317" valign="top">
-																<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle317"><tbody>
-																	<tr>
-																		<td class="titleLeft titleLeft317" valign="top"></td>
-																		<td class="titleCenter titleCenter317" valign="top">
-																			<div class="titleText titleText317">
-																			<span>关于我们</span>
-																			</div>
-																		</td>
-																		<td class="titleRight titleRight317" valign="top"></td>
-																	</tr>
-																</tbody>
-																</table>
-															</td>
-															<td class="right right317"></td>
-															</tr>
-														</tbody>
-													</table>
-													<table class="formMiddle formMiddle317" style="" cellpadding="0" cellspacing="0"> 
-														<tbody>
-															<tr>
-																<td class="formMiddleLeft formMiddleLeft317"></td>
-																<td class="formMiddleCenter formMiddleCenter317" valign="top">
-																	<div class="formMiddleContent formMiddleContent317  ">
-																		<div class="richModuleSlaveImgContainer textImg3">
-																			<img class="richModuleSlaveImg" alt="js" title="js" src="/ShopSys/image/ABUIABAEGAAgi7KklQUo-rbN7AQw8AE4dg.png" style="width:282px;height:139px;">
-																			<div class="richEditPic" _onmousein="0" onclick="Site.changeRichPic(317);">
-																				<a class="edit" id="uploadButton" title="编辑图片"></a>
-																			</div>
-																		</div>
-																		<div class="richContent richContent3">
-																			<p style="line-height:1.75em;">
-																				<span style="color:#333333;"> &nbsp;</span>
-																			</p>
-																			<p style="line-height:1.75em;">
-																				<span style="color:#333333;"> &nbsp; &nbsp; 广东XX科技有限公司成立于1998年是国内发</span>
-																			</p>
-																			<p style="line-height:1.75em;">
-																				<span style="color:#333333;"> &nbsp; &nbsp; 展早、规模大、服务网络广的企业信息化服</span>
-																			</p>
-																			<p style="line-height:1.75em;">
-																				<span style="color:#333333;"> &nbsp; &nbsp; 务商。自成立以来，XX一直致力于为企业提</span>
-																			</p>
-																			<p style="line-height:1.75em;">
-																			 <span style="line-height:1.8;color:#333333;"> &nbsp; &nbsp; 供全方位的信息化解决方案……</span>
-																			</p>
-																			<p><br></p>
-																		</div>
-																	</div>
-																</td>
-																<td class="formMiddleRight formMiddleRight317"></td>
-															</tr>
-														</tbody>
-													</table>
-													<table class="formBottom formBottom317" cellpadding="0" cellspacing="0">
-														<tbody>
-															<tr>
-																<td class="left left317"></td>
-																<td class="center center317"></td>
-																<td class="right right317"></td>
-															</tr>
-														</tbody>
-													</table>
-													<div class="clearfloat clearfloat317"></div>
-											</div>
-											</div>
-											<div class="mulModuleColStyleLine" style=""></div>
-											</td>
-											<td class=" mulColLayout mulColPadding" style="width:285px;">
-											<div id="mulMCol311_cid_2" class="mulMColList">
-											<div id="module320" class="form form320 formStyle1 formInMulMCol  modulePattern modulePattern60" title="" style="" _side="0" _intab="0" _inmulmcol="311" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
-											  <table class="formTop formTop320" cellpadding="0" cellspacing="0">
-												  <tbody>
-													  <tr>
-														  <td class="left"></td>
-														  <td class="center"></td>
-														  <td class="right"></td>
-													  </tr>
-												  </tbody>
-											  </table>
-											 <table class="formBanner formBanner320" cellpadding="0" cellspacing="0">
-											  <tbody>
-											   <tr>
-												<td class="left left320"></td>
-												<td class="center center320" valign="top">
-													<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle320">
-														<tbody>
-															<tr>
-																<td class="titleLeft titleLeft320" valign="top"></td>
-																<td class="titleCenter titleCenter320" valign="top">
-																	<div class="titleText titleText320">
-																		<span>我们的宗旨</span>
-																	</div>
-																</td>
-																<td class="titleRight titleRight320" valign="top"></td>
-															</tr>
-														</tbody>
-														</table>
+							  </table>
+							   <table class="formBanner formBanner395" cellpadding="0" cellspacing="0">
+								 <tbody>
+									 <tr>
+										<td class="left left395"></td>
+										<td class="center center395" valign="top">
+											<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle395">
+												<tbody>
+													<tr>
+														<td class="titleLeft titleLeft395" valign="top">&nbsp;</td>
+														<td class="titleCenter titleCenter395" valign="top">
+															<div class="titleText titleText395"><span></span></div>
 														</td>
-											   <td class="right right320"></td>
-											  </tr>
-											 </tbody>
-											</table>
-														
-										<table class="formMiddle formMiddle320" style="" cellpadding="0" cellspacing="0">
-										   <tbody>
-										      <tr>
-												<td class="formMiddleLeft formMiddleLeft320"></td>
-												<td class="formMiddleCenter formMiddleCenter320" valign="top">
-												 <div class="formMiddleContent formMiddleContent320  ">
-													 <div class="richContent richContent0">
-														 <p>
-															 <span style="font-size:14px;color:#333333;"> &nbsp;宗旨与使命</span>
-														 </p>
-														 <p>
-														 	<span style="color:#333333;"> &nbsp; 弘扬中国制造，服务中小企业，促进全球贸易</span>
-														 </p>
-														 <p>
-														 	<span style="font-size:14px;"><br></span>
-														 </p>
-														 <p>
-														 	<span style="font-size:14px;color:#333333;"> &nbsp;愿景与目标</span>
-														 </p>
-														 <p>
-														 	<span style="color:#333333;"> &nbsp; 愿景：成为全球领先的电子商务服务提供商</span>
-														 </p>
-														 <p>
-														 	<span style="color:#333333;"> &nbsp; 目标：未来3－5年的行业第一</span>
-														 </p>
-														 <p>
-														 	<span style="font-size:14px;"><br></span>
-														 </p>
-														 <p>
-														 	<span style="font-size:14px;color:#333333;"> &nbsp;价值观</span>
-														 </p>
-														 <p>
-														 	<span style="color:#333333;"> &nbsp; 核心价值观：努力创造客户认可的产品和服务</span>
-														 </p>
-														 <p>
-														 	<span style="color:#333333;"> &nbsp; 四个基本理念：客户、务实、创新、团队</span>
-														 </p>
-														 <p><br></p>
-												 </div>
-												 </div>
-												</td>
-											    <td class="formMiddleRight formMiddleRight320"></td>
-											</tr>
-											</tbody>
-										</table>
-														<table class="formBottom formBottom320" cellpadding="0" cellspacing="0">
-															<tbody>
-																<tr>
-																	<td class="left left320"></td>
-																	<td class="center center320"></td>
-																	<td class="right right320"></td>
-																</tr>
-															</tbody>
-														</table>
-														<div class="clearfloat clearfloat320"></div>
-											</div>
-											</div>
-											<div class="mulModuleColStyleLine" style=""></div>
-											</td>
-														<td class="mulColLayout" style="">
-															<div id="mulMCol311_cid_3" class="mulMColList">
-																<div id="module313" class="form form313 formStyle7 formInMulMCol " title="" style="" _side="0" _intab="0" _inmulmcol="311" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
-																<table class="formTop formTop313" cellpadding="0" cellspacing="0">
-																<tbody>
-																	<tr>
-																		<td class="left"></td>
-																		<td class="center"></td>
-																		<td class="right"></td>
-																	</tr>
-																	</tbody>
-																</table>
-																<table class="formBanner formBanner313" cellpadding="0" cellspacing="0">
-																	<tbody>
-																		<tr>
-																		<td class="left left313"></td>
-																		<td class="center center313" valign="top">
-																			<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle313">
-																				<tbody>
-																					<tr>
-																					<td class="titleLeft titleLeft313" valign="top"></td>
-																					<td class="titleCenter titleCenter313" valign="top">
-																						<div class="titleText titleText313">
-																							<span>新品推荐</span>
-																						</div>
-																					</td>
-																					<td class="titleRight titleRight313" valign="top"></td>
-																					</tr>
-																				</tbody>
-																			</table>
-																			<div class="formBannerOther formBannerOther313">
-																				<div class="formBannerMore formBannerMore313" style="">
-																					<span style="_display:inline-block;_position:relative;">
-																						<a hidefocus="true" href="http://www.k8woke.icoc.cc/nr.jsp">
-																							<span>更多&gt;&gt;</span>
-																						</a>
-																					</span>
-																				</div>
-																			&nbsp;
-																			</div>
-																		</td>
-																		<td class="right right313"></td>
-																		</tr>
-																	</tbody>
-																</table>
-																<table class="formMiddle formMiddle313" style="" cellpadding="0" cellspacing="0">
-																	<tbody>
-																		<tr>
-																		<td class="formMiddleLeft formMiddleLeft313"></td>
-																		<td class="formMiddleCenter formMiddleCenter313" valign="top">
-																			<div class="formMiddleContent formMiddleContent313  ">
-																				<div>
-																				<div class="newsList pic-mixNewsList" id="newsList313">
-																					<div topclassname="top1" topswitch="on" newsid="10" newsname="Foodex China 2012 成功..." class="line noHover wWLine " style="padding:0;height:auto;overflow:hidden;">
-																					<table id="lineBody10" class="lineBody" cellpadding="0" cellspacing="0">
-																						<tbody>
-																							<tr id="module313tr10">
-																								<td class="newsTitle mixNewsTitle" valign="top" style="width: 100%;">
-																								<div class="articlePhotoBox" newid="10">
-																									<a href="http://www.k8woke.icoc.cc/nd.jsp?id=10&_np=2_313" target="_blank" style="display:block;width:85px;height:66px;overflow:hidden;">
-																										<img alt="文章附图" title="" src="/ShopSys/image/ABUIABAEGAAgyLiflQUol8WapwMwSDhJ.png" style="width:75px;height:66px;float:left;">
-																									</a>
-																								</div>
-																								<div class="mixNewsStyleTitleContainer">
-																									<div class="" style="margin:0;position:relative;">
-																										<a class="no-mixNewsStyleTitleTip" href="http://www.k8woke.icoc.cc/nd.jsp?id=10&_np=2_313" target="_blank">
-																										</a>
-																									</div>
-																									<a hidefocus="true" href="http://www.k8woke.icoc.cc/nd.jsp?id=10&_np=2_313" target="_blank" title="" class="mixNewsStyleTitle  pic-mixNewsStyleTitle " style="display:inline;" mix="0">Foodex China 2012 成功...
-																									</a>
-																								</div>
-																								<p class="mixNewsStyleSummary  pic-mixNewsStyleSummary ">11月22日，由食品商务网主办的浙江国际食品（Foodex China 2012）与饮料展暨浙江国际葡萄酒及烈酒展...</p>
-																								</td>
-																							</tr>
-																						</tbody>
-																					</table>
-																					</div>
-																				<div class="separatorLine g_separator  pic-separatorLine "></div>
-																				<div topclassname="top1" topswitch="on" newsid="9" newsname="食品商务网七年蝉联中国行业电子商务网站TOP100" class="line noHover wWLine " style="padding:0;height:auto;overflow:hidden;">
-																					<table id="lineBody9" class="lineBody" cellpadding="0" cellspacing="0">
-																						<tbody>
-																							<tr id="module313tr9">
-																								<td class="newsTitle mixNewsTitle" valign="top" style="width: 100%;">
-																									<div class="articlePhotoBox" newid="9">
-																										<a href="http://www.k8woke.icoc.cc/nd.jsp?id=9&_np=2_313" target="_blank" style="display:block;width:85px;height:66px;overflow:hidden;">
-																											<img alt="文章附图" title="" src="/ShopSys/image/000009.jpg" style="width:75px;height:66px;float:left;">
-																										</a>
-																									</div>
-																								<div class="mixNewsStyleTitleContainer">
-																									<div class="" style="margin:0;position:relative;">
-																										<a class="no-mixNewsStyleTitleTip" href="http://www.k8woke.icoc.cc/nd.jsp?id=9&_np=2_313" target="_blank">
-																										</a>
-																									</div>
-																									<a hidefocus="true" href="http://www.k8woke.icoc.cc/nd.jsp?id=9&_np=2_313" target="_blank" title="" class="mixNewsStyleTitle  pic-mixNewsStyleTitle " style="display:inline;" mix="0">食品商务网七年蝉联中国行业电子商务网站TOP100
-																									</a>
-																								</div>
-																								<p class="mixNewsStyleSummary  pic-mixNewsStyleSummary ">2012年4月20日、21日，由亿邦动力网主办的2012第七届中小企业电子商务大会暨2011年度中国行业电子商务网...
-																								</p>
-																								</td>
-																							</tr>
-																						</tbody>
-																					</table>
-																				</div>
-																				<div class="separatorLine g_separator  pic-separatorLine "></div>
-																				<div topclassname="top1" topswitch="on" newsid="8" newsname="追逐梦想：2012法国SIAL展全记录" class="line noHover wWLine " style="padding:0;height:auto;overflow:hidden;">
-																					<table id="lineBody8" class="lineBody" cellpadding="0" cellspacing="0">
-																						<tbody>
-																							<tr id="module313tr8">
-																								<td class="newsTitle mixNewsTitle" valign="top" style="width: 100%;">
-																								<div class="articlePhotoBox" newid="8">
-																									<a href="http://www.k8woke.icoc.cc/nd.jsp?id=8&_np=2_313" target="_blank" style="display:block;width:85px;height:66px;overflow:hidden;">
-																										<img alt="文章附图" title="" src="/ShopSys/image/ABUIABAEGAAg06_klQUotPXOAjBIOEk.png" style="width:75px;height:66px;float:left;">
-																									</a>
-																								</div>
-																								<div class="mixNewsStyleTitleContainer">
-																									<div class="" style="margin:0;position:relative;">
-																										<a class="no-mixNewsStyleTitleTip" href="http://www.k8woke.icoc.cc/nd.jsp?id=8&_np=2_313" target="_blank">
-																										</a>
-																									</div>
-																									<a hidefocus="true" href="http://www.k8woke.icoc.cc/nd.jsp?id=8&_np=2_313" target="_blank" title="" class="mixNewsStyleTitle  pic-mixNewsStyleTitle " style="display:inline;" mix="0">追逐梦想：2012法国SIAL展全记录</a>
-																								</div>
-																								<p class="mixNewsStyleSummary  pic-mixNewsStyleSummary ">21FOOD领队手记 &nbsp;“21Food，怎么每次展会都可以看到你们啊！”没错，这一次，我们又来了。经历过2006年...
-																								</p>
-																								</td>
-																							</tr>
-																						</tbody>
-																					</table>
-																				</div>
-																				<div class="separatorLine g_separator " style="border-color:transparent"></div>
-																				<div class="clearfloat"></div>
-																				</div>
-																				</div>
-																			</div>
-																		</td>
-																		<td class="formMiddleRight formMiddleRight313"></td>
-																	</tr>
-																	</tbody>
-																</table>
-																<table class="formBottom formBottom313" cellpadding="0" cellspacing="0">
-																	<tbody>
-																		<tr>
-																			<td class="left left313"></td>
-																			<td class="center center313"></td>
-																			<td class="right right313"></td>
-																		</tr>
-																	</tbody>
-																</table>
-																<div class="clearfloat clearfloat313"></div>
-																</div>
-															</div>
-													 </td>
+														<td class="titleRight titleRight395" valign="top"></td>
 													</tr>
 												</tbody>
 											</table>
-										</div>
-									</div>
-								</td>
-								<td class="formMiddleRight formMiddleRight311"></td>
-                             </tr>
-                            </tbody>
-                           </table>
-<table class="formBottom formBottom311" cellpadding="0" cellspacing="0">
-	<tbody>
-		<tr>
-			<td class="left left311"></td>
-			<td class="center center311"></td>
-			<td class="right right311"></td>
-		</tr>
-	</tbody>
-</table>
-<div class="clearfloat clearfloat311"></div>
-</div>
-
-<div id="module386" _indexclass="formIndex2" class="form form386 formIndex2 formStyle3" title="" style="" _side="0" _intab="0" _inmulmcol="0" _infullmeasure="0" _autoheight="1" _global="false" _independent="false">
-	<table class="formTop formTop386" cellpadding="0" cellspacing="0">	
-		<tbody>
-			<tr>
-				<td class="left"></td>
-				<td class="center"></td>
-				<td class="right"></td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="formBanner formBanner386" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr>
-				<td class="left left386"></td>
-				<td class="center center386" valign="top">
-					<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle386">
-						<tbody>
-							<tr>
-								<td class="titleLeft titleLeft386" valign="top"></td>
-								<td class="titleCenter titleCenter386" valign="top">
-									<div class="titleText titleText386">
-										<span>产品展示</span>
-									</div>
-								</td>
-								<td class="titleRight titleRight386" valign="top"></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-			<td class="right right386"></td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="formMiddle formMiddle386" style="" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr>
-				<td class="formMiddleLeft formMiddleLeft386"></td>
-				<td class="formMiddleCenter formMiddleCenter386" valign="top">
-					<div class="formMiddleContent formMiddleContent386  ">
-						<div class="productMarqueeForms" newmarqueetoward="0"><div class="demo" style="height: 186px;">
-							<div class="demo0" id="demo0386" style="width: 1900px;">
-								<div topclassname="top1" topswitch="on" productid="1" productname="产品1" class="productMarqueeForm " faiwidth="160" faiheight="160">
-									<div id="m386marqueeProduct1" class="imgDiv">
-										<table cellpadding="0" cellspacing="0">
-											<tbody>
-												<tr>
-													<td valign="middle" align="center">
-														<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=1&_pp=2_386" target="_blank">
-															<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品1" title="">
+										</td>
+										<td class="right right395"></td>
+									</tr>
+								</tbody>
+							   </table>
+							   <table class="formMiddle formMiddle395" style="" cellpadding="0" cellspacing="0">
+								 <tbody>
+									<tr>
+										<td class="formMiddleLeft formMiddleLeft395"></td>
+										<td class="formMiddleCenter formMiddleCenter395" valign="top">
+											<div class="formMiddleContent formMiddleContent395  "style="padding-left: 10px;padding-bottom: 10px;">
+												<div class="richModuleSlaveImgContainer textImg4">	
+													<img class="richModuleSlaveImg" alt="55555" title="55555" src="/ShopSys/image/ABUIABAEGAAg7L3dqQUo3oyE1QMwvAU4rAI.png" style="width:565px;height:184px;">
+													<div class="richEditPic" _onmousein="0" onclick="Site.changeRichPic(395);">
+														<a class="edit" id="uploadButton" title="编辑图片"></a>
+													</div>
+												</div>
+											    <div class="richContent richContent4">
+													<p style="font-family:微软雅黑, 黑体, 新宋体, &#39;Arial Unicode MS&#39;;line-height:21px;background-color:#FFFFFF;color:#208748;">
+														<strong>
+															<span style="line-height:1.8;color:#333333;font-size:20px;">战凯地址：</span>
+														</strong>
+													</p>
+													<p style="color:#333333;font-family:微软雅黑, 黑体, 新宋体, &#39;Arial Unicode MS&#39;;line-height:21px;background-color:#FFFFFF;">
+														<strong>
+															<span style="font-size:20px;">公司传 真： &nbsp;</span>
+														</strong>
+													</p>
+													<p style="color:#333333;font-family:微软雅黑, 黑体, 新宋体, &#39;Arial Unicode MS&#39;;line-height:21px;background-color:#FFFFFF;">
+														<strong>
+															<span style="font-size:20px;">邮 编：<br>公司电话：</span>
+														</strong>
+													</p>
+													<div style="color:#333333;font-family:微软雅黑, 黑体, 新宋体, &#39;Arial Unicode MS&#39;;line-height:21px;background-color:#FFFFFF;">
+														
+														<strong>
+															<span style="font-size:20px;">邮 箱：</span>
+														</strong>
+														<a href="mailto:junpeng@junpeng-cn.com" style="padding:0px;color:#020204;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;">
+															<strong>
+																<span style="padding:0px;color:#020204;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;font-size:20px;"></span>
+															</strong>
 														</a>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<div class="propDiv productName propWordWrapDiv" style="text-align: center; width: 160px; height: 16px;">
-										<a hidefocus="true" title="产品1" href="http://www.k8woke.icoc.cc/pd.jsp?id=1&_pp=2_386" target="_blank">产品1</a>
-									</div>
-								</div>
-							<div topclassname="top1" topswitch="on" productid="2" productname="产品2" class="productMarqueeForm " faiwidth="160" faiheight="160">
-								<div id="m386marqueeProduct2" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td valign="middle" align="center">
-													<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=2&_pp=2_386" target="_blank">
-														<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品2" title="">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">	
-									<a hidefocus="true" title="产品2" href="http://www.k8woke.icoc.cc/pd.jsp?id=2&_pp=2_386" target="_blank">产品2</a>
-								</div>
-							</div>
-							<div topclassname="top1" topswitch="on" productid="3" productname="产品3" class="productMarqueeForm " faiwidth="160" faiheight="160">
-								<div id="m386marqueeProduct3" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td valign="middle" align="center">
-													<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=3&_pp=2_386" target="_blank">
-														<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品3" title="">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;"><a hidefocus="true" title="产品3" href="http://www.k8woke.icoc.cc/pd.jsp?id=3&_pp=2_386" target="_blank">产品3</a>
-								</div>
-							</div>
-							<div topclassname="top1" topswitch="on" productid="4" productname="产品4" class="productMarqueeForm " faiwidth="160" faiheight="160">
-								<div id="m386marqueeProduct4" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td valign="middle" align="center">
-													<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=4&_pp=2_386" target="_blank">
-														<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品4" title="">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">	
-									<a hidefocus="true" title="产品4" href="http://www.k8woke.icoc.cc/pd.jsp?id=4&_pp=2_386" target="_blank">产品4</a>
-								</div>
-							</div>
-							<div topclassname="top1" topswitch="on" productid="5" productname="产品5" class="productMarqueeForm " faiwidth="160" faiheight="160">
-								<div id="m386marqueeProduct5" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td valign="middle" align="center">
-													<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=5&_pp=2_386" target="_blank">
-														<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品5" title="">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							<div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
-								<a hidefocus="true" title="产品5" href="http://www.k8woke.icoc.cc/pd.jsp?id=5&_pp=2_386" target="_blank">产品5</a>
-							</div>
-							</div>
-							<div topclassname="top1" topswitch="on" productid="1" productname="产品1" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
-								<div id="m386marqueeProduct1_clone" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-									<tbody>
-										<tr>
-											<td valign="middle" align="center">
-												<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=1&_pp=2_386" target="_blank">
-													<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品1" title="">
-												</a>
-											</td>
-										</tr>
-									</tbody></table>
-								</div>
-								<div class="propDiv productName propWordWrapDiv" style="text-align: center; width: 160px; height: 16px;">
-									<a hidefocus="true" title="产品1" href="http://www.k8woke.icoc.cc/pd.jsp?id=1&_pp=2_386" target="_blank">产品1</a>
-								</div>
-							</div>
-							<div topclassname="top1" topswitch="on" productid="2" productname="产品2" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
-								<div id="m386marqueeProduct2_clone" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>	
-											<tr>
-												<td valign="middle" align="center">
-													<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=2&_pp=2_386" target="_blank">
-														<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品2" title="">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
-									<a hidefocus="true" title="产品2" href="http://www.k8woke.icoc.cc/pd.jsp?id=2&_pp=2_386" target="_blank">产品2</a>
-								</div>
-							</div>
-							
-							<div topclassname="top1" topswitch="on" productid="3" productname="产品3" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
-								<div id="m386marqueeProduct3_clone" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td valign="middle" align="center">
-													<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=3&_pp=2_386" target="_blank">
-														<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品3" title="">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
-									<a hidefocus="true" title="产品3" href="http://www.k8woke.icoc.cc/pd.jsp?id=3&_pp=2_386" target="_blank">产品3</a>
-								</div>
-							</div>
-							
-							<div topclassname="top1" topswitch="on" productid="4" productname="产品4" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
-								<div id="m386marqueeProduct4_clone" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td valign="middle" align="center">
-													<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=4&_pp=2_386" target="_blank">
-														<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品4" title="">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
-									<a hidefocus="true" title="产品4" href="http://www.k8woke.icoc.cc/pd.jsp?id=4&_pp=2_386" target="_blank">产品4</a>
-								</div>
-							</div>
-							
-							<div topclassname="top1" topswitch="on" productid="5" productname="产品5" class="productMarqueeForm " faiwidth="160" faiheight="160" clonediv="true">
-								<div id="m386marqueeProduct5_clone" class="imgDiv">
-									<table cellpadding="0" cellspacing="0">
-										<tbody>
-											<tr>
-												<td valign="middle" align="center">
-													<a hidefocus="true" href="http://www.k8woke.icoc.cc/pd.jsp?id=5&_pp=2_386" target="_blank">
-														<img src="/ShopSys/image/0_thumb_2.jpg" style="width: 160px; height: 160px;" alt="产品5" title="">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="propDiv productName propWordWrapDiv" style="text-align: center; height: 16px; width: 160px;">
-									<a hidefocus="true" title="产品5" href="http://www.k8woke.icoc.cc/pd.jsp?id=5&_pp=2_386" target="_blank">产品5</a>
-								</div>
-							</div>
-							</div>
-							</div>
+														<br>
+														<strong>
+															<span style="font-size:20px;">联系QQ：</span>
+															<span style="font-family:黑体;font-size:20px;"> &nbsp; </span>
+															<span style="font-size:20px;"></span>
+														</strong>
+														<br>
+														<strong>
+															<span style="font-size:20px;">战凯网址：</span>
+														</strong>
+														<a href="http://www.junpeng-cn.com/" style="padding:0px;color:#020204;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;">
+															<strong>
+																<span style="padding:0px;color:#020204;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;font-size:16px;text-decoration:underline;">www.ddddd.com</span>
+															</strong>
+														</a> 
+														<br>
+														<strong>
+															<span style="font-size:20px;">战凯淘宝店：</span>
+														</strong>
+														<a href="http://shop66438011.taobao.com/?spm=a230r.7195193.1997079397.2.A1wDsn" style="padding:0px;color:#020204;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;">
+															<strong>
+																<span style="padding:0px;color:#020204;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;font-size:16px;text-decoration:underline;">战士凯歌淘宝店</span>
+															</strong>
+														</a> 
+														
+													</div>
+											    </div>
+											</div>
+										</td>
+										<td class="formMiddleRight formMiddleRight395"></td>
+									</tr>
+								 </tbody>
+							   </table>
+							   <table class="formBottom formBottom395" cellpadding="0" cellspacing="0">
+								 <tbody>
+									<tr>
+										<td class="left left395"></td>
+										<td class="center center395"></td>
+										<td class="right right395"></td>
+									</tr>
+								</tbody>
+							   </table>
+						       <div class="clearfloat clearfloat395"></div>
+						    </div>
 						</div>
 					</div>
-				</td>
-				<td class="formMiddleRight formMiddleRight386"></td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="formBottom formBottom386" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr>
-				<td class="left left386"></td>
-				<td class="center center386"></td>
-				<td class="right right386"></td>
-			</tr>
-		</tbody>
-	</table>
-	<div class="clearfloat clearfloat386"></div>
-</div>
-
-<div id="module395" _indexclass="formIndex3" class="form form395 formIndex3 formStyle1" title="" style="" _side="0" _intab="0" _inmulmcol="0" _infullmeasure="0" _autoheight="1" _global="true" _independent="false">
-	<table class="formTop formTop395" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr>
-				<td class="left"></td>
-				<td class="center"></td>
-				<td class="right"></td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="formBanner formBanner395" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr>
-				<td class="left left395"></td>
-				<td class="center center395" valign="top">
-					<table cellpadding="0" cellspacing="0" class="formBannerTitle formBannerTitle395">
-						<tbody>
-							<tr>
-								<td class="titleLeft titleLeft395" valign="top">&nbsp;</td>
-								<td class="titleCenter titleCenter395" valign="top">
-									<div class="titleText titleText395"><span></span></div>
-								</td>
-								<td class="titleRight titleRight395" valign="top"></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-				<td class="right right395"></td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="formMiddle formMiddle395" style="" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr>
-				<td class="formMiddleLeft formMiddleLeft395"></td>
-				<td class="formMiddleCenter formMiddleCenter395" valign="top">
-					<div class="formMiddleContent formMiddleContent395  ">
-						<div class="richModuleSlaveImgContainer textImg4">	
-							<img class="richModuleSlaveImg" alt="55555" title="55555" src="/ShopSys/image/ABUIABAEGAAg7L3dqQUo3oyE1QMwvAU4rAI.png" style="width:565px;height:184px;">
-							<div class="richEditPic" _onmousein="0" onclick="Site.changeRichPic(395);">
-								<a class="edit" id="uploadButton" title="编辑图片"></a>
-							</div>
-						</div>
-					<div class="richContent richContent4">
-						<p style="font-family:微软雅黑, 黑体, 新宋体, &#39;Arial Unicode MS&#39;;line-height:21px;background-color:#FFFFFF;color:#208748;">
-							<strong>
-								<span style="line-height:1.8;color:#333333;font-size:20px;">公司地址：福建省晋江市五里经济开发区林麒路</span>
-							</strong>
-						</p>
-						<p style="color:#333333;font-family:微软雅黑, 黑体, 新宋体, &#39;Arial Unicode MS&#39;;line-height:21px;background-color:#FFFFFF;">
-							<strong>
-								<span style="font-size:20px;">传 真：88173823 &nbsp;</span>
-							</strong>
-						</p>
-						<p style="color:#333333;font-family:微软雅黑, 黑体, 新宋体, &#39;Arial Unicode MS&#39;;line-height:21px;background-color:#FFFFFF;">
-							<strong>
-								<span style="font-size:20px;">邮 编：362216<br>企业电话：0595-88188517</span>
-							</strong>
-						</p>
-							<div style="color:#333333;font-family:微软雅黑, 黑体, 新宋体, &#39;Arial Unicode MS&#39;;line-height:21px;background-color:#FFFFFF;">
-								<strong>
-									<span style="font-size:20px;">企业网址：</span>
-								</strong>
-								<a href="http://www.junpeng-cn.com/" style="padding:0px;color:#616060;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;">
-									<strong>
-										<span style="padding:0px;color:#616060;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;font-size:20px;">www.junpeng-cn.com</span>
-									</strong>
-								</a> 
-								<br>
-								<strong>
-									<span style="font-size:20px;">邮 箱：</span>
-								</strong>
-								<a href="mailto:junpeng@junpeng-cn.com" style="padding:0px;color:#616060;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;">
-									<strong>
-										<span style="padding:0px;color:#616060;font-family:微软雅黑, Arial, Helvetica, sans-serif;text-decoration:none;font-size:20px;">junpeng@junpeng-cn.com</span>
-									</strong>
-								</a>
-								<br>
-								<strong>
-									<span style="font-size:20px;">联系QQ：</span>
-									<span style="font-family:黑体;font-size:20px;">346062078 &nbsp; </span>
-									<span style="font-size:20px;">459553510</span>
-								</strong>
-							</div>
-					</div>
-					</div>
-				</td>
-				<td class="formMiddleRight formMiddleRight395"></td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="formBottom formBottom395" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr>
-				<td class="left left395"></td>
-				<td class="center center395"></td>
-				<td class="right right395"></td>
-			</tr>
-		</tbody>
-	</table>
-<div class="clearfloat clearfloat395"></div>
-</div>
-</div>
-
-		<table class="containerFormsMiddle" cellpadding="0" cellspacing="0">
-			<tbody>
-				<tr>
-					<td valign="top" id="containerFormsLeft" class="containerFormsLeft" style="display:none">
-						<div class="containerFormsLeftTop"></div>
-						<div id="leftForms" class="column forms sideForms leftForms"></div>
-						<div class="containerFormsLeftBottom"></div>
-					</td>
+					
+		        </td>
+		        <td id="containerMiddleRight" class="containerMiddleRight"></td>
+	        </tr>
+	      </tbody>
+        </table>
 	
-					<td valign="top" id="containerFormsCenter" class="containerFormsCenter">
-					    <div id="centerTopForms" class="column forms mainForms centerTopForms" style="display:none"></div>
-						<div class="containerFormsCenterMiddle">
-							<div id="middleLeftForms" class="column forms mainForms middleLeftForms" style="display: none; padding-right: 19px;"></div>
-							<div id="middleRightForms" class="column forms mainForms middleRightForms" style="display:none"></div>	
-						</div>
-						<div id="centerBottomForms" class="column forms mainForms centerBottomForms" style="display:none"></div>
-					</td>
 	
-			    	<td valign="top" id="containerFormsRight" class="containerFormsRight" style="display:none">
-						<div class="containerFormsRightTop"></div>
-						<div id="rightForms" class="column forms sideForms rightForms"></div>
-						<div class="containerFormsRightBottom"></div>
-			  		</td>
-			 	 </tr>
-			  	</tbody>
-			  </table>
-
-					<div id="bottomForms" class="column forms mainForms bottomForms" style="display:none"></div>
-					<div id="containerPlaceholder" class="containerPlaceholder" style="height: 0px;"></div>
-				</div>
-
-				<div id="containerMiddleCenterBottom" class="containerMiddleCenterBottom"></div>
-
-	</td>
-
-	<td id="containerMiddleRight" class="containerMiddleRight"></td>
-	</tr>
-	</tbody>
-	</table>
-	
-	<table class="containerBottom" cellpadding="0" cellspacing="0">
-		<tbody>
-			<tr valign="top">
-				<td class="left"></td>
-				<td class="center"></td>
-				<td class="right"></td>
-			</tr>
-	</tbody>
-	</table>
 </div>
 </div>
 </td>
 </tr>
 </tbody>
-</table>		
-
-<div id="fullmeasureBottomForms" class="fullmeasureContainer forms sideForms fullmeasureForms fullmeasureBottomForms" style="display:none">	
-<wbr>
-</div>
-		
-		<table class="absBottomTable" cellpadding="0" cellspacing="0">
-			<tbody>
-			<tr>
-				<td align="center">
-					<div id="absBottomForms" class="forms sideForms absForms">
-						<div style="position:absolute;"></div><!-- for ie6 -->
-					</div>
-				</td>
-			 </tr>
-		  </tbody>
-		</table>
-
-   <table id="webFooterTable" class="webFooterTable" cellpadding="0" cellspacing="0">
-	<tbody>
-	 <tr>
-	  <td align="center" valign="top">
-		<div id="webFooter" class="webFooter">
-	    <div id="footer" class="footer">
-			<table class="footerTop" cellpadding="0" cellspacing="0">
-				<tbody>
-					<tr valign="top">
-						<td class="topLeft"></td>
-						<td class="topCenter"></td>
-						<td class="topRight"></td>
-					</tr>
-			    </tbody>
-			</table>
-		<table class="footerMiddle" cellpadding="0" cellspacing="0">
-		  <tbody>
-			<tr valign="top">
-				<td class="middleLeft"></td>
-				<td class="middleCenter" align="center">
-				  <div class="footerContent">
-				  <div id="footerNav" class="footerNav  footerPattern2" cusheight="0">
-				  <div class="footerItemListBox">
-					<ul class="footerItemListContainer">
-					<li class="footerItemSection">
-					<table class="footerItemContainer">
-					 <tbody>
-						 <tr>
-							 <td class="footerItemContainer-firstTd">
-								<div class="footerItemPic">
-									<a href="javascript:;" class="footerItemNormalPic " id="footerItemPic2"></a>
-								</div>
-						     </td>
-							 <td class="footerItemContainer-secondTd">
-								<div class="footerItemContent">
-									 <div class="footerItemTop">
-										<a class="footerItemTopLink" href="/ShopSys/front/福州战凯军科贸易有限公司.html" child="0">首页</a>
-				                     </div>
-									<div class="footerItemMiddle"><div class="footSplitline"></div></div>
-							   </div>
-							</td>
-						</tr>
-					</tbody>
-			     </table>
-				</li>
-				
-				<li class="footerItemSpacing">
-						<div class="footerVerticalLine"></div>
-				</li>
-				
-				<li class="footerItemSection">
-					<table class="footerItemContainer">
-					  <tbody>
-					    <tr>
-						  <td class="footerItemContainer-firstTd">
-							<div class="footerItemPic">
-								<a href="javascript:;" class="footerItemNormalPic " id="footerItemPic101"></a>
-							</div>
-						 </td>
-						 <td class="footerItemContainer-secondTd">
-							<div class="footerItemContent">
-								<div class="footerItemTop">
-								   <a class="footerItemTopLink" href="http://www.k8woke.icoc.cc/col.jsp?id=101" child="0">关于我们</a>
-					        	</div>
-								<div class="footerItemMiddle"><div class="footSplitline"></div></div>
-							</div>
-						</td>
-						</tr>
-					</tbody>
-					</table>
-				</li>
-				
-				
-				<li class="footerItemSpacing">
-						<div class="footerVerticalLine"></div>
-				</li>
-				
-				<li class="footerItemSection">
-						<table class="footerItemContainer">
-							<tbody>
-							<tr>
-								<td class="footerItemContainer-firstTd">
-									<div class="footerItemPic">
-										<a href="javascript:;" class="footerItemNormalPic " id="footerItemPic102">
-										</a>
-									</div>
-								</td>
-								<td class="footerItemContainer-secondTd">
-									<div class="footerItemContent">
-										<div class="footerItemTop">
-											<a class="footerItemTopLink" href="http://www.k8woke.icoc.cc/col.jsp?id=102" child="0">联系我们</a>
-	                                    </div>
-										<div class="footerItemMiddle"><div class="footSplitline"></div></div>
-								    </div>
-							</td>
-						</tr>
-					</tbody></table>
-				</li>
-				
-				<li class="footerItemSpacing footerItemSpacing_end">
-						<div class="footerVerticalLine"></div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	
-						<div class="footerInfo">
-							<p><font face="Arial">©</font>2015 福州战凯军科贸易有限公司 版权所有</p>
-						</div>
-	</div>
-	</td>
-	<td class="middleRight"></td>
-</tr>
-</tbody></table>
-		
-		<table class="footerBottom" cellpadding="0" cellspacing="0">
-			<tbody>
-			  <tr valign="top">
-				<td class="bottomLeft"></td>
-				<td class="bottomCenter"></td>
-				<td class="bottomRight"></td>
-			  </tr>
-		   </tbody>
-		</table>	
-	
-	   </div></div>
-					</td>
-				</tr>
-			</tbody>
-		
 </table>
-
-		<div class="clearfloat"></div>
-	</div>	
-</div>
-
-
-
-<div class="floatLeftTop" style="top: 0px;">
-	<div id="floatLeftTopForms" class="forms sideForms floatForms">
+</div>		
 		
-	</div>
+<!--第二块结束-->
+
+<!--第三块-->
+
+<div id="myfooter" style="background-color: #9ab9ff;padding-bottom:-5px;">
+<div style="height:52px;background-color: #9ab9ff;">
+    <div style="width:960px;height:40px; margin:0 auto; padding-top:15px;text-align:center;">
+    		<span class="mylink">
+    		<a href="www.baidu.com">首页</a>
+    		</span>
+    		<span >|</span>
+    		<span class="mylink"><a href="www.baidu.com">关于我们</a></span>
+    		<span class="myline">|</span>
+    		<span class="mylink"><a href="www.baidu.com">联系我们</a></span>
+    		<span >|</span>
+    		<span class="mylink"><a href="www.baidu.com">福州战凯军科贸易有限公司 版权所有</a></span>
+    		<!-- <span >|</span>
+    		<span class="mylink"><a href="www.baidu.com">baidu</a></span> -->
+    		
+    </div>
+    
+    
 </div>
-<div class="floatRightTop" style="top: 0px;">
-	<div id="floatRightTopForms" class="forms sideForms floatForms">
-		
-	</div>
 </div>
-<div class="floatLeftBottom">
-	<div id="floatLeftBottomForms" class="forms sideForms floatForms">
-		
-	</div>
-</div>
-<div class="floatRightBottom">
-	<div id="floatRightBottomForms" class="forms sideForms floatForms">
-		
-	</div>
-</div>
-	<div id="bgMusic" class="bgMusic">
-	
-	</div>
-	
+<!--第三块结束-->
+
+
+
+</div>		
+
+
+
+
+
+
+
 
 
 <script type="text/javascript" src="/ShopSys/js/front/jquery-core.min.js"></script>
@@ -1590,7 +1495,9 @@ $(function() {
 	Site.colLayout45Width();
 
 	Site.initModuleSiteSearch('392');
-Site.initBanner({"_open":true,"data":[{"title":"","desc":"","imgWidth":946,"imgHeight":436,"src":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw.jpg","edgeLeft":"","edgeRight":""},{"title":"","desc":"","imgWidth":1440,"imgHeight":380,"src":"http://0.ss.faidns.com/image/template/banners/130001.jpg?v=20150129","edgeLeft":"","edgeRight":""},{"title":"","desc":"","imgWidth":1440,"imgHeight":380,"src":"http://0.ss.faidns.com/image/template/banners/40001.jpg?v=20150129","edgeLeft":"","edgeRight":""}],"width":1440,"height":436,"playTime":4000,"animateTime":1500,"from":"banner","btnType":1,"wideScreen":false}, {"_open":false}, 4);
+Site.initBanner({"_open":true,"data":[{"title":"","desc":"","imgWidth":1440,"imgHeight":380,"src":"/ShopSys/image/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw.jpg","edgeLeft":"","edgeRight":""},
+{"title":"","desc":"","imgWidth":1440,"imgHeight":380,"src":"/ShopSys/image/130001.jpg","edgeLeft":"","edgeRight":""},
+{"title":"","desc":"","imgWidth":1440,"imgHeight":380,"src":"/ShopSys/image/40001.jpg","edgeLeft":"","edgeRight":""}],"width":1440,"height":380,"playTime":4000,"animateTime":1500,"from":"banner","btnType":1,"wideScreen":false}, {"_open":false}, 4);
 
 
 Site.loadNewsList(313);
@@ -1668,7 +1575,20 @@ var nav102SubMenu=[];
 var _customBackgroundData = {"styleDefault":true,"s":true,"h":false,"r":3,"o":"","sw":-1,"e":0,"wbh":-1,"wbw":-1,"clw":-1,"crw":-1,"id":"","p":"","bBg":{"y":0,"r":3,"f":"","p":"","c":"#000"},"cBg":{"y":0,"r":3,"f":"","p":"","c":"#000"},"cmBg":{"y":0,"r":3,"f":"","p":"","c":"#000"}};          //自定义的数据
 var _templateBackgroundData = {"id":"","bBg":{"y":0,"r":3,"f":"","p":"","c":"#c7c7c7"},"cBg":{"y":0,"r":3,"f":"","p":"","c":"#000"},"cmBg":{"y":0,"r":3,"f":"","p":"","c":"#000"},"s":true,"h":false,"r":3,"o":"","sw":-1,"e":0,"wbh":-1,"wbw":-1,"clw":-1,"crw":-1,"p":""};// 模版的数据
 var _useTemplateBanner = true;				// 是否使用全局模版
-var _templateBannerData = {"ce":{},"pl":0,"l":[{"i":"ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw","p":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw.jpg","w":946,"h":436,"tp":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw!100x100.jpg"},{"i":"ABUIABACGAAg7sX-lAUo7q-w6wEwwAc4-AI","p":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAg7sX-lAUo7q-w6wEwwAc4-AI.jpg","w":960,"h":380,"tp":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAg7sX-lAUo7q-w6wEwwAc4-AI!100x100.jpg"}],"n":[{"t":1,"i":"ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw","e":0,"u":"","el":"","er":"","p":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw.jpg","w":946,"h":436},{"t":0,"i":"130001","e":0,"u":"","el":"","er":"","p":"http://0.ss.faidns.com/image/template/banners/130001.jpg?v=20150129","w":1440,"h":380},{"t":0,"i":"40001","e":0,"u":"","el":"","er":"","p":"http://0.ss.faidns.com/image/template/banners/40001.jpg?v=20150129","w":1440,"h":380}],"s":4,"i":4000,"a":1500,"h":false,"o":false,"t":1,"p":0,"pt":0,"bt":1,"f":{},"c":3,"ws":false};		// 模版的数据
+/* var _templateBannerData = {"ce":{},"pl":0,"l":
+[{"i":"ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw",
+     "p":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw.jpg","w":946,"h":380,
+     "tp":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw!100x100.jpg"},
+{"i":"ABUIABACGAAg7sX-lAUo7q-w6wEwwAc4-AI",
+     "p":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAg7sX-lAUo7q-w6wEwwAc4-AI.jpg","w":960,"h":380,
+      "tp":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAg7sX-lAUo7q-w6wEwwAc4-AI!100x100.jpg"}],
+ "n":[{"t":1,"i":"ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw","e":0,"u":"","el":"","er":"",
+"p":"http://2380410.s21i-2.faidns.com/2/ABUIABACGAAgxNyplQUo76HyKTCyBzi0Aw.jpg","w":946,"h":380},
+{"t":0,"i":"130001","e":0,"u":"","el":"","er":"",
+"p":"http://0.ss.faidns.com/image/template/banners/130001.jpg?v=20150129","w":1440,"h":380},
+{"t":0,"i":"40001","e":0,"u":"","el":"","er":"",
+"p":"http://0.ss.faidns.com/image/template/banners/40001.jpg?v=20150129","w":1440,"h":380}],
+"s":4,"i":4000,"a":1500,"h":false,"o":false,"t":1,"p":0,"pt":0,"bt":1,"f":{},"c":3,"ws":false};		 */// 模版的数据
 var _pageBannerData = {"s":0,"i":4000,"a":1500,"h":false,"o":false,"t":1,"p":0,"pt":0,"pl":0,"bt":1,"l":[],"f":{},"ce":{},"n":[],"c":3,"ws":false};					// 当前页面的自定义数据（页面独立样式设置）
 var _bannerData = _templateBannerData;
 
@@ -1678,11 +1598,6 @@ var _templateLayout = 1;
 var _webBannerHeight = -1;
 var _siteDemo = false;
 </script>
-
-
-
-
-
 
 
 
