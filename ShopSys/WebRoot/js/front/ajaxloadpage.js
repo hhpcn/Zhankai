@@ -1,6 +1,6 @@
 $(function(){
        $(window).hashchange( function(){
-            var defaulthash="#mainIndex";
+            var defaulthash="#page/mainIndex";
             var hash=location.hash.toString();
             if(hash==""){
             	hash=defaulthash;
@@ -13,7 +13,7 @@ $(function(){
    });
 
 function loadPage(hash){
-       loadUrl="/ShopSys/front/page/"+hash+".html";
+       loadUrl="/ShopSys/front/"+hash+".html";
         $.ajax({
               type: "POST",
 			  url: loadUrl,
