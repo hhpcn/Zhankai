@@ -99,23 +99,38 @@ public class UserAction extends BaseAction {
 	
 	//行编辑：更新，删除
 	public String edit() {
-		
-		Integer[] intIds = JqgridUtil.idToIntIds(id);
-		
-		
-		if ("edit".equalsIgnoreCase(oper)) {
-			//在某一时刻编辑时只有一行记录能被编辑，浏览器发送过看来的ids只有一个id，所以这里直接去intIds[0]
-			User userData= userService.getByClassNameAndId(User.class, intIds[0]);
-			userData.setUserName(userName);
-			userData.setStatus(status);
-			userData.setRoleName(roleName);
-			userService.update(userData);
+		if("add".equalsIgnoreCase(oper)){
+			User user=new User();
+			user.setUserName(userName);
+			user.setRoleName(roleName);
+			if("管理员".equalsIgnoreCase(roleName)){
+				user.setRoleCode("1");
+			}else if("普通用户".equalsIgnoreCase(roleName)){
+				user.setRoleCode("2");
+				
+			}else{
+				user.setRoleCode("3");
+			}
+			user.setStatus(status);
+			userService.saveOrUpdate(User.class, user);
 			flag=true;
-			
-		}else if ("del".equalsIgnoreCase(oper)) {
-			userService.deleteByClassAndIds(User.class, intIds);
-			flag=true;
+		}else{
+			Integer[] intIds = JqgridUtil.idToIntIds(id);
+			if ("edit".equalsIgnoreCase(oper)) {
+				//在某一时刻编辑时只有一行记录能被编辑，浏览器发送过看来的ids只有一个id，所以这里直接去intIds[0]
+				User userData= userService.getByClassNameAndId(User.class, intIds[0]);
+				userData.setUserName(userName);
+				userData.setStatus(status);
+				userData.setRoleName(roleName);
+				userService.update(userData);
+				flag=true;
+				
+			}else if ("del".equalsIgnoreCase(oper)) {
+				userService.deleteByClassAndIds(User.class, intIds);
+				flag=true;
+			}
 		}
+		
 		return "flag";
 	}
 	

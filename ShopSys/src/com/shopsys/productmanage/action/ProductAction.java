@@ -52,7 +52,12 @@ public class ProductAction extends BaseAction {
 			productMap.put("price", product.getPrice());
 			productMap.put("color", product.getColor());
 			productMap.put("brandName", product.getBrandName());
+			productMap.put("brandId", product.getBrandId());
 			productMap.put("url", product.getUrl());
+			productMap.put("isPublish",product.getIsPublish());
+			productMap.put("createTime", product.getCreateTime());
+			productMap.put("kindName",product.getKindName());
+			productMap.put("kindId", product.getKindId());
 			productMaps.add(productMap);
 		}
 	

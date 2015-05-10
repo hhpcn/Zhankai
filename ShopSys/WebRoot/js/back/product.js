@@ -35,7 +35,7 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 			mtype: 'POST', 
 			datatype: "json",
 			height: 300,
-			colNames:['', 'ID','产品编号','名称', '价格','颜色','品牌','url'],
+			colNames:['', 'ID','产品编号','名称', '类别','价格','品牌','创建日期','是否发布','url'],
 			colModel:[
 				{name:'myac',index:'', width:50, fixed:true, sortable:false, resize:false,
 					formatter:'actions', 
@@ -47,12 +47,14 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 						//editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
 					}
 				},
-				{name:'id',index:'id', width:60, sorttype:"int"},
-				{name:'productNo',index:'productNo', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'productName',index:'productName', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'price',index:'price', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'color',index:'color', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'brandName',index:'brandName', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'id',index:'id', width:20, sorttype:"int"},
+				{name:'productNo',index:'productNo', width:60,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'productName',index:'productName', width:120,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'kindName',index:'kindName', width:60,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'price',index:'price', width:40,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'brandName',index:'brandName', width:80,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'createTime',index:'createTime', width:100},
+				{name:'isPublish',index:'isPublish', width:40},
 				{name:'url',index:'url', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
 			], 
 	
@@ -79,12 +81,15 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 			},
 			editurl: "/ShopSys/productmanage/productAction_edit.action",//nothing is saved
 			caption: "产品表格"
+			
 	
 	
 		});
 		$(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
 		
-		
+		/*jQuery(grid_selector).jqGrid('searchGrid', {
+		      sopt : [ 'cn', 'bw', 'eq', 'ne', 'lt', 'gt', 'ew' ]
+		    });*/
 	
 		//navButtons
 		jQuery(grid_selector).jqGrid('navGrid',pager_selector,
@@ -128,7 +133,9 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 				}
 			},
 			{
+				
 				//search form
+				
 				recreateForm: true,
 				afterShowSearch: function(e){
 					var form = $(e[0]);
