@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>a.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+   <div id ="header" style="height: 100px;background-color: red">
+	   header<br/>
+	   <a  href="#b"  onclick="loaddata('1b')" style="font-size: 16px;">bbbb</a><br/>
+	   <a  href="#index"  onclick="loaddata('index')" style="font-size: 16px;">index</a>
+	   <!-- 临时数据区域 -->
+	   <div>
+	      要传给其他界面的值id:<input id="id" value="index"></input><br/>
+	   </div>
+   </div>
+   
+   <div id="container" style="height:200px;padding-top: 20px;">
+   </div> 
+    
+ <script src="/ShopSys/demo/jubushuaxin/jquery-core.min.js"></script>
+ <script src="/ShopSys/demo/jubushuaxin/jquery.ba-hashchange.min.js" ></script>
+	<script type="text/javascript"> 
+	$(function(){
+       $(window).hashchange( function(){
+            var defaulthash="#index";
+            var hash=location.hash.toString();
+            if(hash==""){
+            	hash=defaulthash;
+            }
+            hash=hash.replace("#", "");
+            alert(hash);
+       		loadhtml(hash);
+        });
+        $(window).hashchange();
+       
+   });
+   function loadhtml(hash){
+       loadUrl="/ShopSys/demo/jubushuaxin/"+hash+".html";
+        $.ajax({
+              type: "POST",
+			  url: loadUrl,
+			  cache: false,
+			  success: function(result){
+			    $("#container").empty().html(result);
+		      }
+		});
+   } 
+   function loaddata(id){
+   		$("#id").val(id);
+   }
+</script> 
+   <div id ="footer" style="height: 100px;background-color: red">footer</div>
+  </body>
+</html>
