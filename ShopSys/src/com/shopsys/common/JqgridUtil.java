@@ -61,6 +61,12 @@ public class JqgridUtil {
                                                 
                                                 sb.append(rule.getField()).append(" >= ").append(
                                                                 "'").append(rule.getData()).append("'");
+                                        }else if("cn".equalsIgnoreCase(rule.getOp())){
+                                        	sb.append(rule.getField()).append(" like ").append(
+                                                    "'%").append(rule.getData()).append("%'");
+                                        }else if("nc".equalsIgnoreCase(rule.getOp())){
+                                        	sb.append(rule.getField()).append(" not like ").append(
+                                                    "'%").append(rule.getData()).append("%'");
                                         }else {
                                         	 if (null != filterSearch.getGroupOp()) {
                                                  if (filterSearch.getGroupOp().equals("AND"))

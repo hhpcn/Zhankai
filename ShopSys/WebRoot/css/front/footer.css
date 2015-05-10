@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+  #myfooter a:HOVER {
+	color: #ffffff;
+	text-decoration:underline;
+  }
+   #myfooter a:LINK{
+     font-size: 12px;
+   }
+  .myline{
+  	width:40px;
+  	text-align:center;
+  	padding: 0 15px;
+  }
+  .mylink{
+ 	width:40px;
+ 	text-align:center;
+ 	padding: 0 25px;
+  }

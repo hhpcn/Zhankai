@@ -31,7 +31,6 @@ public class ProductAction extends BaseAction {
 		List<Product> products =null;
 		List<Map<String, Object>> productMaps = new ArrayList<Map<String, Object>>();
 		int allRecordNumbers=0;
-		
 		if (_search) {
 			String whereParams = JqgridUtil.SearchToHqlParam(null, null, null, filters, null, null, null);
 			products=productService.listPageRowsByClassAndParams(Product.class, currentPage, pageSize, whereParams);

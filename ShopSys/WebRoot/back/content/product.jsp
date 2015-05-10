@@ -157,7 +157,7 @@
              </form>
              </div>
              <div class="row">
-				<div class="col-xs-9 col-md-offset-1">
+				<div class="col-sm-12">
 					<form action="/ShopSys/ckeditorUploadAction_uploadGuideImg.action" class="dropzone" id="dropzone">
 						<div class="fallback">
 							<input name="guideImg"  id="guideImg" type="file"  />
