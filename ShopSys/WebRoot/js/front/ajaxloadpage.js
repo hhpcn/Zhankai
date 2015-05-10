@@ -6,7 +6,6 @@ $(function(){
             	hash=defaulthash;
             }
             hash=hash.replace("#", "");
-            alert(hash);
        		loadPage(hash);
         });
         $(window).hashchange();
