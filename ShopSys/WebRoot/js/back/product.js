@@ -7,7 +7,81 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 	               "/ShopSys/common/ace/assets/js/jquery.validate.js",null];
 	$('.page-content-area').ace_ajax('loadScripts', scripts, function() {
 	  //inline scripts related to this page
-
+		//数组根据值删除掉该元素
+		 Array.prototype.indexOf = function(val) {  
+	         for (var i = 0; i < this.length; i++) {  
+	             if (this[i] == val) return i;  
+	         }  
+	         return -1;  
+	     };  
+	     Array.prototype.remove = function(val) {  
+	         var index = this.indexOf(val);  
+	         if (index > -1) {  
+	             this.splice(index, 1);  
+	         }  
+	     }; 
+	     
+		var guideImgArray = new Array();
+		
+		//上传引导图插件
+		try {
+			  Dropzone.autoDiscover = false;
+			  var myDropzone = new Dropzone("#dropzone" , {
+			    paramName: "guideImg", // The name that will be used to transfer the file
+			    maxFilesize:2.0, // MB
+				maxFiles: 1000,
+				addRemoveLinks : true,
+				init:function(){
+					this.on("success",function(file,data){
+						file.serverId = data.guideImgUrl;
+						guideImgArray.push(file.serverId);
+						$("#productform input[name='guideMap']").val(guideImgArray.join(";"));
+					});
+					this.on("maxfilesexceeded",function(){
+						alert("引导图最多1000张");
+					});
+					this.on("removedfile",function(file){
+						
+					var message=file.serverId;
+					$.post("/ShopSys/ckeditorUploadAction_removeFile.action",{message:message},function(data){
+						//更新input guidemap的值
+						guideImgArray.remove(message);
+						$("#productform input[name='guideMap']").val(guideImgArray.join(";"));
+					});
+					$("#productform input[name='guideMap']").val("");
+					
+				});
+					
+				},
+				dictDefaultMessage :
+				'<span class="bigger-150 bolder"></span>  \
+				<span class="smaller-80 grey">上传引导图</span> <br /> \
+				<i class="upload-icon ace-icon fa fa-cloud-upload blue fa-3x"></i>'
+			,
+				dictResponseError: '上传失败！',
+				dictRemoveFile:'删除',
+			
+				
+				//change the previewTemplate to use Bootstrap progress bars
+				previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-small progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
+			  });
+			  
+			   $(document).one('ajaxloadstart.page', function(e) {
+					try {
+						myDropzone.destroy();
+						myDropzone.init();
+					} catch(e) {}
+			   });
+			
+			} catch(e) {
+			  alert('不支持该版本的浏览器!');
+			}
+		
+		
+		
+		
+		
+		
 	
 	jQuery(function($) {
 		var grid_selector = "#grid-table-product";
@@ -34,10 +108,10 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 			url:'/ShopSys/productmanage/productAction_listProducts.action', //这是Action的请求地址 
 			mtype: 'POST', 
 			datatype: "json",
-			height: 300,
+			height: 370,
 			colNames:['', 'ID','产品编号','名称', '类别','价格','品牌','创建日期','是否发布','url'],
 			colModel:[
-				{name:'myac',index:'', width:50, fixed:true, sortable:false, resize:false,
+				{name:'myac',index:'', width:50, fixed:true, sortable:false, resize:false,search:false,
 					formatter:'actions', 
 					formatoptions:{ 
 						keys:true,
@@ -47,15 +121,20 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 						//editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
 					}
 				},
-				{name:'id',index:'id', width:20, sorttype:"int"},
-				{name:'productNo',index:'productNo', width:60,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'productName',index:'productName', width:120,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'kindName',index:'kindName', width:60,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'price',index:'price', width:40,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'brandName',index:'brandName', width:80,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'createTime',index:'createTime', width:100},
-				{name:'isPublish',index:'isPublish', width:40},
-				{name:'url',index:'url', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
+				{name:'id',index:'id', width:20, sorttype:"int",search:false},
+				{name:'productNo',index:'productNo', width:60,editable: true,editoptions:{size:"20",maxlength:"30"},
+					searchoptions:{sopt:["eq","ne","cn","nc"]}},
+				{name:'productName',index:'productName', width:120,editable: true,editoptions:{size:"20",maxlength:"30"},
+					searchoptions:{sopt:["eq","ne","cn","nc"]}},
+				{name:'kindName',index:'kindName', width:60,editable: true,editoptions:{size:"20",maxlength:"30"},
+					searchoptions:{sopt:["eq","ne","cn","nc"]}},
+				{name:'price',index:'price', width:40,editable: true,editoptions:{size:"20",maxlength:"30"},
+					searchoptions:{sopt:["eq","ne","cn","nc"]}},
+				{name:'brandName',index:'brandName', width:80,editable: true,editoptions:{size:"20",maxlength:"30"},
+					searchoptions:{sopt:["eq","ne","cn","nc"]}},
+				{name:'createTime',index:'createTime', width:100,searchoptions:{sopt:["eq","ne","cn","nc"]}},
+				{name:'isPublish',index:'isPublish', width:45,searchoptions:{sopt:["eq","ne"]},formatter: publishformatter},
+				{name:'url',index:'url', width:150,editable: true,editoptions:{size:"20",maxlength:"30"},search:false}
 			], 
 	
 			viewrecords : true,
@@ -87,10 +166,7 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 		});
 		$(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
 		
-		/*jQuery(grid_selector).jqGrid('searchGrid', {
-		      sopt : [ 'cn', 'bw', 'eq', 'ne', 'lt', 'gt', 'ew' ]
-		    });*/
-	
+		
 		//navButtons
 		jQuery(grid_selector).jqGrid('navGrid',pager_selector,
 			{ 	//navbar options
@@ -251,9 +327,16 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 		});
 		
 		
-	
 		
-
+		//publish格式转换
+		function publishformatter( cellvalue, options, cell){
+			if(cellvalue == true){
+				return "是";
+			}else{
+				return "否";
+			}
+		   // return $('img', cell).attr('src');
+		}
 		//更新记录
 		function editRecord(){
 			var ids=$(grid_selector).jqGrid('getGridParam','selarrrow');
@@ -273,14 +356,11 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         		},
         		success:function(data){
         			var product=data.product;
-        			alert(product.id);
         			$("#productform input[name='id']").val(product.id);
         			$("#productform input[name='productNo']").val(product.productNo);
         			$("#productform input[name='productName']").val(product.productName);
         			$("#productform input[name='price']").val(product.price);
         			$("#productform input[name='color']").val(product.color);
-        			alert("brand:"+product.brandId);
-        			alert("kind:"+product.kindId);
         			
         			$("#productform select option").removeAttr('selected');
         			$("#brand option[value='"+product.brandId+"']").attr("selected", "selected");
@@ -289,6 +369,14 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         			
         			$("#productform input[name='url']").val(product.url);
         			$("#productform input[name='guideMap']").val(product.guideMap);
+        			
+        			
+        			//引导图预览
+        			viewGuideMap(product);
+        			
+        			
+        			
+        			
         			$("#productform input[name='color']").val(product.color);
         			$("#createTime").val(product.createTime);
         			$("#productform input[name='priority']").val(product.priority);
@@ -304,6 +392,10 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 		//增加一条记录，弹出对话框
 		function addNewRecord(){
 			$("#productform input[name='id']").val("");
+			
+			//清空引导图
+			clearGuideMap();
+			
 			$('#productmodal').modal({
 				  keyboard: false
 				});
@@ -430,8 +522,6 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         			$("#lookproductform input[name='productName']").val(product.productName);
         			$("#lookproductform input[name='price']").val(product.price);
         			$("#lookproductform input[name='color']").val(product.color);
-        			alert("brand:"+product.brandId);
-        			alert("kind:"+product.kindId);
         			
         			$("#lookproductform select option").removeAttr('selected');
         			$("#lookproductform select[name='brand'] option[value='"+product.brandId+"']").attr("selected", "selected");
@@ -440,6 +530,8 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         			
         			$("#lookproductform input[name='url']").val(product.url);
         			$("#lookproductform input[name='guideMap']").val(product.guideMap);
+        			
+        			
         			$("#lookproductform input[name='color']").val(product.color);
         			$("#lookproductform input[name='createTime']").val(product.createTime);
         			$("#lookproductform input[name='priority']").val(product.priority);
@@ -455,8 +547,38 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 		
 	});
 	
+	//清空引导图插件上的内容
+	function clearGuideMap(){
+		
+		$("div .dz-image-preview").remove();
+		guideImgArray.splice(0);
+	}
 	
-	
+	//导航图片预览
+	function viewGuideMap(product){
+		//文件路径需要判断
+		
+		//删除预览图
+		clearGuideMap();
+		if(product.guideMap=="") return false;
+		guideImgArray = product.guideMap.split(";");
+		
+		//添加图片预览图
+		for(var i = 0;i<guideImgArray.length;i++){
+			var s =guideImgArray[i].split("/");
+			var mockFile = { name: s[3],serverId : guideImgArray[i]};
+	         
+			// Call the default addedfile event handler
+			myDropzone.emit("addedfile", mockFile);
+
+			// And optionally show the thumbnail of the file:
+			myDropzone.emit("thumbnail", mockFile, "http://localhost:8080/ShopSys/"+guideImgArray[i]);
+
+			// Make sure that there is no progress bar, etc...
+			myDropzone.emit("complete", mockFile);
+		}
+		
+	}
 	//清空表单
 	function clearProductForm(){
 		
@@ -477,57 +599,6 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 		CKEDITOR.instances.editor1.setData("");
 	}
 	
-	
-	
-	
-	
-	//上传引导图插件
-	try {
-		  Dropzone.autoDiscover = false;
-		  var myDropzone = new Dropzone("#dropzone" , {
-		    paramName: "guideImg", // The name that will be used to transfer the file
-		    maxFilesize:2.0, // MB
-			maxFiles: 1,
-			addRemoveLinks : true,
-			init:function(){
-				this.on("success",function(data){
-					var jsonObj=eval('(' + data.xhr.responseText + ')');//转换为json对象
-					$("#productform input[name='guideMap']").val(jsonObj.guideImgUrl);
-				});
-				this.on("maxfilesexceeded",function(){
-					alert("引导图只能有一张");
-				});
-				this.on("removedfile",function(){
-				var message=$("#productform input[name='guideMap']").val();
-				$.post("/ShopSys/ckeditorUploadAction_removeFile.action",{message:message},function(data){
-					$("#productform input[name='guideMap']").val("");
-				});
-				
-			});
-				
-			},
-			dictDefaultMessage :
-			'<span class="bigger-150 bolder"></span>  \
-			<span class="smaller-80 grey">上传引导图</span> <br /> \
-			<i class="upload-icon ace-icon fa fa-cloud-upload blue fa-3x"></i>'
-		,
-			dictResponseError: '上传失败！',
-			dictRemoveFile:'删除',
-		
-			
-			//change the previewTemplate to use Bootstrap progress bars
-			previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-small progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
-		  });
-		  
-		   $(document).one('ajaxloadstart.page', function(e) {
-				try {
-					myDropzone.destroy();
-				} catch(e) {}
-		   });
-		
-		} catch(e) {
-		  alert('不支持该版本的浏览器!');
-		}
 	
 	//获得现在的时间
 	function getNowTime(){
