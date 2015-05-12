@@ -475,6 +475,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 							
 						</ul>
+						<ul class="submenu">
+							<li class="">
+								<a data-url="page/category" href="#page/category">
+									<i class="menu-icon fa fa-caret-right"></i>
+									栏目管理
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
 					</li>
 
 					

@@ -25,5 +25,15 @@
         </property>
     </bean>
     
+     <!-- 父类别管理（栏目管理）-->
+    <bean id="categoryService" class="com.shopsys.productmanage.serviceimpl.CategoryServiceImpl" parent="baseService"></bean>
+    
+    <bean id="categoryAction" class="com.shopsys.productmanage.action.CategoryAction" parent="baseAction">
+    	<property name="categoryService">
+        	<ref bean="categoryService"/>
+        </property>
+    </bean>
+    
+    
     
 </beans>

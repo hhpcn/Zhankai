@@ -69,7 +69,6 @@ public class ProductAction extends BaseAction {
 	
 	
 	public String addProduct() {
-		System.out.println();
 		productService.saveOrUpdate(product);
 			flag=true;
 		return "flag";
