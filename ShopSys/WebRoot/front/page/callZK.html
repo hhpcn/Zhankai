@@ -22,17 +22,11 @@
 
 
 </style>
+<style> 
+p{ line-height:20px} 
+/* css 注释： 设置行高为20px */ 
+</style> 
 
-<script  type="text/javascript">
-$(function(){
-   
-});
-function change(id){
-  $("li").removeClass("active");
-  $("#"+id).addClass("active");
-}
-
-</script>
 
 
 <div style="margin:0 auto;">
@@ -128,25 +122,115 @@ function change(id){
         </div>
      </div>
    </div>
-   <div class="col-md-9  " style=" height: 600px;">
-	   <div class="row  " style="margin-bottom:10px;border: 1px solid #adadad;height: 300px;background-color: #ffffff;" >
-       <ul class="nav nav-tabs">
-		   <li id="chi" class="active"><a href="#chi" onclick="change('chi')">指挥尺</a></li>
-		   <li id="she"><a href="#she" onclick="change('she')">蛇尺曲线板</a></li>
-		   <li id="xiang"><a href="#xiang" onclick="change('xiang')">迷彩箱包</a></li>
-		   <li id="ba"><a href="#ba" onclick="change('ba')">靶纸靶板</a></li>
-		   <li id="huabi"><a href="#huabi"  onclick="change('huabi')">标图画笔</a></li>
-		   <li id="jian"><a href="#jian"onclick="change('jian')">检查镜</a></li>
-		   <li id="qita"><a href="#qita" onclick="change('qita')">其他</a></li>
-		   
-	   </ul>
-       </div>
+   
+   
+   
+   <div class="col-md-9  " style=" height: 890px;">
+	   
        
-       
-	   <div class="row  " style="border: 1px solid #adadad;height:290px;background-color: #ffffff;">
+	   <div class="row  " style="border: 1px solid #adadad;height: 300px;background-color: #ffffff;margin-bottom:5px;">
 	        <div class="indextitle" style="border-bottom:1px  dashed  #005c2e;margin-right: 10px;margin-left: 10px;">
-				<span id="cpzs">产品展示</span> 
+				<span>战凯位置</span> 
             </div>
+	   </div>
+	   
+	   
+	   <div class="row  " style="border: 1px solid #adadad;height: 300px;background-color: #ffffff;margin-bottom:5px;">
+	        <div class="indextitle" style="border-bottom:1px  dashed  #005c2e;margin-right: 10px;margin-left: 10px;">
+				<span>战凯信息</span> 
+            </div>
+            <div  style="margin-top:20px;font-size: 12px;margin-left: 30px;">
+	
+	   		<div style="margin-bottom: 10px;font-size: 14px;">
+				<span><strong>战凯地址：fgsddgsdsdgsg</strong></span>
+			</div>
+			<div style="margin-bottom: 10px;font-size: 14px;">
+				<span><strong>公司传真：&nbsp;</strong></span>
+			</div>
+			<div style="margin-bottom: 10px;font-size: 14px;">
+				<span><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮 编：</strong></span>
+			</div>
+			<div style="margin-bottom: 10px;font-size: 14px;">
+				<span><strong>公司电话：</strong></span>
+			</div >
+			<div style="margin-bottom: 10px;font-size: 14px;">
+				<span><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮 箱：</strong></span>
+			</div>
+			<div style="margin-bottom: 10px;font-size: 14px;">
+				<span><strong>&nbsp;联系QQ：</strong></span>
+			</div>
+			<div style="margin-bottom: 10px;font-size: 14px;">
+				<span><strong>战凯淘宝店：</strong></span>
+			</div>
+         </div>
+	   </div>
+	   
+	   
+	   
+	   
+        <div class="row  " style="border: 1px solid #adadad;height: 280px;background-color: #ffffff;margin-bottom:5px;">
+	        <div class="indextitle" style="border-bottom:1px  dashed  #005c2e;margin-right: 10px;margin-left: 10px;">
+				<span>留言给战凯</span> 
+            </div>
+            
+            <div style="margin-left: 20px;">
+           
+			<div class="row">
+				<div class="col-md-3" style="height:23px; line-height:23px;width:210px;float:left;margin-bottom:4px;">
+					<div class="">姓名：</div>
+					<input class="" id="reqName" name="姓名" type="text" size="14" maxlength="50" value="">
+					<font style="color:red;margin-left:5px">*</font>
+				</div>
+				
+				<div class="col-md-3" style="height:23px; line-height:23px;width:210px;float:left;margin-bottom:4px;">
+					<div class="">电子邮件：</div>
+					<input class="" id="reqEmail" name="电子邮件" type="text" size="14" maxlength="50">
+				</div>
+				
+				
+				<div class="col-md-3" style="height:23px; line-height:23px;width:210px;float:left;margin-bottom:4px;">
+				
+					<div class="">联系电话：</div>
+					<input class="" id="reqPhone" name="联系电话" type="text" size="14" maxlength="50">
+			    </div>
+		    </div>
+		    
+		    
+			<div class=""style="margin-top: 20px;">
+				<div style="margin-bottom:4px;">
+					
+									<div class="">内容：</div>
+								
+									<div>
+										<textarea class="" id="reqContent" rows="3" cols="50" style="width:87%;" maxlength="1000">
+										</textarea>
+									</div>
+								
+				</div>
+				<div class=""style="height:24px; line-height:24px; width:210px;float:left;margin-bottom:4px;">
+								<div class="">验证码：
+									
+										<div style="width:180px">
+											<input class="" id="msgSubmitCaptcha" style="width:40px" type="text" maxlength="4">
+										</div>
+										<div style="">
+											<img alt="" onclick="Site.changeMsgSubmitValidateCode(390)" title="看不清，换一张" id="msgSubmitCaptchaImg" style="height:24px;width:80px;cursor:pointer" src="./福州战凯军科贸易有限公司联系我们_files/validateCode.jsp">
+										</div>
+									
+								</div>
+						</div>
+			   <div class="">
+					<div style="">
+					<input class="" extclass="g_ibutton" type="button" onclick="Site.msgSubmitAddMsg(false, 390)" value="提交留言">
+					<span class="" style="padding-left:5px;_float:none;">留言需管理员审核后才会在网页中显示</span>
+					</div>
+				
+			  </div>
+			</div>
+						
+					
+			</div>
+	   
 	   </div>
    
    </div>
@@ -157,4 +241,3 @@ function change(id){
 
 
 </div>
-<script src="/ShopSys/js/front/productsShow.js" type="text/javascript"></script>

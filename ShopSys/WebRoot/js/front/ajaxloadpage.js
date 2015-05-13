@@ -27,3 +27,8 @@ function loadPage(hash){
 function loaddata(id){
    		//$("#id").val(id);
 }
+
+function changeTitle(title){
+	$("#title").val(title);
+	$(window).hashchange();
+}

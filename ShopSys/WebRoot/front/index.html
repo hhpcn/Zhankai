@@ -9,15 +9,21 @@
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta name="renderer" content="webkit">
 
-<link  rel="stylesheet" type="text/css" href="/ShopSys/css/front/navheader.css"/>	
+	
 <link rel="stylesheet" type="text/css" href="/ShopSys/css/front/footer.css"/>
 <link rel="stylesheet" type="text/css" href="/ShopSys/common/bootstrap3/css/bootstrap.min.css"/>
+<link  rel="stylesheet" type="text/css" href="/ShopSys/css/front/navheader.css"/>	
 
 
 	
 </head>
 <body style="font-family: '微软雅黑','宋体';">
 <div id="web" style="background-image:url(/ShopSys/image/backgroundImg/lh.png);">
+ <!-- 隐藏的数据区域 -->
+  <div style="">
+  	<input id="title"></input>
+  </div>
+  
   
  <!--  第一块 -->
  <div id="myheader">
@@ -44,33 +50,34 @@
 						</li>
 						<li class="" _t_nav="introduction">
 							<h2>
-								<a href="http://weixin.qcloud.com/market">关于我们</a>
+								<a href="#page/introduct" onclick="changeTitle('关于我们')">关于我们</a>
 							</h2>
 						</li>
 						<li class="" _t_nav="ZHXLQC">
 							<h2>
-								<a href="#page/productsShow">指挥训练器材</a>
+								<a href="#page/productsShow" onclick="changeTitle('指挥训练器材')">指挥训练器材</a>
 							</h2>
 						</li>
 						
 						<li _t_nav="BGWJ">
 							<h2>
-								<a href="http://sc.chinaz.com/?wiki.php">办公文具</a>
+								<a href="#page/productsShow" onclick="changeTitle('办公文具')">办公文具</a>
 							</h2>
 						</li>
 						<li _t_nav="sports">
 							<h2>
-								<a href="http://sc.chinaz.com/?wiki.php">体育用品</a>
+								<a href="#page/productsShow" onclick="changeTitle('体育用品')">体育用品</a>
 							</h2>
 						</li>
 						<li class="" _t_nav="JQRYP">
 							<h2>
-								<a href="#page/producttupian">节庆日用品</a>
+								<a href="#page/producttupian" onclick="changeTitle('节庆日用品')">节庆日用品</a>
+
 							</h2>
 						</li>
 						<li _t_nav="newProduct">
 							<h2>
-								<a href="http://sc.chinaz.com/?wiki.php">新品推荐</a>
+								<a href="#page/productsShow" onclick="changeTitle('新品推荐')">新品推荐</a>
 							</h2>
 						</li>
 						
@@ -86,21 +93,21 @@
 					<dl style="margin-left: 100px;">
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">关于战凯</a>
+							<a hotrep="hp.header.product.compute1" href="#page/introduct" onclick="changeTitle('关于战凯')">关于战凯</a>
 						</dd>
 						
 					</dl>
 					<dl style="margin-left: 100px;">
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">战凯宗旨</a>
+							<a hotrep="hp.header.product.compute1" href="#page/introduct" onclick="changeTitle('战凯宗旨')">战凯宗旨</a>
 						</dd>
 						
 					</dl>
 					<dl style="margin-left: 100px;">
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">联系战凯</a>
+							<a hotrep="hp.header.product.compute1" href="#page/callZK" onclick="changeTitle('联系战凯')">联系战凯</a>
 						</dd>
 						
 					</dl>
@@ -114,52 +121,52 @@
 					<dl style="margin-left: 100px;">
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">指挥尺</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('指挥尺')">指挥尺</a>
 						</dd>
 						
 					</dl>
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">蛇尺曲线板</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('蛇尺曲线板')">蛇尺曲线板</a>
 						</dd>
 					</dl>
 					
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">迷彩箱包</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('迷彩箱包')">迷彩箱包</a>
 						</dd>
 					</dl>
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.devtool1" href="http://sc.chinaz.com/?product/product.php?item=mna">靶纸靶板</a>
+							<a hotrep="hp.header.product.devtool1" href="#page/productsShow" onclick="changeTitle('靶纸靶板')">靶纸靶板</a>
 						</dd>
 						
 				</dl>
 				<dl>	
 					<dd>
-						<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">标图画笔</a>
+						<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('标图画笔')">标图画笔</a>
 					</dd>
 			   </dl>
 					<dl>
 					
 					<dd>
-						<a hotrep="hp.header.product.service1" href="http://sc.chinaz.com/?special/security.php">检查镜</a>
+						<a hotrep="hp.header.product.service1" href="#page/productsShow" onclick="changeTitle('检查镜')">检查镜</a>
 					</dd>
 					
 				</dl>
 				
 				<dl>
 					<dd>
-						<a hotrep="hp.header.product.service1" href="http://sc.chinaz.com/?special/security.php">行军桌椅</a>
+						<a hotrep="hp.header.product.service1" href="#page/productsShow" onclick="changeTitle('行军桌椅')">行军桌椅</a>
 					</dd>
 					
 				</dl>
 				<dl>
 					<dd>
-						<a hotrep="hp.header.product.service1" href="http://sc.chinaz.com/?special/security.php">其他器材</a>
+						<a hotrep="hp.header.product.service1" href="#page/productsShow" onclick="changeTitle('其他器材')">其他器材</a>
 					</dd>
 					
 				</dl>
@@ -173,34 +180,34 @@
 					<dl style="margin-left: 150px;">
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">得力文具</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('得力文具')">得力文具</a>
 						</dd>
 						
 					</dl>
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">金丝猴文具</a>
-						</dd>
-					</dl>
-					
-					<dl>
-						
-						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">晨光文具</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('金丝猴文具')">金丝猴文具</a>
 						</dd>
 					</dl>
 					
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">美术书法用品</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('晨光文具')">晨光文具</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('美术书法用品')">美术书法用品</a>
 						</dd>
 					</dl>
 	                <dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">其他</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('其他')">其他</a>
 						</dd>
 					</dl>
 	   
@@ -214,34 +221,34 @@
 					<dl style="margin-left: 150px;">
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">球类</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('球类')">球类</a>
 						</dd>
 						
 					</dl>
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">护具</a>
-						</dd>
-					</dl>
-					
-					<dl>
-						
-						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">健身</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('护具')">护具</a>
 						</dd>
 					</dl>
 					
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">棋牌类</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('健身器材')">健身器材</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('棋牌类')">棋牌类</a>
 						</dd>
 					</dl>
 	                <dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">其他</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('其他')">其他</a>
 						</dd>
 					</dl>
 	   
@@ -255,34 +262,34 @@
 					<dl style="margin-left: 150px;">
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">灯笼彩纸类</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('灯笼彩纸类')">灯笼彩纸类</a>
 						</dd>
 						
 					</dl>
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">日用品</a>
-						</dd>
-					</dl>
-					
-					<dl>
-						
-						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">日用五金</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('日用品')">日用品</a>
 						</dd>
 					</dl>
 					
 					<dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">电脑耗材</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('日用五金')">日用五金</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('电脑耗材')">电脑耗材</a>
 						</dd>
 					</dl>
 	                <dl>
 						
 						<dd>
-							<a hotrep="hp.header.product.compute1" href="http://sc.chinaz.com/?product/product.php?item=cvm">其他</a>
+							<a hotrep="hp.header.product.compute1" href="#page/productsShow" onclick="changeTitle('其他')">其他</a>
 						</dd>
 					</dl>
 	   
@@ -294,7 +301,7 @@
 			
 
     <div style="height:380;margin:0 auto;">
-    <div id="myCarousel" class="carousel slide" style="height:380;width:100%;margin:0 auto;">
+    <div id="myCarousel" class="carousel slide" style="height:380;width:998px;margin:0 auto;">
    <!-- 轮播（Carousel）指标 -->
    <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -304,12 +311,12 @@
    <!-- 轮播（Carousel）项目 -->
   <div class="carousel-inner">
 
-     <div class="item active" style="height:380;margin:0 auto;width:1366px;">
+     <div class="item active" style="height:380;margin:0 auto;width:998px;">
         <img style="height:380px;width:1440px;" src="/ShopSys/image/titleImg/FPeople.png" alt="First slide">
      </div>
      
 
-     <div class="item" style="height:380;margin:0 auto;width:1366px;">
+     <div class="item" style="height:380;margin:0 auto;width:998px;">
         <img style="height:380px;width:1440px;" src="/ShopSys/image/titleImg/TPeople.png" alt="Forth slide">
      </div>
   </div>
@@ -344,7 +351,7 @@
     		<a href="#page/mainIndex">首页</a>
     		</span>
     		<span >|</span>
-    		<span class="mylink"><a href="www.baidu.com">关于我们</a></span>
+    		<span class="mylink"><a href="#page/introduct">关于我们</a></span>
     		<span class="myline">|</span>
     		<span class="mylink"><a href="www.baidu.com">联系我们</a></span>
     		<span >|</span>

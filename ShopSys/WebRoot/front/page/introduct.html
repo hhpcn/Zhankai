@@ -23,16 +23,7 @@
 
 </style>
 
-<script  type="text/javascript">
-$(function(){
-   
-});
-function change(id){
-  $("li").removeClass("active");
-  $("#"+id).addClass("active");
-}
 
-</script>
 
 
 <div style="margin:0 auto;">
@@ -41,8 +32,8 @@ function change(id){
    
     
    <div class="col-md-3 " >
-     <div class="row  " style="margin-right:-10px;height: 600px;background-color: #ffffff;border: 1px solid #adadad;">
-        <div class="col-md-12  " style="margin-bottom:10px;height: 120px;background-color: #ffffff;" >
+     <div class="row img-rounded" style="margin-right:-10px;height: 600px;background-color: #ffffff;border: 1px solid #adadad;">
+        <div class="col-md-12 img-rounded" style="margin-bottom:10px;height: 120px;background-color: #ffffff;" >
              <div class="indextitle" style="border-bottom:1px  dashed  #005c2e;margin-right: 10px;">
 				<span>最新公告</span>
             </div>
@@ -62,7 +53,7 @@ function change(id){
 					<td class="formMiddleCenter formMiddleCenter394" valign="top">
 						<div class="formMiddleContent formMiddleContent394  ">
 							<div class="searchBox"><div class="searchBoxContainer" style="">
-								<input class="productSearch g_itext ui-autocomplete-input" placeholder="" size="20" value="" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+								<input class="productSearch g_itext ui-autocomplete-input" placeholder="" size="10" value="" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
 								<a class="g_btn searchBoxBtn" href="javascript:;" onclick="Site.searchProduct(394);">
 									<span>搜索</span>
 								</a>
@@ -128,24 +119,15 @@ function change(id){
         </div>
      </div>
    </div>
-   <div class="col-md-9  " style=" height: 600px;">
-	   <div class="row  " style="margin-bottom:10px;border: 1px solid #adadad;height: 300px;background-color: #ffffff;" >
-       <ul class="nav nav-tabs">
-		   <li id="chi" class="active"><a href="#chi" onclick="change('chi')">指挥尺</a></li>
-		   <li id="she"><a href="#she" onclick="change('she')">蛇尺曲线板</a></li>
-		   <li id="xiang"><a href="#xiang" onclick="change('xiang')">迷彩箱包</a></li>
-		   <li id="ba"><a href="#ba" onclick="change('ba')">靶纸靶板</a></li>
-		   <li id="huabi"><a href="#huabi"  onclick="change('huabi')">标图画笔</a></li>
-		   <li id="jian"><a href="#jian"onclick="change('jian')">检查镜</a></li>
-		   <li id="qita"><a href="#qita" onclick="change('qita')">其他</a></li>
-		   
-	   </ul>
-       </div>
+   
+   
+   
+   <div class="col-md-9 img-rounded" style=" height: 600px;">
+	   
        
-       
-	   <div class="row  " style="border: 1px solid #adadad;height:290px;background-color: #ffffff;">
+	   <div class="row img-rounded" style="border: 1px solid #adadad;height: 490px;background-color: #ffffff;">
 	        <div class="indextitle" style="border-bottom:1px  dashed  #005c2e;margin-right: 10px;margin-left: 10px;">
-				<span id="cpzs">产品展示</span> 
+				<span id="aboutUs">关于我们</span> 
             </div>
 	   </div>
    
@@ -157,4 +139,6 @@ function change(id){
 
 
 </div>
-<script src="/ShopSys/js/front/productsShow.js" type="text/javascript"></script>
+
+
+<script src="/ShopSys/js/front/introductCT.js" type="text/javascript"></script>
