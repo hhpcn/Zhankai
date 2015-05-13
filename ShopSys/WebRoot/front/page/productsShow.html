@@ -2,6 +2,7 @@
    <link rel="stylesheet" type="text/css" href="/ShopSys/css/front/footer.css"/>
   <link rel="stylesheet" type="text/css" href="/ShopSys/common/bootstrap3/css/bootstrap.min.css"/>  
    <link  rel="stylesheet" type="text/css" href="/ShopSys/css/front/navheader.css"/> 
+   
 <style>
    .divTfont{
 		font-size: 16px;
@@ -218,13 +219,11 @@ function change(id){
 	   </div>
    
    </div>
-       
-	  <!--  <div class="row  " style="border: 1px solid #adadad;height:290px;background-color: #ffffff;">
-	        <div class="indextitle" style="border-bottom:1px  dashed  #005c2e;margin-right: 10px;margin-left: 10px;">
-				<span id="cpzs">产品展示</span> 
-            </div>
-	   </div> -->
-   
+     <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+          	<ul style="float:left;" id="pagination-demo" class="pagination"></ul>
+          </div>
+  	 </div>
    </div>
    
    </div>
@@ -233,4 +232,18 @@ function change(id){
 
 
 </div>
+<script src="/ShopSys/js/front/jquery.twbsPagination.min.js" type="text/javascript"></script>
 <script src="/ShopSys/js/front/productsShow.js" type="text/javascript"></script>
+  	 <script type="text/javascript">
+  	 	$('#pagination-demo').twbsPagination({
+	        totalPages: 35,
+	        visiblePages: 7,
+	        first:"首页",
+	        prev:"上一页",
+	        next:"下一页",
+	        last:"尾页",
+	        onPageClick: function (event, page) {
+	            $('#page-content').text('Page ' + page);
+	        }
+         });
+  	 </script>
