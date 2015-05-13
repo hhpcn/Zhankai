@@ -23,7 +23,16 @@
 
 </style>
 
+<script  type="text/javascript">
+$(function(){
+   
+});
+function change(id){
+  $("li").removeClass("active");
+  $("#"+id).addClass("active");
+}
 
+</script>
 
 
 <div style="margin:0 auto;">
@@ -120,61 +129,21 @@
      </div>
    </div>
    <div class="col-md-9  " style=" height: 600px;">
-	   <div class="row  " style="margin-bottom:10px;border: 1px solid #adadad;height: 100px;background-color: #ffffff;" >
-        <div >
-				
-				<div  class="indextitle" style="padding-top: 5px;border-bottom:1px  dashed  #005c2e;margin-right: 10px;margin-left: 10px;"><span >产品分类</span></div>
-				<div style="margin-right: 0px;margin-left: 10px;">
-				  
-                    <div class="head-v3" >
-				      <div class="navigation-up">
-					   	<div class="navigation-inner">
-				             <div class="navigation-v3" style="float:right;margin-right:30px;">
-					<ul>
-						
-						<li class="" _t_nav="intr">
-							<h2>
-								<a href="http://weixin.qcloud.com/market">关于我们</a>
-							</h2>
-						</li>
-						<li class="" _t_nav="ZHXLQC">
-							<h2>
-								<a href="#page/productsShow">指挥训练器材</a>
-							</h2>
-						</li>
-						
-						<li _t_nav="BGWJ">
-							<h2>
-								<a href="http://sc.chinaz.com/?wiki.php">办公文具</a>
-							</h2>
-						</li>
-						<li _t_nav="sports">
-							<h2>
-								<a href="http://sc.chinaz.com/?wiki.php">体育用品</a>
-							</h2>
-						</li>
-						<li class="" _t_nav="JQRYP">
-							<h2>
-								<a href="http://sc.chinaz.com/">节庆日用品</a>
-							</h2>
-						</li>
-						<li _t_nav="newProduct">
-							<h2>
-								<a href="http://sc.chinaz.com/?wiki.php">新品推荐</a>
-							</h2>
-						</li>
-						
-					</ul>
-				</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
+	   <div class="row  " style="margin-bottom:10px;border: 1px solid #adadad;height: 300px;background-color: #ffffff;" >
+       <ul class="nav nav-tabs">
+		   <li id="chi" class="active"><a href="#chi" onclick="change('chi')">指挥尺</a></li>
+		   <li id="she"><a href="#she" onclick="change('she')">蛇尺曲线板</a></li>
+		   <li id="xiang"><a href="#xiang" onclick="change('xiang')">迷彩箱包</a></li>
+		   <li id="ba"><a href="#ba" onclick="change('ba')">靶纸靶板</a></li>
+		   <li id="huabi"><a href="#huabi"  onclick="change('huabi')">标图画笔</a></li>
+		   <li id="jian"><a href="#jian"onclick="change('jian')">检查镜</a></li>
+		   <li id="qita"><a href="#qita" onclick="change('qita')">其他</a></li>
+		   
+	   </ul>
        </div>
        
        
-	   <div class="row  " style="border: 1px solid #adadad;height: 490px;background-color: #ffffff;">
+	   <div class="row  " style="border: 1px solid #adadad;height:290px;background-color: #ffffff;">
 	        <div class="indextitle" style="border-bottom:1px  dashed  #005c2e;margin-right: 10px;margin-left: 10px;">
 				<span id="cpzs">产品展示</span> 
             </div>
