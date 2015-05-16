@@ -38,5 +38,5 @@ function loadPage(hash){
 
 function changeTitle(title){
 	$("#title").val(title);
-	hashChangeFire();
+	//hashChangeFire();
 }
