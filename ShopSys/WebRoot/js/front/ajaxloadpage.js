@@ -1,24 +1,16 @@
 $(function(){
-	//
 	
-       $(window).hashchange( function(){
-            var defaulthash="#page/mainIndex";
-            var hash=location.hash.toString();
-            if(hash==""){
-            	hash=defaulthash;
-            }
-            hash=hash.replace("#", "");
-       		loadPage(hash);
-        });
-        $(window).hashchange();
-        
-	//window.addEventListener("hashchange", loadPageByhash(), false);    
+	//头尾加载完后立马加载中间部分
+	hashChangeFire();
+	 $(window).hashchange( function(){
+		 hashChangeFire();
+	});
         
         
        
    });
 //根据hash值触发加载界面事件
-function loadPageByhash(){
+function hashChangeFire(){
 	var defaulthash="#page/mainIndex";
     var hash=window.location.hash;
     if(hash==""){
@@ -36,16 +28,15 @@ function loadPage(hash){
 			  url: loadUrl,
 			  cache: false,
 			  success: function(result){
+				  
 			    $("#mymaincontainer").empty().html(result);
 		      }
 		});
 } 
 
-function loaddata(id){
-   		//$("#id").val(id);
-}
+
 
 function changeTitle(title){
 	$("#title").val(title);
-	loadPageByhash();
+	hashChangeFire();
 }

@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/ShopSys/common/bootstrap3/MSClass.js" type="text/javascript"></script>
+<script src="/ShopSys/js/front/MSClass.js" type="text/javascript"></script>
  <style>
 	.indextitle{
 		font-size: 15px;
@@ -149,8 +149,8 @@
 	<!--images begin-->
 	<div class="col-md-12">
 		<div class="tu">
-			<div id="marqueediv7" style="overflow: hidden;">
-			<table style="border-collapse:collapse;display:inline;" cellpadding="0" cellspacing="0">
+		  <div  id="marqueediv7" style="overflow: hidden;">
+			<table style="border-collapse:collapse;display:inline;" >
 			    <tr>
 					<td align="center" valign="middle">
 						<a target="_blank" href="#page/productsDetail">
@@ -220,13 +220,15 @@
 					
 				</tr>
 			</table>
-			</div>
+		  </div>
 		</div>
 	</div>
-	<script type="text/javascript">
-	    new Marquee("marqueediv7", 2, 1, 960, 130, 20, 0, 0)
-	</script>
+
 </div>
+<script type="text/javascript">
+	 var Marquee1=new Marquee("marqueediv7", 2,2,960,130,30,0,1000,52);
+	 Marquee1.SwitchType = 1;
+</script>
 <!-- 图片滚动结束 -->
 
 
@@ -265,6 +267,12 @@
 </div>
 <!-- 介绍结束  -->
 </div>
+
+
+
+
+
+
 
 
 
