@@ -233,7 +233,7 @@ li {
 	top: 0;
 	height: 92px;
 	width: 28px;
-	margin: 0px;
+	margin-top: 12px;
 	background: url(/ShopSys/image/DetailImg/album-arrow.png) 0 0 no-repeat;
 	cursor: pointer;
 }
@@ -393,7 +393,7 @@ $(function(){
 		$ul=$('#smallImg-ul'),//小图外层
 		$imgLi=$ul.find('li'),//小图li
 		html=_html='';//存放载入的代码		
-	$('#detailImg-box').append('<a href=\"'+img[0].href+'\" class=\"detailImg_1\"><img alt=\"'+img[0].alt+'\" src=\"'+img[i].src+'\"></a><p>'+img[i].title+'</p>');
+	$('#detailImg-box').append('<a href=\"'+img[0].href+'\" class=\"detailImg_1\"><img alt=\"'+img[0].alt+'\" src=\"'+img[i].src+'\"></a><p>');
 	//大图	
 	$('#detailImg-next').click(function(){
 		++i;
