@@ -9,16 +9,31 @@ import com.shopsys.common.JqgridUtil;
 import com.shopsys.personnel.model.User;
 import com.shopsys.productmanage.model.Category;
 import com.shopsys.productmanage.service.CategoryService;
+import com.shopsys.productmanage.service.KindService;
 import com.xmut.base.BaseAction;
 
 public class CategoryAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 	private CategoryService categoryService;
+	private KindService kindService;
 	private Category category;
 	
 	private String  categoryName;
 	private String pageUrl;
+	
+	
+	/**
+	 * 列出所有的可选栏目
+	 * @return
+	 */
+	public String listCategoryForKind() {
+		dataMap=new HashMap<String, Object>();
+		List<Category> categories =categoryService.listByClassName(Category.class);
+		dataMap.put("rows", categories);
+		return "list";
+	}
+	
 	
 	
 	
@@ -78,6 +93,8 @@ public class CategoryAction extends BaseAction {
 				flag=true;
 				
 			}else if ("del".equalsIgnoreCase(oper)) {
+				
+				kindService.deleteByHQL("delete Kind Where categoryId in ("+id+")");
 				categoryService.deleteByClassAndIds(Category.class, intIds);
 				flag=true;
 			}
@@ -114,9 +131,14 @@ public class CategoryAction extends BaseAction {
 	public String getPageUrl() {
 		return pageUrl;
 	}
-
 	public void setPageUrl(String pageUrl) {
 		this.pageUrl = pageUrl;
+	}
+	public KindService getKindService() {
+		return kindService;
+	}
+	public void setKindService(KindService kindService) {
+		this.kindService = kindService;
 	}
 	
 	

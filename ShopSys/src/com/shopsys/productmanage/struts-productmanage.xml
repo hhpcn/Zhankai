@@ -7,6 +7,8 @@
 		</action>
 		<action name="categoryAction_*" class="categoryAction" method="{1}">
 		</action>
+		<action name="kindAction_*" class="kindAction" method="{1}">
+		</action>
 	</package>
 </struts> 
  

@@ -18,22 +18,39 @@
     
     <!-- 产品管理 -->
     <bean id="productService" class="com.shopsys.productmanage.serviceimpl.ProductServiceImpl" parent="baseService"></bean>
-    
-    <bean id="productAction" class="com.shopsys.productmanage.action.ProductAction" parent="baseAction">
+     <bean id="productAction" class="com.shopsys.productmanage.action.ProductAction" parent="baseAction">
     	<property name="productService">
         	<ref bean="productService"/>
+        </property>
+        <property name="categoryService">
+        	<ref bean="categoryService"/>
+        </property>
+        <property name="kindService">
+        	<ref bean="kindService"/>
         </property>
     </bean>
     
      <!-- 父类别管理（栏目管理）-->
     <bean id="categoryService" class="com.shopsys.productmanage.serviceimpl.CategoryServiceImpl" parent="baseService"></bean>
-    
     <bean id="categoryAction" class="com.shopsys.productmanage.action.CategoryAction" parent="baseAction">
     	<property name="categoryService">
         	<ref bean="categoryService"/>
         </property>
+        <property name="kindService">
+        	<ref bean="kindService"/>
+        </property>
     </bean>
     
+       <!-- 子类别管理（kind管理）-->
+    <bean id="kindService" class="com.shopsys.productmanage.serviceimpl.KindServiceImpl" parent="baseService"></bean>
+    <bean id="kindAction" class="com.shopsys.productmanage.action.KindAction" parent="baseAction">
+    	<property name="kindService">
+        	<ref bean="kindService"/>
+        </property>
+        <property name="categoryService">
+        	<ref bean="categoryService"/>
+        </property>
+    </bean>
     
     
 </beans>
