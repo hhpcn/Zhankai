@@ -118,408 +118,423 @@ function change(id){
 
 
    
-   <div class="col-md-9  " style=" min-height: 800px;background-color: #ffffff;border: 1px solid #000000;">
+   <div class="col-md-9  " style=" min-height: 900px;background-color: #ffffff;border: 1px solid #000000;">
      <div class="row">
 	       <div class="col-md-12">
-	        <div style="float:left;border: 1px solid #000000;min-height: 430px;width:60%;margin-top: 10px;margin-left: 10px;">
+	       
+	       <div style="border-bottom:1px  dashed  #005c2e;min-height: 30px;margin-left: 10px;margin-right: 10px; ">
+		       <ol class="breadcrumb" style="margin-bottom:0px;background-color: #fff">
+				  <li><a href="#">
+				  <img  height="25" src=" /ShopSys/image/backgroundImg/home.png" href="#page/mainIndex" alt="shouye">
+				  </a></li>
+				  <li><a href="#page/productsShow" style="font-size: 14px;">训练指挥器材</a></li>
+				  <li class="active" style="font-size: 14px;">标图画笔</li>
+				</ol>
+		      
+		       
+		   </div>
+	       
+	   <div style="float:left;min-height: 430px;width:60%;margin-top: 10px;margin-left: 10px;">
 	          
-<style>
-/*base*/
-ul,
-li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.clearfix:before,
-.clearfix:after {
-	content: " ";
-	display: table;
-}
-.clearfix:after {
-	clear: both;
-}
-.clearfix {
- *zoom: 1;
-}
-/*main*/
-.imgContainer {
-	width: 400px;
-	margin: 10px auto;
-	padding: 0px;
-	box-shadow: 1px 0 6px 0 rgba(180, 180, 180, 0.4);
-}
-.imgUl {
-	position: relative;
-	width:350px;
-}
-.box {
-	width: 400px;
-	margin-left: 0px;
-	overflow: hidden;
-}
-.detailImg,
-.smallImg {
-	position: relative;
-}
-/*detailImg*/
-#detailImg-box {
-	min-height: 400px;
-}
-.detailImg {
-	text-align: center;
-}
-.detailImg img {
-	max-width:400px;
-	height:400px;
-}
-.detailImg p {
-	text-align: left;
-	color: #999;
-}
-#detailImg-pre,
-#detailImg-next {
-	position: absolute;
-	width: 30px;
-	height: 46px;
-	top: 50%;
-	background: url(/ShopSys/image/DetailImg/page_button.gif) 0 0 no-repeat;
-	cursor: pointer;
-	text-indent:-9999px;
-}
-#detailImg-pre {
-	left: 0;
-	background-position: -35px 0;
-}
-#detailImg-next {
-	right: 0;
-	background-position: -99px 0;
-}
-#detailImg-pre:hover {
-	background-position: -35px -47px;
-}
-#detailImg-next:hover {
-	background-position: -99px -47px;
-}
-/*smallImg*/
-#smallImg-box {
-	height: 120px;
-
-}
-.smallImg li {
-	float: right;
-	width: 100px;
-}
-.smallImg li a {
-	display: block;
-	width: 100px;
-	height: 100px;
-	border: 3px solid #fff;
-	overflow: hidden;
-	vertical-align: middle;
-	margin: 10px auto;
-}
-.smallImg img {
-	width: 100px;
-    height:100px;
-}
-.smallImg li a:hover,
-.smallImg .cur a {
-	border-color: #F45E5E;
-}
-#smallImg-pre,
-#smallImg-next {
-	position: absolute;
-	top: 0;
-	height: 92px;
-	width: 28px;
-	margin-top: 12px;
-	background: url(/ShopSys/image/DetailImg/album-arrow.png) 0 0 no-repeat;
-	cursor: pointer;
-}
-#smallImg-pre {
-	left: 0;
-}
-#smallImg-next {
-	right: 0;
-	background-position: 0 -94px;
-}
-#smallImg-pre:hover {
-	background-position: -28px 0;
-}
-#smallImg-next:hover {
-	background-position: -28px -94px;
-}
-</style>
-
-
-<div class="imgContainer">
-	<!--大图-->
-	<div class="detailImg" > 
-		<a id="detailImg-pre">&lt;</a>
-		<div id="detailImg-box" class="box"> </div>
-		<a id="detailImg-next">&gt;</a> 
-	</div>
-	<!--小图-->
-	<div class="smallImg"> 
-		<a id="smallImg-pre"></a>
-		<div id="smallImg-box" class="box">
-			<ul id="smallImg-ul" class="imgUl">
-			</ul>
-		</div>
-		<a id="smallImg-next"></a> 
-	</div>
-</div>
-
-
-
-<script>
-var img=[
-	{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片1',
-		'src':'/ShopSys/image/DetailImg/1_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/1_s.jpg',
-		'title':'标题111'
-	},{
-		'href':'www.baidu1.com',
-		'alt':'图片2',
-		'src':'/ShopSys/image/DetailImg/2_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/2_s.jpg',
-		'title':'标题222'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片3',
-		'src':'/ShopSys/image/DetailImg/3_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/3_s.jpg',
-		'title':'标题333'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片4',
-		'src':'/ShopSys/image/DetailImg/4_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/4_s.jpg',
-		'title':'标题444'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片5',
-		'src':'/ShopSys/image/DetailImg/5_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/5_s.jpg',
-		'title':'标题555'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片6',
-		'src':'/ShopSys/image/DetailImg/6_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/6_s.jpg',
-		'title':'标题666'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片7',
-		'src':'/ShopSys/image/DetailImg/7_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/7_s.jpg',
-		'title':'标题777'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片8',
-		'src':'/ShopSys/image/DetailImg/8_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/8_s.jpg',
-		'title':'标题888'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片9',
-		'src':'/ShopSys/image/DetailImg/9_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/9_s.jpg',
-		'title':'标题999'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片10',
-		'src':'/ShopSys/image/DetailImg/10_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/10_s.jpg',
-		'title':'标题10101010'	
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片11',
-		'src':'/ShopSys/image/DetailImg/11_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/11_s.jpg',
-		'title':'标题11'
-	},{
-		'href':'www.baidu1.com',
-		'alt':'图片12',
-		'src':'/ShopSys/image/DetailImg/12_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/12_s.jpg',
-		'title':'标题12'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片13',
-		'src':'/ShopSys/image/DetailImg/13_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/13_s.jpg',
-		'title':'标题13'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片14',
-		'src':'/ShopSys/image/DetailImg/14_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/14_s.jpg',
-		'title':'标题14'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片15',
-		'src':'/ShopSys/image/DetailImg/15_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/15_s.jpg',
-		'title':'标题15'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片16',
-		'src':'/ShopSys/image/DetailImg/16_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/16_s.jpg',
-		'title':'标题16'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片17',
-		'src':'/ShopSys/image/DetailImg/17_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/17_b.jpg',
-		'title':'标题17'
-	}
-]
-
-$(function(){
-
-	var i=0,//大图编号
-		len=img.length,//img数组的长度
-		cur=0;//当前图片编号
-		j=3,//默认显示小图个数
-		page=0,//小图的页码
-		$s_next=$('#smallImg-next'),//小图下一页
-		$s_pre=$('#smallImg-pre'),//小图上一页
-		box=$('#smallImg-box').width(),//显示的长度
-		$ul=$('#smallImg-ul'),//小图外层
-		$imgLi=$ul.find('li'),//小图li
-		html=_html='';//存放载入的代码		
-	$('#detailImg-box').append('<a href=\"'+img[0].href+'\" class=\"detailImg_1\"><img alt=\"'+img[0].alt+'\" src=\"'+img[i].src+'\"></a><p>');
-	//大图	
-	$('#detailImg-next').click(function(){
-		++i;
-		detailImg_click($s_next,i,len);
-	})
-	$('#detailImg-pre').click(function(){
-		--i;
-		detailImg_click($s_pre,i,len);
-	})
-	//小图
-	for(var k=0;k<j;k++){
-		var _k=k%len;
-		s_html(_k);
-		html+=h;
-	}
-	$ul.append(html);
-	$('.smallImg_1').addClass('cur');	
-	
-	//小图下一页
-	$('#smallImg-next').click(function(){
-		if(!$ul.is(':animated')){
-			page++;
-			var a=page*j,_a,c;
-			for(var k=0;k<j;k++,a++){
-				smallImg_click(a,_a,len,i);
-				_html+=h;
+			<style>
+			/*base*/
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
 			}
-			$ul.append(_html);
-			$ul.css({'left':0,'right':'auto'});
-			$ul.animate({left:-box},1600,function(){
-				$ul.find('li:lt('+j+')').detach();
-				$ul.css('left',0);
-				_html='';
-			});//动画执行后,再删除前9个li,将left设回0
-			$('#smallImg-ul li').click(function(){//三处一样，不知道这个要怎么优化？？？
-				var _this=$(this);
-				i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
-				img_info(i);
-				s_a_r(_this,'cur');
-				cur=i;
-			})
-		}
-	})
-	//小图上一页
-	$('#smallImg-pre').click(function(){
-		if(!$ul.is(':animated')){
-			page--;
-			var a=(page-1)*j,_a,c;
-			for(var k=0;k<j;k++,a--){
-				smallImg_click(a,_a,len,i);
-				_html=h+_html;
+			.clearfix:before,
+			.clearfix:after {
+				content: " ";
+				display: table;
 			}
-			$ul.prepend(_html).css({'right':box,'left':'auto'});
-			$ul.animate({right:0},1600,function(){
-				$ul.find('li:gt('+(j-1)+')').detach();//删除后9个li,从8开始
-				_html='';
-			});
-			$('#smallImg-ul li').click(function(){
-				var _this=$(this);
-				i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
-				img_info(i);
-				s_a_r(_this,'cur');
-				cur=i;
-			})
-		}
+			.clearfix:after {
+				clear: both;
+			}
+			.clearfix {
+			 *zoom: 1;
+			}
+			/*main*/
+			.imgContainer {
+				width: 500px;
+				margin: 0px auto;
+				padding: 0px;
+				box-shadow: 1px 0 6px 0 rgba(180, 180, 180, 0.4);
+			}
+			.imgUl {
+				position: relative;
+				width:400px;
+			}
+			.box {
+				width: 500px;
+				
+				overflow: hidden;
+			}
+			.detailImg,
+			.smallImg {
+				position: relative;
+			}
+			/*detailImg*/
+			#detailImg-box {
+				min-height: 400px;
+				margin-left: 0px;
+			}
+			.detailImg {
+				text-align: center;
+			}
+			.detailImg img {
+				max-width:500px;
+				height:500px;
+			}
+			.detailImg p {
+				text-align: left;
+				color: #999;
+			}
+			#detailImg-pre,
+			#detailImg-next {
+				position: absolute;
+				width: 30px;
+				height: 46px;
+				top: 50%;
+				background: url(/ShopSys/image/DetailImg/page_button.gif) 0 0 no-repeat;
+				cursor: pointer;
+				text-indent:-9999px;
+			}
+			#detailImg-pre {
+				left: 0;
+				background-position: -35px 0;
+			}
+			#detailImg-next {
+				right: 0;
+				background-position: -99px 0;
+			}
+			#detailImg-pre:hover {
+				background-position: -35px -47px;
+			}
+			#detailImg-next:hover {
+				background-position: -99px -47px;
+			}
+			/*smallImg*/
+			#smallImg-box {
+				height: 120px;
+				margin-left: 30px;
 			
-	})
-	//点击小图
-	$('#smallImg-ul li').click(function(){
-		var _this=$(this);
-		i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
-		img_info(i);
-		s_a_r(_this,'cur');
-		cur=i;
-	})
-})
-
-
-
-//大图图片信息
-function img_info(i){
-	var href=img[i].href,
-		alt=img[i].alt,
-		src=img[i].src,
-		title=img[i].title,
-		$main=$('#detailImg-box');
-	$main.find('a').attr({'href':href,'class':'detailImg_'+(i+1)});
-	$main.find('img').attr({'alt':alt,'src':src});
-	$main.find('p').text(title);
-}
-function s_a_r(o,c){
-	o.addClass(c).siblings().removeClass(c);	
-}
-//大图左右点击
-function i_cur(i,len){
-	i=i%len;
-	if(i<0){
-		i=len+i;
-	}
-	return i;	
-}
-function detailImg_click($pn,i,len){
-	i_cur(i,len);
-	img_info(i);
-	var imgCur=$('.smallImg_'+(i+1));
-	if(!imgCur.html()){
-		$pn.click();
-	} 
-	s_a_r($('.smallImg_'+(i+1)),'cur');//小图选中
-}
-//小图左右点击
-function smallImg_click(a,_a,len,i){
-	_a=a;
-	_a=a%len;
-	if(_a<0){
-		_a+=len;
-	}
-	c=_a==i?'cur':'';
-	s_html(_a,c);
-}
-function s_html(_a,c){
-	return h='<li class=\"smallImg_'+(_a+1)+' '+c+'\"><a><img   alt=\"'+img[_a].alt+'\" src=\"'+img[_a].smallSrc+'\"></a></li>';
-}
-
-
-</script>
+			}
+			.smallImg li {
+				float: right;
+				width: 90px;
+			}
+			.smallImg li a {
+				display: block;
+				width: 90px;
+				height: 90px;
+				border: 3px solid #fff;
+				overflow: hidden;
+				vertical-align: middle;
+				margin: 10px auto;
+			}
+			.smallImg img {
+				width: 90px;
+			    height:90px;
+			}
+			.smallImg li a:hover,
+			.smallImg .cur a {
+				border-color: #F45E5E;
+			}
+			#smallImg-pre,
+			#smallImg-next {
+				position: absolute;
+				top: 0;
+				height: 92px;
+				width: 28px;
+				margin-top: 12px;
+				background: url(/ShopSys/image/DetailImg/album-arrow.png) 0 0 no-repeat;
+				cursor: pointer;
+			}
+			#smallImg-pre {
+				left: 0;
+			}
+			#smallImg-next {
+				right: 0;
+				background-position: 0 -94px;
+			}
+			#smallImg-pre:hover {
+				background-position: -28px 0;
+			}
+			#smallImg-next:hover {
+				background-position: -28px -94px;
+			}
+			</style>
+			
+			
+			<div class="imgContainer">
+				<!--大图-->
+				<div class="detailImg" > 
+					<a id="detailImg-pre">&lt;</a>
+					<div id="detailImg-box" class="box"> </div>
+					<a id="detailImg-next">&gt;</a> 
+				</div>
+				<!--小图-->
+				<div class="smallImg"> 
+					<a id="smallImg-pre"></a>
+					<div id="smallImg-box" class="box">
+						<ul id="smallImg-ul" class="imgUl">
+						</ul>
+					</div>
+					<a id="smallImg-next"></a> 
+				</div>
+			</div>
+			
+			
+			
+			<script>
+			var img=[
+				{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片1',
+					'src':'/ShopSys/image/DetailImg/1_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/1_s.jpg',
+					'title':'标题111'
+				},{
+					'href':'www.baidu1.com',
+					'alt':'图片2',
+					'src':'/ShopSys/image/DetailImg/2_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/2_s.jpg',
+					'title':'标题222'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片3',
+					'src':'/ShopSys/image/DetailImg/3_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/3_s.jpg',
+					'title':'标题333'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片4',
+					'src':'/ShopSys/image/DetailImg/4_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/4_s.jpg',
+					'title':'标题444'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片5',
+					'src':'/ShopSys/image/DetailImg/5_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/5_s.jpg',
+					'title':'标题555'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片6',
+					'src':'/ShopSys/image/DetailImg/6_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/6_s.jpg',
+					'title':'标题666'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片7',
+					'src':'/ShopSys/image/DetailImg/7_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/7_s.jpg',
+					'title':'标题777'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片8',
+					'src':'/ShopSys/image/DetailImg/8_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/8_s.jpg',
+					'title':'标题888'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片9',
+					'src':'/ShopSys/image/DetailImg/9_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/9_s.jpg',
+					'title':'标题999'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片10',
+					'src':'/ShopSys/image/DetailImg/10_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/10_s.jpg',
+					'title':'标题10101010'	
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片11',
+					'src':'/ShopSys/image/DetailImg/11_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/11_s.jpg',
+					'title':'标题11'
+				},{
+					'href':'www.baidu1.com',
+					'alt':'图片12',
+					'src':'/ShopSys/image/DetailImg/12_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/12_s.jpg',
+					'title':'标题12'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片13',
+					'src':'/ShopSys/image/DetailImg/13_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/13_s.jpg',
+					'title':'标题13'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片14',
+					'src':'/ShopSys/image/DetailImg/14_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/14_s.jpg',
+					'title':'标题14'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片15',
+					'src':'/ShopSys/image/DetailImg/15_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/15_s.jpg',
+					'title':'标题15'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片16',
+					'src':'/ShopSys/image/DetailImg/16_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/16_s.jpg',
+					'title':'标题16'
+				},{
+					'href':'http://sc.chinaz.com/jiaoben/',
+					'alt':'图片17',
+					'src':'/ShopSys/image/DetailImg/17_b.jpg',
+					'smallSrc':'/ShopSys/image/DetailImg/17_b.jpg',
+					'title':'标题17'
+				}
+			]
+			
+			$(function(){
+			
+				var i=0,//大图编号
+					len=img.length,//img数组的长度
+					cur=0;//当前图片编号
+					j=4,//默认显示小图个数
+					page=0,//小图的页码
+					$s_next=$('#smallImg-next'),//小图下一页
+					$s_pre=$('#smallImg-pre'),//小图上一页
+					box=$('#smallImg-box').width(),//显示的长度
+					$ul=$('#smallImg-ul'),//小图外层
+					$imgLi=$ul.find('li'),//小图li
+					html=_html='';//存放载入的代码		
+				$('#detailImg-box').append('<a href=\"'+img[0].href+'\" class=\"detailImg_1\"><img alt=\"'+img[0].alt+'\" src=\"'+img[i].src+'\"></a><p>');
+				//大图	
+				$('#detailImg-next').click(function(){
+					++i;
+					detailImg_click($s_next,i,len);
+				})
+				$('#detailImg-pre').click(function(){
+					--i;
+					detailImg_click($s_pre,i,len);
+				})
+				//小图
+				for(var k=0;k<j;k++){
+					var _k=k%len;
+					s_html(_k);
+					html+=h;
+				}
+				$ul.append(html);
+				$('.smallImg_1').addClass('cur');	
+				
+				//小图下一页
+				$('#smallImg-next').click(function(){
+					if(!$ul.is(':animated')){
+						page++;
+						var a=page*j,_a,c;
+						for(var k=0;k<j;k++,a++){
+							smallImg_click(a,_a,len,i);
+							_html+=h;
+						}
+						$ul.append(_html);
+						$ul.css({'left':0,'right':'auto'});
+						$ul.animate({left:-box},1600,function(){
+							$ul.find('li:lt('+j+')').detach();
+							$ul.css('left',0);
+							_html='';
+						});//动画执行后,再删除前9个li,将left设回0
+						$('#smallImg-ul li').click(function(){//三处一样，不知道这个要怎么优化？？？
+							var _this=$(this);
+							i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
+							img_info(i);
+							s_a_r(_this,'cur');
+							cur=i;
+						})
+					}
+				})
+				//小图上一页
+				$('#smallImg-pre').click(function(){
+					if(!$ul.is(':animated')){
+						page--;
+						var a=(page-1)*j,_a,c;
+						for(var k=0;k<j;k++,a--){
+							smallImg_click(a,_a,len,i);
+							_html=h+_html;
+						}
+						$ul.prepend(_html).css({'right':box,'left':'auto'});
+						$ul.animate({right:0},1600,function(){
+							$ul.find('li:gt('+(j-1)+')').detach();//删除后9个li,从8开始
+							_html='';
+						});
+						$('#smallImg-ul li').click(function(){
+							var _this=$(this);
+							i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
+							img_info(i);
+							s_a_r(_this,'cur');
+							cur=i;
+						})
+					}
+						
+				})
+				//点击小图
+				$('#smallImg-ul li').click(function(){
+					var _this=$(this);
+					i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
+					img_info(i);
+					s_a_r(_this,'cur');
+					cur=i;
+				})
+			})
+			
+			
+			
+			//大图图片信息
+			function img_info(i){
+				var href=img[i].href,
+					alt=img[i].alt,
+					src=img[i].src,
+					title=img[i].title,
+					$main=$('#detailImg-box');
+				$main.find('a').attr({'href':href,'class':'detailImg_'+(i+1)});
+				$main.find('img').attr({'alt':alt,'src':src});
+				$main.find('p').text(title);
+			}
+			function s_a_r(o,c){
+				o.addClass(c).siblings().removeClass(c);	
+			}
+			//大图左右点击
+			function i_cur(i,len){
+				i=i%len;
+				if(i<0){
+					i=len+i;
+				}
+				return i;	
+			}
+			function detailImg_click($pn,i,len){
+				i_cur(i,len);
+				img_info(i);
+				var imgCur=$('.smallImg_'+(i+1));
+				if(!imgCur.html()){
+					$pn.click();
+				} 
+				s_a_r($('.smallImg_'+(i+1)),'cur');//小图选中
+			}
+			//小图左右点击
+			function smallImg_click(a,_a,len,i){
+				_a=a;
+				_a=a%len;
+				if(_a<0){
+					_a+=len;
+				}
+				c=_a==i?'cur':'';
+				s_html(_a,c);
+			}
+			function s_html(_a,c){
+				return h='<li class=\"smallImg_'+(_a+1)+' '+c+'\"><a><img   alt=\"'+img[_a].alt+'\" src=\"'+img[_a].smallSrc+'\"></a></li>';
+			}
+			
+			
+			</script>
 	          
 	       
 	     </div>
@@ -529,14 +544,18 @@ function s_html(_a,c){
 	        
 	        <div  style="float:right;border: 1px solid #000000;min-height: 430px;width:35%;margin-top: 10px;margin-right: 10px;">
 	        
-	        
-	        sdfsdfsd
+	        <div style="border-bottom:1px  dashed  #005c2e;margin-left: 10px;font-size: 14px;margin-top: 10px;">
+	                    <b>产品参数</b>
+	        </div>
+	       
 	        
 	        </div>
 	      </div>
 	      <div class="col-md-12">
-            <div style="border: 1px solid #000000;min-height:150px;margin-top: 0px;margin-right: 10px;margin-left: 10px; ">
-	           <div style="font-size: 16px;"><b>宝贝详情</b></div>
+            <div style="border: 1px solid #000000;min-height:200px;margin-top: 0px;margin-right: 10px;margin-left: 10px; ">
+	           <div style="border-bottom:1px  dashed  #005c2e;margin-left: 10px;font-size: 14px;margin-top: 10px;margin-right: 10px">
+	           	<b>宝贝详情</b>
+	           </div>
 	        
 	       
 	        
