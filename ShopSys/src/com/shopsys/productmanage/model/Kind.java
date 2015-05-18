@@ -1,5 +1,9 @@
 package com.shopsys.productmanage.model;
 
+/**
+ * @author hhp
+ *
+ */
 public class Kind  implements java.io.Serializable{
 	private static final long serialVersionUID = -4609134894701829240L;
 	private Integer id;
@@ -9,6 +13,11 @@ public class Kind  implements java.io.Serializable{
 	 * 父类别id
 	 */
 	private Integer categoryId;
+	private String categoryName;
+	/**
+	 * 是否发布
+	 */
+	private Boolean isPublish=false;
 	public Integer getId() {
 		return id;
 	}
@@ -32,6 +41,18 @@ public class Kind  implements java.io.Serializable{
 	}
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	public Boolean getIsPublish() {
+		return isPublish;
+	}
+	public void setIsPublish(Boolean isPublish) {
+		this.isPublish = isPublish;
 	}
 	
 	

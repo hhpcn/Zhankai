@@ -1,4 +1,9 @@
 jQuery(document).ready(function(){
+	
+	
+	
+	
+	
 		var qcloud={};
 		$('[_t_nav]').hover(
 		function(){

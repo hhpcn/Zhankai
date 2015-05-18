@@ -7,7 +7,11 @@ import java.util.Map;
 
 import com.shopsys.common.JqgridUtil;
 import com.shopsys.personnel.model.User;
+import com.shopsys.productmanage.model.Category;
+import com.shopsys.productmanage.model.Kind;
 import com.shopsys.productmanage.model.Product;
+import com.shopsys.productmanage.service.CategoryService;
+import com.shopsys.productmanage.service.KindService;
 import com.shopsys.productmanage.service.ProductService;
 import com.xmut.base.BaseAction;
 
@@ -15,6 +19,8 @@ public class ProductAction extends BaseAction {
 	
 	private static final long serialVersionUID = 7931741272037461013L;
 	private ProductService productService;
+	private CategoryService categoryService;
+	private KindService kindService;
 	private Product product;
 
 	
@@ -55,8 +61,13 @@ public class ProductAction extends BaseAction {
 			productMap.put("url", product.getUrl());
 			productMap.put("isPublish",product.getIsPublish());
 			productMap.put("createTime", product.getCreateTime());
-			productMap.put("kindName",product.getKindName());
 			productMap.put("kindId", product.getKindId());
+			Kind kind = kindService.getByClassNameAndId(Kind.class, product.getKindId());
+			if (kind!=null) {
+				productMap.put("kindName",kind.getKindName());
+			}else {
+				productMap.put("kindName","");
+			}
 			productMaps.add(productMap);
 		}
 	
@@ -69,6 +80,14 @@ public class ProductAction extends BaseAction {
 	
 	
 	public String addProduct() {
+		product.setId(null);
+		productService.saveOrUpdate(product);
+			flag=true;
+		return "flag";
+	}
+	
+	
+	public String editProduct() {
 		productService.saveOrUpdate(product);
 			flag=true;
 		return "flag";
@@ -96,6 +115,15 @@ public class ProductAction extends BaseAction {
 		product = productService.getByClassNameAndId(Product.class, Integer.parseInt(id));
 		dataMap=new HashMap<String, Object>();
 		dataMap.put("product", product);
+		
+		Kind kind=kindService.getByClassNameAndId(Kind.class, product.getKindId());
+		//所属栏目Id
+		dataMap.put("categoryId", kind.getCategoryId());
+		List<Kind> kinds= kindService.listByHQL("From Kind where categoryId="+kind.getCategoryId());
+		dataMap.put("kinds", kinds);
+		List<Category> categories= categoryService.listByHQL("From Category");
+		dataMap.put("categorys", categories);
+		
 		return "dataMap";
 	}
 	
@@ -113,6 +141,26 @@ public class ProductAction extends BaseAction {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+
+	public CategoryService getCategoryService() {
+		return categoryService;
+	}
+
+
+	public void setCategoryService(CategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+
+
+	public KindService getKindService() {
+		return kindService;
+	}
+
+
+	public void setKindService(KindService kindService) {
+		this.kindService = kindService;
 	}
 	
 	

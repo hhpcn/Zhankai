@@ -15,6 +15,9 @@
         <property name="pageUrl" type="java.lang.String" >
             <column name="pageUrl" length="80"  />
         </property>
+        <property name="isPublish" type="java.lang.Boolean" >
+            <column name="isPublish" />
+        </property> 
     </class>
     
 </hibernate-mapping>

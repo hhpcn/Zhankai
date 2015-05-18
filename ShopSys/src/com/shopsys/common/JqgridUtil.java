@@ -20,7 +20,10 @@ public class JqgridUtil {
 
         if (null != filterSearch) {
                 List<SearchRule> rules = filterSearch.getRules();
-                
+                if (rules.size()==0) {
+                	sb.append(" where 1=1");
+                	return sb.toString();
+				}
                 sb.append(" where ");
                 
                 int count = 0;
@@ -91,7 +94,6 @@ public class JqgridUtil {
                         }
                 }
         }
-        System.out.println(sb.toString());
         return sb.toString();
 		
 	}
