@@ -18,6 +18,12 @@
         <property name="categoryId" type="java.lang.Integer">
             <column name="categoryId"  not-null="true" />
         </property>
+        <property name="categoryName" type="java.lang.String" >
+            <column name="categoryName" length="40"  />
+        </property>
+        <property name="isPublish" type="java.lang.Boolean" >
+            <column name="isPublish" />
+        </property> 
     </class>
     
 </hibernate-mapping>

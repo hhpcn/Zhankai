@@ -8,7 +8,7 @@
 <title>产品管理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<link rel="stylesheet" href="<%=basePath %>/common/ace/assets/css/jquery-ui.css" />
+<%-- <link rel="stylesheet" href="<%=basePath %>/common/ace/assets/css/jquery-ui.css" /> --%>
 
 <link rel="stylesheet" href="<%=basePath %>/common/ace/assets/css/datepicker.css" />
 <link rel="stylesheet" href="<%=basePath %>/common/ace/assets/css/bootstrap-timepicker.css" />
@@ -27,6 +27,24 @@
 							</h1>
 	</div> -->
 	<!-- /.page-header -->
+
+<script src="<%=basePath %>/common/ckeditor/ckeditor.js"></script>	
+<script>
+//解决bootrap模态框和ckeditor弹窗的冲突    
+$.fn.modal.Constructor.prototype.enforceFocus = function () {
+    modal_this = this;
+    $(document).on('focusin.modal', function (e) {
+        if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
+        &&
+        !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select') && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
+            modal_this.$element.focus();
+        }
+    });
+};
+</script>
+
+
+
 
 
 <div class="row">
@@ -47,19 +65,19 @@
 
 
 
-<!-- add or edit -->
-<div  id="productmodal" class="modal fade bs-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<!----------------- 添加产品开始--------------------------- -->
+<div  id="addProductmodal" class="modal fade bs-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">
+	        <h4 class="modal-title">
 				<i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i> 添加产品
 			</h4>
 	     </div>
       <div class="modal-body">
              <div class="row">
-             	<form id="productform" class="form-horizontal" role="form">
+             	<form id="addProductform" class="form-horizontal" role="form">
 		             		<!-- #section:elements.form -->
 		            <input name="id" value="" style="display:none;"/>
 					<div class="form-group">
@@ -93,36 +111,31 @@
 										<option value="3">Arizona3</option>
 							</select>
 						</div>
-						<label class="col-sm-2 control-label no-padding-right" >  类别： </label>
-						<div class="col-sm-4">
-							<select id="kind" name="kind" class=" col-xs-10 col-sm-9" autocomplete="off"  data-placeholder="选择类别">
-										<option value="0"> 常用 </option>
-										<option value="1">户外</option>
-										<option value="2">文具</option>
-										<option value="3">测量</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
+						
 						<label class="col-sm-2 control-label no-padding-right" > 优先级： </label>
 						<div class="col-sm-4">
 							<input name="priority" type="text"  placeholder="优先级" class="col-xs-10 col-sm-9" />
 						</div>
-						<label class="col-sm-2 control-label no-padding-right" > 创建时间： </label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" >  栏目： </label>
 						<div class="col-sm-4">
-							<div class="input-group">
-									<input name="createTime" id="createTime" type="text" class="form-control"  />
-									<span class="input-group-addon">
-										<i class="fa fa-clock-o bigger-90"></i>
-									</span>
-							</div>
+							<select id="category" name="category" class=" col-xs-10 col-sm-9" autocomplete="off"  data-placeholder="选择类别">
+										
+							</select>
+						</div>
+						<label class="col-sm-2 control-label no-padding-right" >  类别： </label>
+						<div class="col-sm-4">
+							<select id="kind" name="kind" class=" col-xs-10 col-sm-9" autocomplete="off"  data-placeholder="选择类别">
+										
+							</select>
 						</div>
 						
 						
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 是否发布： </label>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<div class="control-group">
 							  <div class="radio" >
 								<div class="col-sm-3">
@@ -141,6 +154,15 @@
 						   </div>
 						</div>
 						
+						<label class="col-sm-2 control-label no-padding-right" > 创建时间： </label>
+						<div class="col-sm-4">
+							<div class="input-group">
+									<input name="createTime" id="createTime" type="text" class="form-control"  />
+									<span class="input-group-addon">
+										<i class="fa fa-clock-o bigger-90"></i>
+									</span>
+							</div>
+						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > URL： </label>
@@ -177,33 +199,16 @@
 			            </div>
 					</div>
              </div>
-             
-           
-			<script src="<%=basePath %>/common/ckeditor/ckeditor.js"></script>	
 	         <script>
-	                // Replace the <textarea id="editor1"> with a CKEditor
-	                // instance, using default configuration.
 	                CKEDITOR.replace( 'editor1' );
-	            
-	            //解决bootrap模态框和ckeditor弹窗的冲突    
-		        $.fn.modal.Constructor.prototype.enforceFocus = function () {
-		            modal_this = this;
-		            $(document).on('focusin.modal', function (e) {
-		                if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
-		                &&
-		                !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select') && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
-		                    modal_this.$element.focus();
-		                }
-		            });
-        		};
 	         </script>
        
       </div>
       <div class="modal-footer" style="height:55px;">
-	        <button id="canclebutton" type="button" class="btn btn-white btn-info btn-round" data-dismiss="modal">
+	        <button id="cancleAddProduct" type="button" class="btn btn-white btn-info btn-round" data-dismiss="modal">
 	        	<i class="ace-icon fa fa-times  red2"></i>取消
 	        </button>
-	        <button id="saveproduct" type="button" class="btn btn-white btn-info btn-round" >
+	        <button id="saveProduct" type="button" class="btn btn-white btn-info btn-round" >
 	        	<i class="ace-icon fa fa-floppy-o  blue"></i>保存
 	        </button>
 	        
@@ -211,23 +216,26 @@
     </div>
   </div>
 </div>
+<!----------------- 添加产品结束--------------------------- -->
 
 
 
-<!-- 查看产品 -->
-<div  id="lookproductmodal" class="modal fade bs-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+<!----------------- 更新产品开始--------------------------- -->
+<div  id="editProductmodal" class="modal fade bs-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="lookmyModalLabel">
-				<i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i> 产品详情
+	        <h4 class="modal-title">
+				<i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i> 编辑产品
 			</h4>
 	     </div>
       <div class="modal-body">
              <div class="row">
-             	<form id="lookproductform" class="form-horizontal" role="form">
+             	<form id="editProductform" class="form-horizontal" role="form">
 		             		<!-- #section:elements.form -->
+		            <input name="id" value="" style="display:none;"/>
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 产品编号： </label>
 		
@@ -252,43 +260,37 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 品牌： </label>
 						<div class="col-sm-4">
-							<select  name="brand" class=" col-xs-10 col-sm-9"  autocomplete="off" data-placeholder="选择一个品牌">
+							<select id="editbrand" name="brand" class=" col-xs-10 col-sm-9"  autocomplete="off" data-placeholder="选择一个品牌">
 										<option value="0"> abl0 </option>
 										<option value="1">Alabama1</option>
 										<option value="2">Alaska2</option>
 										<option value="3">Arizona3</option>
 							</select>
 						</div>
-						<label class="col-sm-2 control-label no-padding-right" >  类别： </label>
-						<div class="col-sm-4">
-							<select  name="kind" class=" col-xs-10 col-sm-9" autocomplete="off"  data-placeholder="选择类别">
-										<option value="0"> 常用 </option>
-										<option value="1">户外</option>
-										<option value="2">文具</option>
-										<option value="3">测量</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 优先级： </label>
 						<div class="col-sm-4">
 							<input name="priority" type="text"  placeholder="优先级" class="col-xs-10 col-sm-9" />
 						</div>
-						<label class="col-sm-2 control-label no-padding-right" > 创建时间： </label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" >  栏目： </label>
 						<div class="col-sm-4">
-							<div class="input-group">
-									<input name="createTime"  type="text" class="form-control"  />
-									<span class="input-group-addon">
-										<i class="fa fa-clock-o bigger-90"></i>
-									</span>
-							</div>
-						</div>
+							<select id="editcategory" name="category" class=" col-xs-10 col-sm-9" autocomplete="off"  data-placeholder="选择类别">
+										
+							</select>
+						</div> 
 						
+						<label class="col-sm-2 control-label no-padding-right" >  类别： </label>
+						<div class="col-sm-4">
+							<select id="editkind" name="kind" class=" col-xs-10 col-sm-9" autocomplete="off"  data-placeholder="选择类别">
+									
+							</select>
+						</div>
 						
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 是否发布： </label>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<div class="control-group">
 							  <div class="radio" >
 								<div class="col-sm-3">
@@ -305,6 +307,15 @@
 								</div>
 							 </div>
 						   </div>
+						</div>
+						<label class="col-sm-2 control-label no-padding-right" > 创建时间： </label>
+						<div class="col-sm-4">
+							<div class="input-group">
+									<input name="createTime" id="editcreateTime" type="text" class="form-control"  />
+									<span class="input-group-addon">
+										<i class="fa fa-clock-o bigger-90"></i>
+									</span>
+							</div>
 						</div>
 						
 					</div>
@@ -323,8 +334,12 @@
              </form>
              </div>
              <div class="row">
-				<div class="col-xs-9 col-md-offset-1">
-					引导图img....
+				<div class="col-sm-12">
+					<form action="/ShopSys/ckeditorUploadAction_uploadGuideImg.action" class="dropzone" id="editdropzone">
+						<div class="fallback">
+							<input name="guideImg"  id="editguideImg" type="file"  />
+						</div>
+					</form>
 				</div>
 				
              </div>
@@ -333,20 +348,45 @@
              	<div class="form-group">
 					      <label style="margin-left:20px;" class="col-sm-12 " for="form-field-1">详细信息： </label>
 						<div class="col-sm-12">
-							详细信息....
+							<textarea name="detailInfo" id="editInformation" rows="20" cols="80">
+				                
+				            </textarea>
 			            </div>
 					</div>
              </div>
+	         <script>
+	                CKEDITOR.replace( 'editInformation' );
+	         </script>
        
       </div>
       <div class="modal-footer" style="height:55px;">
-	        <button  type="button" class="btn btn-white btn-info btn-round" data-dismiss="modal">
-	        	<i class="ace-icon fa fa-times  red2"></i>关闭
+	        <button id="cancleEditProduct" type="button" class="btn btn-white btn-info btn-round" data-dismiss="modal">
+	        	<i class="ace-icon fa fa-times  red2"></i>取消
 	        </button>
+	        <button id="saveEditProduct" type="button" class="btn btn-white btn-info btn-round" >
+	        	<i class="ace-icon fa fa-floppy-o  blue"></i>保存
+	        </button>
+	        
       </div>
     </div>
   </div>
 </div>
+<!----------------- 更新产品结束--------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

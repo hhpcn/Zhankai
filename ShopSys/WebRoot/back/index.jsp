@@ -485,6 +485,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<b class="arrow"></b>
 							</li>
 						</ul>
+						<ul class="submenu">
+							<li class="">
+								<a data-url="page/kind" href="#page/kind">
+									<i class="menu-icon fa fa-caret-right"></i>
+									产品种类
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
 					</li>
 
 					
@@ -634,7 +644,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- #section:basics/footer -->
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">LKHP</span>
+							<span class="blue bolder">LKHHP</span>
 							Application &copy; 2013-2014
 						</span>
 

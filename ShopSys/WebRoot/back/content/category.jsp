@@ -5,7 +5,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 
-<title>用户管理</title>
+<title>栏目管理</title>
 
 <link rel="stylesheet" href="<%=basePath %>/common/ace/assets/css/jquery-ui.css" />
 <link rel="stylesheet" href="<%=basePath %>/common/ace/assets/css/datepicker.css" />

@@ -21,64 +21,6 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 	         }  
 	     }; 
 	     
-		var guideImgArray = new Array();
-		
-		//上传引导图插件
-		try {
-			  Dropzone.autoDiscover = false;
-			  var myDropzone = new Dropzone("#dropzone" , {
-			    paramName: "guideImg", // The name that will be used to transfer the file
-			    maxFilesize:2.0, // MB
-				maxFiles: 1000,
-				addRemoveLinks : true,
-				init:function(){
-					this.on("success",function(file,data){
-						file.serverId = data.guideImgUrl;
-						guideImgArray.push(file.serverId);
-						$("#productform input[name='guideMap']").val(guideImgArray.join(";"));
-					});
-					this.on("maxfilesexceeded",function(){
-						alert("引导图最多1000张");
-					});
-					this.on("removedfile",function(file){
-						
-					var message=file.serverId;
-					$.post("/ShopSys/ckeditorUploadAction_removeFile.action",{message:message},function(data){
-						//更新input guidemap的值
-						guideImgArray.remove(message);
-						$("#productform input[name='guideMap']").val(guideImgArray.join(";"));
-					});
-					$("#productform input[name='guideMap']").val("");
-					
-				});
-					
-				},
-				dictDefaultMessage :
-				'<span class="bigger-150 bolder"></span>  \
-				<span class="smaller-80 grey">上传引导图</span> <br /> \
-				<i class="upload-icon ace-icon fa fa-cloud-upload blue fa-3x"></i>'
-			,
-				dictResponseError: '上传失败！',
-				dictRemoveFile:'删除',
-			
-				
-				//change the previewTemplate to use Bootstrap progress bars
-				previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-small progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
-			  });
-			  
-			   $(document).one('ajaxloadstart.page', function(e) {
-					try {
-						myDropzone.destroy();
-						myDropzone.init();
-					} catch(e) {}
-			   });
-			
-			} catch(e) {
-			  alert('不支持该版本的浏览器!');
-			}
-		
-		
-		
 		
 		
 		
@@ -181,10 +123,7 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 				search: true,
 				searchicon : 'ace-icon fa fa-search orange',
 				refresh: true,
-				refreshicon : 'ace-icon fa fa-refresh green',
-				view: true,
-				viewicon : 'ace-icon fa fa-search-plus grey',
-				viewfunc : viewRecord
+				refreshicon : 'ace-icon fa fa-refresh green'
 			},
 			{
 				//edit record form
@@ -337,87 +276,127 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 			}
 		   // return $('img', cell).attr('src');
 		}
-		//更新记录
-		function editRecord(){
-			var ids=$(grid_selector).jqGrid('getGridParam','selarrrow');
-			var strs= new Array(); 
-		    strs =ids.toString().split(",");
-		    if(strs.length>1){
-		    	alert("不能同时选中多行进行编辑，请重新选择！");
-		    	return false;
-		    }
-		    //ajax，根据id到取得记录
-			$.ajax({
-        		url:"/ShopSys/productmanage/productAction_loadProductById.action",
-        		type:"post",
-        		dataType:"json",
-        		data:{
-        			"id":strs[0]
-        		},
-        		success:function(data){
-        			var product=data.product;
-        			$("#productform input[name='id']").val(product.id);
-        			$("#productform input[name='productNo']").val(product.productNo);
-        			$("#productform input[name='productName']").val(product.productName);
-        			$("#productform input[name='price']").val(product.price);
-        			$("#productform input[name='color']").val(product.color);
-        			
-        			$("#productform select option").removeAttr('selected');
-        			$("#brand option[value='"+product.brandId+"']").attr("selected", "selected");
-        			$("#kind option[value='"+product.kindId+"']").attr("selected", "selected");
-        			$("select").trigger("liszt:updated");//更新前端界面
-        			
-        			$("#productform input[name='url']").val(product.url);
-        			$("#productform input[name='guideMap']").val(product.guideMap);
-        			
-        			
-        			//引导图预览
-        			viewGuideMap(product);
-        			
-        			
-        			
-        			
-        			$("#productform input[name='color']").val(product.color);
-        			$("#createTime").val(product.createTime);
-        			$("#productform input[name='priority']").val(product.priority);
-        			$("#productform input[name='isPublish'][value='"+product.isPublist+"']").attr("checked",true);
-        			
-        			CKEDITOR.instances.editor1.setData(product.detailInfo);
-        			$('#productmodal').modal('show');
-        		}
-        	});
-		}
 		
-	
+/*****************添加产品开始************************************************************/
+		var guideImgArray = new Array();
+		//添加界面上传引导图插件
+		try {
+			  Dropzone.autoDiscover = false;
+			  var myDropzone = new Dropzone("#dropzone" , {
+			    paramName: "guideImg", // The name that will be used to transfer the file
+			    maxFilesize:2.0, // MB
+				maxFiles: 1000,
+				addRemoveLinks : true,
+				init:function(){
+					this.on("success",function(file,data){
+						file.serverId = data.guideImgUrl;
+						guideImgArray.push(file.serverId);
+						$("#addProductform input[name='guideMap']").val(guideImgArray.join(";"));
+					});
+					this.on("maxfilesexceeded",function(){
+						alert("引导图最多1000张");
+					});
+					this.on("removedfile",function(file){
+						
+					var message=file.serverId;
+					$.post("/ShopSys/ckeditorUploadAction_removeFile.action",{message:message},function(data){
+						//更新input guidemap的值
+						guideImgArray.remove(message);
+						$("#addProductform input[name='guideMap']").val(guideImgArray.join(";"));
+					});
+					$("#addProductform input[name='guideMap']").val("");
+					
+				});
+					
+				},
+				dictDefaultMessage :
+				'<span class="bigger-150 bolder"></span>  \
+				<span class="smaller-80 grey">上传引导图</span> <br /> \
+				<i class="upload-icon ace-icon fa fa-cloud-upload blue fa-3x"></i>'
+			,
+				dictResponseError: '上传失败！',
+				dictRemoveFile:'删除',
+			
+				
+				//change the previewTemplate to use Bootstrap progress bars
+				previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-small progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
+			  });
+			  
+			   $(document).one('ajaxloadstart.page', function(e) {
+					try {
+						myDropzone.destroy();
+						myDropzone.init();
+					} catch(e) {}
+			   });
+			
+			} catch(e) {
+			  alert('不支持该版本的浏览器!');
+			}
+		
+		
+		
+		
+		//增加类别的div模态化
+		$('#addProductmodal').modal({
+			  keyboard: false,
+			  show:false
+		});
+		//模态框展开时触发的操作
+		$('#addProductmodal').on('show.bs.modal', function (e) {
+			//初始化增加产品界面的时间
+			var nowTime=getNowTime();
+			$("#createTime").val(nowTime);
+			//日期控件
+			$('#createTime').datetimepicker(
+					{
+	                    language: 'zh-CN'
+					}
+				).next().on(ace.click_event, function(){
+				$(this).prev().focus();
+			});
+			
+			//初始化优先级为10
+			$("#addProductform input[name='priority']").val(10);
+			
+			
+		});
+		
+		//模态框展开时触发的操作
+		$('#addProductmodal').on('shown.bs.modal', function (e) {
+			//加载栏目
+			loadCategory("category","kind");
+			
+		});
+		
+		
+		
 		//增加一条记录，弹出对话框
 		function addNewRecord(){
-			$("#productform input[name='id']").val("");
-			
+			$("#addProductform input[name='id']").val("");
 			//清空引导图
 			clearGuideMap();
-			
-			$('#productmodal').modal({
-				  keyboard: false
-				});
+			$('#addProductmodal').modal('show');
 		}
 		
+		
+		
 		//点击对话框保存按钮，保存产品信息
-		$("#saveproduct").on("click",function(){
-			var productId=$("#productform input[name='id']").val();
-			var productNo = $("#productform input[name='productNo']").val();
-			var productName=$("#productform input[name='productName']").val();
-			var price=$("#productform input[name='price']").val();
-			var color=$("#productform input[name='color']").val();
-			var brandId=$("#productform select[name='brand'] option:selected").val();
-			var kindId=$("#productform select[name='kind'] option:selected").val(); //类别id
-			var url=$("#productform input[name='url']").val();
+		$("#saveProduct").on("click",function(){
+			var productId=$("#addProductform input[name='id']").val();
+			var productNo = $("#addProductform input[name='productNo']").val();
+			var productName=$("#addProductform input[name='productName']").val();
+			var price=$("#addProductform input[name='price']").val();
+			var color=$("#addProductform input[name='color']").val();
+			var brandId=$("#addProductform select[name='brand'] option:selected").val();
+			var kindId=$("#kind").val(); //类别id
+			var url=$("#addProductform input[name='url']").val();
 			var createTime=$("#createTime").val();
-			var priority=$("#productform input[name='priority']").val();
-			var isPublish=$("#productform input[name='isPublish']:checked").val();
-			var guideMap=$("#productform input[name='guideMap']").val();
+			var priority=$("#addProductform input[name='priority']").val();
+			var isPublish=$("#addProductform input[name='isPublish']:checked").val();
+			var guideMap=$("#addProductform input[name='guideMap']").val();
 			var detailInfo=CKEDITOR.instances.editor1.getData();
 			var imgUrls="";
-			 retImgArr = detailInfo.match(/src\s*=\s*[\"|\']?\s*[^>\"\'\s]*\.(jpg|jpeg|png|gif|bmp)[\"|\']?/gi);
+			var retImgArr = detailInfo.match(/src\s*=\s*[\"|\']?\s*[^>\"\'\s]*\.(jpg|jpeg|png|gif|bmp)[\"|\']?/gi);
 			 if(retImgArr!=null){
 				 for(var i=0;i<retImgArr.length;i++)
 				 {
@@ -456,148 +435,454 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         		},
         		success:function(d){
         			
-        			$('#productmodal').modal('hide');
+        			$('#addProductmodal').modal('hide');
         			jQuery(grid_selector).jqGrid().trigger("reloadGrid");
         			//清空表单
-        			clearProductForm();
+        			clearaddProductform();
         		}
         	});
 			
 		});
 		
 		//点击取消按钮时，也清空表单
-		$("#canclebutton").on("click",function(){
+		$("#cancleAddProduct").on("click",function(){
 			//清空表单
-			clearProductForm();
+			clearaddProductform();
 		});
 		
-
-		//初始化增加产品界面的时间
-		var nowTime=getNowTime();
-		$("#createTime").val(nowTime);
-		//日期控件
-		$('#createTime').datetimepicker(
-				{
-                    language: 'zh-CN'
-				}
-			).next().on(ace.click_event, function(){
-			$(this).prev().focus();
-		});
-		
-		//初始化优先级为10
-		$("#productform input[name='priority']").val(10);
 		
 		
-		function viewRecord(){
-			$('#lookproductmodal').modal('show');
+		
+		//清空表单
+		function clearaddProductform(){
+			$("#addProductform input[name='id']").val("");
+			$("#addProductform input[name='productNo']").val("");
+			$("#addProductform input[name='productName']").val("");
+			$("#addProductform input[name='price']").val("");
+			$("#addProductform input[name='color']").val("");
+			$("#addProductform input[name='url']").val();
+			$("#createTime").val(getNowTime());
+			$("#addProductform input[name='priority']").val(10);
+			$("#addProductform select option").removeAttr('selected');
+			$("#addProductform select[name='brand'] option[value=0]").attr("selected", "selected");
+			$("#addProductform select[name='kind'] option[value=0]").attr("selected", "selected");
+			$("select").trigger("liszt:updated");//更新前端界面
+			$("#addProductform input[name='isPublish'][value=true]").attr("checked","selected");
+			$("#addProductform input[name='guideMap']").val("");
+			CKEDITOR.instances.editor1.setData("");
 		}
 		
-		//查看产品信息的模态框
-		$('#lookproductmodal').modal({
+		//清空引导图插件上的内容
+		function clearGuideMap(){
+			$("#addProductmodal div .dz-image-preview").remove();
+			guideImgArray.splice(0);
+		}
+		
+		//下拉选择框改变触发事件
+		$("#category").change(function(){
+			var selectId=$("#category").val();
+			loadKind("kind",selectId);
+			
+		});
+		
+		
+		
+		
+		
+/*****************添加产品结束************************************************************/		
+	
+		
+		
+		
+/*****************更新产品开始************************************************************/
+		var editIds;
+		var editStrs;
+		
+		var edit_guideImgArray = new Array();
+		//更新界面上传引导图插件
+		try {
+			  Dropzone.autoDiscover = false;
+			  var editDropzone = new Dropzone("#editdropzone" , {
+			    paramName: "guideImg", // The name that will be used to transfer the file
+			    maxFilesize:2.0, // MB
+				maxFiles: 1000,
+				addRemoveLinks : true,
+				init:function(){
+					this.on("success",function(file,data){
+						file.serverId = data.guideImgUrl;
+						edit_guideImgArray.push(file.serverId);
+						$("#editProductform input[name='guideMap']").val(edit_guideImgArray.join(";"));
+					});
+					this.on("maxfilesexceeded",function(){
+						alert("引导图最多1000张");
+					});
+					this.on("removedfile",function(file){
+						
+					var message=file.serverId;
+					$.post("/ShopSys/ckeditorUploadAction_removeFile.action",{message:message},function(data){
+						//更新input guidemap的值
+						edit_guideImgArray.remove(message);
+						$("#editProductform input[name='guideMap']").val(edit_guideImgArray.join(";"));
+					});
+					$("#editProductform input[name='guideMap']").val("");
+					
+				});
+					
+				},
+				dictDefaultMessage :
+				'<span class="bigger-150 bolder"></span>  \
+				<span class="smaller-80 grey">上传引导图</span> <br /> \
+				<i class="upload-icon ace-icon fa fa-cloud-upload blue fa-3x"></i>'
+			,
+				dictResponseError: '上传失败！',
+				dictRemoveFile:'删除',
+			
+				
+				//change the previewTemplate to use Bootstrap progress bars
+				previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-small progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
+			  });
+			  
+			   $(document).one('ajaxloadstart.page', function(e) {
+					try {
+						editDropzone.destroy();
+						editDropzone.init();
+					} catch(e) {}
+			   });
+			
+			} catch(e) {
+			  alert('不支持该版本的浏览器!');
+			}
+		
+		
+		
+		
+		//增加类别的div模态化
+		$('#editProductmodal').modal({
 			  keyboard: false,
 			  show:false
 		});
 		//模态框展开时触发的操作
-		$('#lookproductmodal').on('show.bs.modal', function (e) {
-			var ids=$(grid_selector).jqGrid('getGridParam','selarrrow');
-			var strs= new Array(); 
-		    strs =ids.toString().split(",");
-		    if(strs.length>1){
+		$('#editProductmodal').on('show.bs.modal', function (e) {
+			loadEditData();
+		});		
+		
+		
+		//点击更新记录按钮
+		function editRecord(){
+			editIds=$(grid_selector).jqGrid('getGridParam','selarrrow');
+			editStrs= new Array(); 
+			editStrs =editIds.toString().split(",");
+		    if(editStrs.length>1){
 		    	alert("不能同时选中多行进行编辑，请重新选择！");
 		    	return false;
 		    }
-		    //ajax，根据id到取得记录
+		    //打开模态框
+		    $('#editProductmodal').modal('show');
+
+		}
+		
+		
+		//点击对话框保存按钮，保存产品信息
+		$("#saveEditProduct").on("click",function(){
+			var productId=$("#editProductform input[name='id']").val();
+			var productNo = $("#editProductform input[name='productNo']").val();
+			var productName=$("#editProductform input[name='productName']").val();
+			var price=$("#editProductform input[name='price']").val();
+			var color=$("#editProductform input[name='color']").val();
+			var brandId=$("#editProductform select[name='brand'] option:selected").val();
+			var kindId=$("#editkind").val(); //类别id
+			var url=$("#editProductform input[name='url']").val();
+			var createTime=$("#editcreateTime").val();
+			var priority=$("#editProductform input[name='priority']").val();
+			var isPublish=$("#editProductform input[name='isPublish']:checked").val();
+			var guideMap=$("#editProductform input[name='guideMap']").val();
+			var detailInfo=CKEDITOR.instances.editInformation.getData();
+			var imgUrls="";
+			var retImgArr = detailInfo.match(/src\s*=\s*[\"|\']?\s*[^>\"\'\s]*\.(jpg|jpeg|png|gif|bmp)[\"|\']?/gi);
+			 if(retImgArr!=null){
+				 for(var i=0;i<retImgArr.length;i++)
+				 {
+				    relativeImgArr=retImgArr[i].match(/\/img\s*[^>\"\'\s]*\.(jpg|jpeg|png|gif|bmp)/gi);
+				    if(i>0)
+					    imgUrls+="|";
+				    imgUrls=imgUrls+relativeImgArr[0];
+				    
+				 }
+			 }
+			
+			 
+			 
 			$.ajax({
-        		url:"/ShopSys/productmanage/productAction_loadProductById.action",
+        		url:"/ShopSys/productmanage/productAction_editProduct.action",
         		type:"post",
         		dataType:"json",
         		data:{
-        			"id":strs[0]
+        			    "product.id":productId,
+        				"product.productNo":productNo,
+        				"product.productName":productName,
+        				"product.price":price,
+        				"product.color":brandId,
+        				"product.url":url,
+        				"product.brandId":brandId,
+        				"product.kindId":kindId,
+        				"product.imgUrls":imgUrls,
+        				"product.detailInfo":detailInfo,
+        				"product.createTime":createTime,
+        				"product.priority":priority,
+        				"product.isPublish":isPublish,
+        				"product.guideMap":guideMap,
+        				"product.color":color
+        				
+        				
         		},
-        		success:function(data){
-        			var product=data.product;
-        			alert(product.id);
-        			//$("#lookproductform input[name='id']").val(product.id);
-        			$("#lookproductform input[name='productNo']").val(product.productNo);
-        			$("#lookproductform input[name='productName']").val(product.productName);
-        			$("#lookproductform input[name='price']").val(product.price);
-        			$("#lookproductform input[name='color']").val(product.color);
+        		success:function(d){
         			
-        			$("#lookproductform select option").removeAttr('selected');
-        			$("#lookproductform select[name='brand'] option[value='"+product.brandId+"']").attr("selected", "selected");
-        			$("#lookproductform select[name='kind'] option[value='"+product.kindId+"']").attr("selected", "selected");
-        			//$("#lookproductform select").trigger("liszt:updated");//更新前端界面
-        			
-        			$("#lookproductform input[name='url']").val(product.url);
-        			$("#lookproductform input[name='guideMap']").val(product.guideMap);
-        			
-        			
-        			$("#lookproductform input[name='color']").val(product.color);
-        			$("#lookproductform input[name='createTime']").val(product.createTime);
-        			$("#lookproductform input[name='priority']").val(product.priority);
-        			$("#lookproductform input[name='isPublish'][value='"+product.isPublist+"']").attr("checked",true);
-        			
-        			
-        			
+        			$('#editProductmodal').modal('hide');
+        			jQuery(grid_selector).jqGrid().trigger("reloadGrid");
+        			//清空表单
+        			clearEditProductform();
         		}
         	});
+			
+		});
+		
+		
+		//点击取消按钮时，也清空表单
+		$("#cancleEditProduct").on("click",function(){
+			//清空表单
+			clearEditProductform();
 		});
 		
 		
 		
-	});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+function loadEditData(){
+    //ajax，根据id到取得记录
+	$.ajax({
+		url:"/ShopSys/productmanage/productAction_loadProductById.action",
+		type:"post",
+		dataType:"json",
+		data:{
+			"id":editStrs[0]
+		},
+		success:function(data){
+			var product=data.product;
+			$("#editProductform input[name='id']").val(product.id);
+			$("#editProductform input[name='productNo']").val(product.productNo);
+			$("#editProductform input[name='productName']").val(product.productName);
+			$("#editProductform input[name='price']").val(product.price);
+			$("#editProductform input[name='color']").val(product.color);
+			
+			$("#editProductform select option").removeAttr('selected');
+			$("#editbrand option[value='"+product.brandId+"']").attr("selected", "selected");
+			$("#editkind option[value='"+product.kindId+"']").attr("selected", "selected");
+			$("select").trigger("liszt:updated");//更新前端界面
+			
+			$("#editProductform input[name='url']").val(product.url);
+			$("#editProductform input[name='guideMap']").val(product.guideMap);
+			//将所属种类和栏目的id暂时存起来
 	
-	//清空引导图插件上的内容
-	function clearGuideMap(){
+			
+			loadCategorySelect("editcategory",data.categoryId,data.categorys);
+			loadKindSelect("editkind",product.kindId, data.kinds);
+			
+			
+			
+			
+			//引导图预览
+			viewEditGuideMap(product);
+			
+			
+			
+			
+			$("#editProductform input[name='color']").val(product.color);
+			$("#editcreateTime").val(product.createTime);
+			$("#editProductform input[name='priority']").val(product.priority);
+			$("#editProductform input[name='isPublish'][value='"+product.isPublist+"']").attr("checked",true);
 		
-		$("div .dz-image-preview").remove();
-		guideImgArray.splice(0);
-	}
-	
-	//导航图片预览
-	function viewGuideMap(product){
-		//文件路径需要判断
-		
-		//删除预览图
-		clearGuideMap();
-		if(product.guideMap=="") return false;
-		guideImgArray = product.guideMap.split(";");
-		
-		//添加图片预览图
-		for(var i = 0;i<guideImgArray.length;i++){
-			var s =guideImgArray[i].split("/");
-			var mockFile = { name: s[3],serverId : guideImgArray[i]};
-	         
-			// Call the default addedfile event handler
-			myDropzone.emit("addedfile", mockFile);
-
-			// And optionally show the thumbnail of the file:
-			myDropzone.emit("thumbnail", mockFile, "http://localhost:8080/ShopSys/"+guideImgArray[i]);
-
-			// Make sure that there is no progress bar, etc...
-			myDropzone.emit("complete", mockFile);
+			CKEDITOR.instances.editInformation.setData(product.detailInfo);
 		}
-		
+	});
+}		
+	
+
+
+//导航图片预览
+function viewEditGuideMap(product){
+	//文件路径需要判断
+	
+	//删除预览图
+	clearEditGuideMap();
+	if(product.guideMap=="") return false;
+	edit_guideImgArray = product.guideMap.split(";");
+	
+	//添加图片预览图
+	for(var i = 0;i<edit_guideImgArray.length;i++){
+		var s =edit_guideImgArray[i].split("/");
+		var mockFile = { name: s[3],serverId : edit_guideImgArray[i]};
+         
+		// Call the default addedfile event handler
+		editDropzone.emit("addedfile", mockFile);
+
+		// And optionally show the thumbnail of the file:
+		editDropzone.emit("thumbnail", mockFile, "http://localhost:8080/ShopSys/"+edit_guideImgArray[i]);
+
+		// Make sure that there is no progress bar, etc...
+		editDropzone.emit("complete", mockFile);
 	}
-	//清空表单
-	function clearProductForm(){
+	
+}
+
+
+//清空表单
+function clearEditProductform(){
+	$("#editProductform input[name='id']").val("");
+	$("#editProductform input[name='productNo']").val("");
+	$("#editProductform input[name='productName']").val("");
+	$("#editProductform input[name='price']").val("");
+	$("#editProductform input[name='color']").val("");
+	$("#editProductform input[name='url']").val();
+	$("#editcreateTime").val(getNowTime());
+	$("#editProductform input[name='priority']").val(10);
+	$("#editProductform select option").removeAttr('selected');
+	$("#editProductform select[name='brand'] option[value=0]").attr("selected", "selected");
+	$("#editProductform select[name='kind'] option[value=0]").attr("selected", "selected");
+	$("select").trigger("liszt:updated");//更新前端界面
+	$("#editProductform input[name='isPublish'][value=true]").attr("checked","selected");
+	$("#editProductform input[name='guideMap']").val("");
+	CKEDITOR.instances.editor1.setData("");
+}
+
+
+
+
+
+//清空引导图插件上的内容
+function clearEditGuideMap(){
+	$("#editProductmodal div .dz-image-preview").remove();
+	edit_guideImgArray.splice(0);
+}
+
+
+//下拉选择框改变触发事件
+$("#editcategory").change(function(){
+	var selectId=$("#editcategory").val();
+	loadKind("editkind",selectId);
+	
+});
+
+
+/*****************更新产品结束************************************************************/	
 		
-		$("#productform input[name='id']").val("");
-		$("#productform input[name='productNo']").val("");
-		$("#productform input[name='productName']").val("");
-		$("#productform input[name='price']").val("");
-		$("#productform input[name='color']").val("");
-		$("#productform input[name='url']").val();
-		$("#createTime").val(getNowTime());
-		$("#productform input[name='priority']").val(10);
-		$("#productform select option").removeAttr('selected');
-		$("#productform select[name='brand'] option[value=0]").attr("selected", "selected");
-		$("#productform select[name='kind'] option[value=0]").attr("selected", "selected");
-		$("select").trigger("liszt:updated");//更新前端界面
-		$("#productform input[name='isPublish'][value=true]").attr("checked","selected");
-		$("#productform input[name='guideMap']").val("");
-		CKEDITOR.instances.editor1.setData("");
+			
+});
+	
+	
+	
+
+	
+	
+
+	
+	
+	
+/*******************************公用的方法************************************/
+	
+	//初始化下拉选择框，并且选中初始项
+	function loadCategorySelect(selectId,optionValue,categoryobj){
+		$("#"+selectId).empty();
+		var options="";
+		for(var i=0;i<categoryobj.length;i++){
+			
+			if(categoryobj[i].id==optionValue){
+				options=options+"<option value='"+categoryobj[i].id+"' selected='selected'>"+categoryobj[i].categoryName+"</option>";
+			}else{
+				options=options+"<option value='"+categoryobj[i].id+"'>"+categoryobj[i].categoryName+"</option>";
+			}
+		}
+		$("#"+selectId).append(options);
 	}
+	function loadKindSelect(selectId,optionValue,kindobj){
+		$("#"+selectId).empty();
+		var options="";
+		for(var i=0;i<kindobj.length;i++){
+			if(kindobj[i].id==optionValue){
+				options=options+"<option value='"+kindobj[i].id+"' selected='selected'>"+kindobj[i].kindName+"</option>";
+			}else{
+				options=options+"<option value='"+kindobj[i].id+"'>"+kindobj[i].kindName+"</option>";
+			}
+		}
+		$("#"+selectId).append(options);
+	}
+	
+	
+	
+	
+	
+	
+	//ajax获取栏目种类,初始化种类下拉选择框
+	function loadCategory(categorySelectId,kindSelectId){
+		 //ajax获取栏目种类,初始化种类下拉选择框
+		$.ajax({
+    		url:"/ShopSys/productmanage/categoryAction_listCategoryForKind.action",
+    		type:"post",
+    		dataType:"json",
+    		success:function(data){
+    			var categorys=data.rows;
+    			var options="";
+    			$("#"+categorySelectId).empty();
+    			for(var i=0;i<categorys.length;i++){
+    				options=options+"<option value='"+categorys[i].id+"'>"+categorys[i].categoryName+"</option>";
+    			}
+    			$("#"+categorySelectId).append(options);
+    			var currentOption=$("#"+categorySelectId).val();
+    			loadKind(kindSelectId,currentOption);
+    		}
+    	});
+	}
+	
+	//ajax，根据category选中项加载产品种类
+	function loadKind(kindSelectId,currentOption){
+		$.ajax({
+    		url:"/ShopSys/productmanage/kindAction_listKindsByCategoryId.action",
+    		type:"post",
+    		data:{
+    			"id":currentOption
+    		},
+    		dataType:"json",
+    		success:function(data){
+    			var kinds=data.rows;
+    			var options="";
+    			$("#"+kindSelectId).empty();
+    			for(var i=0;i<kinds.length;i++){
+    				options=options+"<option value='"+kinds[i].id+"'>"+kinds[i].kindName+"</option>";
+    			}
+    			$("#"+kindSelectId).append(options);
+    			
+    		}
+    	});
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//获得现在的时间
@@ -629,4 +914,5 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 		var nowTime=year+"-"+smonth+"-"+sdate+" "+hourslocale+minutes;
 		return nowTime;
 	}
+/*******************************公用的方法************************************/
 });
