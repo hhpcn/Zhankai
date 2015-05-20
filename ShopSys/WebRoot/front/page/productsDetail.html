@@ -191,13 +191,23 @@ function change(id){
 				text-align: left;
 				color: #999;
 			}
-			#detailImg-pre,
+			#detailImg-pre {
+			    
+				position: absolute;
+				width: 30px;
+				height: 46px;
+				top: 50%;
+				background: url(/ShopSys/image/DetailImg/page_button2.gif) 0 0 no-repeat; 
+				cursor: pointer;
+				text-indent:-9999px;
+				
+			}
 			#detailImg-next {
 				position: absolute;
 				width: 30px;
 				height: 46px;
 				top: 50%;
-				background: url(/ShopSys/image/DetailImg/page_button.gif) 0 0 no-repeat;
+				background: url(/ShopSys/image/DetailImg/page_button2.gif) 0 0 no-repeat; 
 				cursor: pointer;
 				text-indent:-9999px;
 			}
@@ -271,9 +281,12 @@ function change(id){
 			<div class="imgContainer">
 				<!--大图-->
 				<div class="detailImg" > 
-					<a id="detailImg-pre">&lt;</a>
+					<a id="detailImg-pre">
+					</a>
 					<div id="detailImg-box" class="box"> </div>
-					<a id="detailImg-next">&gt;</a> 
+					<a id="detailImg-next">
+					<img height="25" width="20" src="/ShopSys/image/DetailImg/rightArrow.gif">
+					</a> 
 				</div>
 				<!--小图-->
 				<div class="smallImg"> 
@@ -493,11 +506,11 @@ function change(id){
 				var href=img[i].href,
 					alt=img[i].alt,
 					src=img[i].src,
-					title=img[i].title,
+					/* title=img[i].title, */
 					$main=$('#detailImg-box');
 				$main.find('a').attr({'href':href,'class':'detailImg_'+(i+1)});
 				$main.find('img').attr({'alt':alt,'src':src});
-				$main.find('p').text(title);
+				/* $main.find('p').text(title); */
 			}
 			function s_a_r(o,c){
 				o.addClass(c).siblings().removeClass(c);	
