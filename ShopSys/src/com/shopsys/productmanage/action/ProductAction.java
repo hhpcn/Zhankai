@@ -127,6 +127,13 @@ public class ProductAction extends BaseAction {
 		return "dataMap";
 	}
 	
+	
+
+	
+	
+	
+	
+	
 	public ProductService getProductService() {
 		return productService;
 	}
