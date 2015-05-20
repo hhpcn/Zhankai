@@ -108,8 +108,8 @@ public class JqgridUtil {
 	}
 	/**
 	 * 将字符串的id转化成integer数组类型的id
-	 * @param id : 字符串形式的id
-	 * @return intIds : integer数组类型的id
+	 * @param id : 字符串形式的id,如："1,2,3,4"
+	 * @return intIds : integer数组类型的id，如: 1 2 3 4
 	 */
 	public static Integer[] idToIntIds(String id) {
 		String ids[]=null;

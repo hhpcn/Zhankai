@@ -17,7 +17,11 @@ function hashChangeFire(){
     	hash=defaulthash;
     }
     hash=hash.replace("#", "");
-		loadPage(hash);
+    var linkPlace=hash.indexOf("_", 0);
+    if(linkPlace>0){
+    	hash=hash.substring(0, linkPlace);
+    }
+	loadPage(hash);
 }
 
 
@@ -36,7 +40,11 @@ function loadPage(hash){
 
 
 
-function changeTitle(title){
-	$("#title").val(title);
-	//hashChangeFire();
+function changeTitle(CTitle,CId,KId){
+	localStorage.CTitle=CTitle;
+	localStorage.CId=CId;
+	localStorage.KId=KId;
+	$("#CTitle").val(CTitle);
+	$("#CId").val(CId);
+	$("#KId").val(KId);
 }

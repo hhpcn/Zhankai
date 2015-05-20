@@ -34,7 +34,7 @@
 			mtype: 'POST', 
 			datatype: "json",
 			height: 300,
-			colNames:[' ', 'ID','栏目名称','路径'],
+			colNames:[' ', 'ID','栏目名称','是否发布','路径'],
 			colModel:[
 				{name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
 					formatter:'actions', 
@@ -48,7 +48,9 @@
 				},
 				{name:'id',index:'id', width:60, sorttype:"int"},
 				{name:'categoryName',index:'categoryName', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'pageUrl',index:'pageUrl', width:200, editable: true},
+				{name:'isPublish',index:'isPublish', width:70, editable: true,edittype:"checkbox",
+					editoptions: {value:"true:false"},unformat: aceSwitch},
+				{name:'pageUrl',index:'pageUrl', width:200, editable: true}
 			], 
 	
 			viewrecords : true,

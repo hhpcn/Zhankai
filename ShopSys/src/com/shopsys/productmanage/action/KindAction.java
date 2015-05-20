@@ -125,8 +125,21 @@ public class KindAction extends BaseAction {
 	}
 	
 	
-	
-	
+	//************前台界面访问方法，不进行拦截************************************************************
+	public String frontLoadKindByIds(){
+		dataMap=new HashMap<String, Object>();
+		List<Map<String, Object>> kindsMap=new ArrayList<Map<String, Object>>();
+		Integer[] categoryIds= JqgridUtil.idToIntIds(id);
+		for (int i = 0; i < categoryIds.length; i++) {
+		  List<Kind>  kinds  =	kindService.listByHQL("From Kind where categoryId = "+categoryIds[i]+" and isPublish = true");
+		  Map<String, Object> map=new HashMap<String, Object>();
+		  map.put("cn","C"+categoryIds[i]);
+		  map.put("list", kinds);
+		  kindsMap.add(map);
+		}
+		dataMap.put("rows", kindsMap);
+		return "dataMap";
+	}
 	
 	
 	

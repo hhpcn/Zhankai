@@ -23,6 +23,8 @@
 				class="com.shopsys.auth.AuthorityInterceptor">
 				<!-- 不进行验证的方法 -->
 				<param name="excludeName">login,register,listRole,logout,manage</param>
+				<!-- 前缀名为以下开头则不进行验证 -->
+				<param name="excludePrefixName">front</param>
 			</interceptor>
 			<interceptor-stack name="LoginInterceptors">
 			   <!-- 系统的自定义的拦截器栈放在前面 -->

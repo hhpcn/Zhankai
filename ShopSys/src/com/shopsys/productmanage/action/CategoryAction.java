@@ -20,6 +20,7 @@ public class CategoryAction extends BaseAction {
 	private Category category;
 	
 	private String  categoryName;
+	private Boolean  isPublish;
 	private String pageUrl;
 	
 	
@@ -66,6 +67,7 @@ public class CategoryAction extends BaseAction {
 			categoryMap.put("categoryName", category.getCategoryName());
 			categoryMap.put("id", category.getId());
 			categoryMap.put("pageUrl", category.getPageUrl());
+			categoryMap.put("isPublish", category.getIsPublish());
 			categoryMaps.add(categoryMap);
 		}
 	
@@ -80,6 +82,7 @@ public class CategoryAction extends BaseAction {
 			Category category = new Category();
 			category.setCategoryName(categoryName);
 			category.setPageUrl(pageUrl);
+			category.setIsPublish(isPublish);
 			categoryService.saveOrUpdate(Category.class, category);
 			flag=true;
 		}else{
@@ -89,6 +92,7 @@ public class CategoryAction extends BaseAction {
 				Category categoryData= categoryService.getByClassNameAndId(Category.class, intIds[0]);
 				categoryData.setCategoryName(categoryName);
 				categoryData.setPageUrl(pageUrl);
+				categoryData.setIsPublish(isPublish);
 				categoryService.update(categoryData);
 				flag=true;
 				
@@ -104,6 +108,14 @@ public class CategoryAction extends BaseAction {
 	}
 	
 	
+	
+	//**********以下是前台访问的方法区域，不会进行拦截****************************************************************************************8
+		public String frontLoadCategory() {
+			dataMap=new HashMap<String, Object>();
+			List<Category> listCategories = categoryService.listByHQL("from Category where isPublish = true");
+			dataMap.put("categories", listCategories);
+			return "list";
+		}
 	
 	
 	
@@ -139,6 +151,12 @@ public class CategoryAction extends BaseAction {
 	}
 	public void setKindService(KindService kindService) {
 		this.kindService = kindService;
+	}
+	public Boolean getIsPublish() {
+		return isPublish;
+	}
+	public void setIsPublish(Boolean isPublish) {
+		this.isPublish = isPublish;
 	}
 	
 	
