@@ -44,7 +44,4 @@ function changeTitle(CTitle,CId,KId){
 	localStorage.CTitle=CTitle;
 	localStorage.CId=CId;
 	localStorage.KId=KId;
-	$("#CTitle").val(CTitle);
-	$("#CId").val(CId);
-	$("#KId").val(KId);
 }
