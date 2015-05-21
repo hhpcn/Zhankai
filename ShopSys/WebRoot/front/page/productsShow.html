@@ -39,14 +39,16 @@ function change(id){
    
     
    <div class="col-md-3 " >
-     <div class="row  " style="margin-right:-10px;height: 600px;background-color: #ffffff;border: 1px solid #000;">
-        <div class="col-md-12  " style="margin-bottom:10px;height: 120px;background-color: #ffffff;" >
+     <div class="row  " style="margin-right:-10px;min-height: 600px;background-color: #ffffff;border: 1px solid #000;">
+        <div class="col-md-12  " style="margin-bottom:10px;min-height: 160px;background-color: #ffffff;" >
              <div class="indextitle" style="border-bottom:1px  dashed  #005c2e;margin-right: 10px;">
 				<span>最新公告</span>
             </div>
-            <div>
-            <marquee  vspace="10" hspace="10" scrollamount="3" height="30px" onmouseout="this.start()" onmouseover="this.stop()"behavior="scroll" direction="left">
-               <span style="font-size: 14px;"><a style="color: #ff7400">我来回滚动 jgjgljvglajdgvjgd</a></span>
+            <div style="border: 1px solid #005c2e;margin-top: 30px;" >
+            <marquee space="10" hspace="10" scrollamount="3" height="90px" onmouseout="this.start()" onmouseover="this.stop()"behavior="scroll" direction="up">
+              <div style="margin-bottom: 4px;"><span style="font-size: 14px;"><a style="color: #ff7400">我来回滚动 jgjgljvglajdgvjgd</a></span></div> <br/>
+              <div style="margin-bottom: 4px;"><span style="font-size: 14px;"><a style="color: #ff7400">我来回滚动 jgjgljvglajdgvjgd</a></span></div> <br/>
+              <div style="margin-bottom: 4px;"><span style="font-size: 14px;"><a style="color: #ff7400">我来回滚动 jgjgljvglajdgvjgd</a></span></div> <br/>
                                 
             </marquee> 
             
@@ -122,18 +124,7 @@ function change(id){
        <div class="row" style="">
        <div id="ps_CTitle" class="col-md-2 "style="border-bottom: 1px solid #ff0000;height:44px;text-align: center;vertical-align: middle;line-height:43px;font-size: 16px"></div>
 	   <div id="navtabs" class="col-md-10 " style="margin-bottom:10px;background-color: #ffffff;border-bottom: 0px;padding-left:0px;padding-right: 0px;" >
-   <!--     <ul class="nav nav-tabs" style="font-size: 14px"> 
-
-
-		   <li id="chi" class="active"><a href="#chi" onclick="change('chi')">指挥尺</a></li>
-		   <li id="she"><a href="#she" onclick="change('she')">蛇尺曲线板</a></li>
-		   <li id="xiang"><a href="#xiang" onclick="change('xiang')">迷彩箱包</a></li>
-		   <li id="ba"><a href="#ba" onclick="change('ba')">靶纸靶板</a></li>
-		   <li id="huabi"><a href="#huabi"  onclick="change('huabi')">标图画笔</a></li>
-		   <li id="jian"><a href="#jian"onclick="change('jian')">检查镜</a></li>
-		   <li id="qita"><a href="#qita" onclick="change('qita')">其他</a></li>
-		   
-	   </ul> -->
+   
        </div>
        </div>
        
@@ -212,7 +203,7 @@ function change(id){
 	   </div>
    
    </div>
-     <div class="row"  style="margin-top: 30px;">
+     <div class="row"  style="margin-top: 30px;margin-left: 110px;">
           <div class="col-md-10 col-md-offset-1">
           	<ul style="float:left;" id="pagination-demo" class="pagination"></ul>
           </div>
