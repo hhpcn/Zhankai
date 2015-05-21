@@ -45,7 +45,8 @@ public class ProductAction extends BaseAction {
 			dataMap.put("records", allRecordNumbers);//总记录数
 		}else {
 			allRecordNumbers=productService.countByClass(Product.class);
-		    products=productService.listPageRowsByClass(Product.class, currentPage, pageSize);
+		    //products=productService.listPageRowsByClass(Product.class, currentPage, pageSize);
+		    products=productService.listPageRowsByHQL("from Product where 1=1 order by id desc", currentPage, pageSize);
 			dataMap.put("total", JqgridUtil.countPageNumbers(pageSize, allRecordNumbers));//总页数
 			dataMap.put("records", allRecordNumbers);//总记录数
 		}
@@ -134,7 +135,7 @@ public class ProductAction extends BaseAction {
 		Integer kindId= Integer.parseInt(id);
 		Integer currentPage=Integer.parseInt(page);
 		Integer pageSize=Integer.parseInt(rows);
-		String hql="from Product where kindId = "+kindId;
+		String hql="from Product where kindId = "+kindId+" order by priority desc , id desc";
 		List<Product> productList = productService.listPageRowsByHQL(hql, currentPage, pageSize);
 		List<Map<String, Object>> productMapList= new ArrayList<Map<String,Object>>();
 		for (int i = 0; i < productList.size(); i++) {
@@ -166,13 +167,67 @@ public class ProductAction extends BaseAction {
 	
 	
 	/**
-	 * 根据id、查询条件、以及每页几条，统计页数
+	 * 根据id以及每页几条，统计页数
 	 * @return
 	 */
     public String frontCountPageNumber() {
     	Integer pageSize=Integer.parseInt(rows);
     	dataMap=new HashMap<String, Object>();
     	String hql="select count(*) from Product where kindId = "+id;
+    	Integer allRecordNumbers=productService.countByHQL(hql);
+    	Integer pageNumber=JqgridUtil.countPageNumbers(pageSize, allRecordNumbers);
+    	dataMap.put("pageNumber", pageNumber);
+		return "dataMap";
+	}
+    
+    
+    /**
+     * 条件搜索产品，根据产品名、产品所属种类名匹配
+     * @return
+     */
+    public String  frontLoadProductsBySearch() {
+    	dataMap=new HashMap<String, Object>();
+    	dataMap=new HashMap<String, Object>();
+		Integer currentPage=Integer.parseInt(page);
+		Integer pageSize=Integer.parseInt(rows);
+		String hql="from Product where productName like '%"+searchString+"%' or kindName like '%"+searchString+"%' order by priority desc , id desc";
+		List<Product> productList = productService.listPageRowsByHQL(hql, currentPage, pageSize);
+		List<Map<String, Object>> productMapList= new ArrayList<Map<String,Object>>();
+		for (int i = 0; i < productList.size(); i++) {
+			Map<String, Object> productMap = new HashMap<String, Object>();
+			productMap.put("id", productList.get(i).getId());
+			productMap.put("productName", productList.get(i).getProductName());
+			productMap.put("price", productList.get(i).getPrice());
+			productMap.put("kindId", productList.get(i).getKindId());
+			
+			String guideImageUrls= productList.get(i).getGuideMap();
+			if (guideImageUrls!=null && guideImageUrls != "") {
+				String[] guideImageUrlsArray = guideImageUrls.split(";");
+				if (guideImageUrlsArray.length>0) {
+					productMap.put("guideImageUrl", guideImageUrlsArray[0]);
+				}else {
+					productMap.put("guideImageUrl", "");
+				}
+			}else {
+				productMap.put("guideImageUrl", "");
+			}
+			
+			productMapList.add(productMap);
+		}
+		dataMap.put("rowsSize", productList.size());
+		dataMap.put("rows", productMapList);
+    	return "dataMap";
+	}
+    
+    
+	/**
+	 * 根据id以及每页几条，统计页数
+	 * @return
+	 */
+    public String frontCountPageNumberBySearch() {
+    	Integer pageSize=Integer.parseInt(rows);
+    	dataMap=new HashMap<String, Object>();
+    	String hql="select count(*) from Product where productName like '%"+searchString+"%' or kindName like '%"+searchString+"%'";
     	Integer allRecordNumbers=productService.countByHQL(hql);
     	Integer pageNumber=JqgridUtil.countPageNumbers(pageSize, allRecordNumbers);
     	dataMap.put("pageNumber", pageNumber);

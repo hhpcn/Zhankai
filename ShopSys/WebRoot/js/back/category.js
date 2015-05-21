@@ -33,7 +33,7 @@
 			url:'/ShopSys/productmanage/categoryAction_listCategory.action', //这是Action的请求地址 
 			mtype: 'POST', 
 			datatype: "json",
-			height: 300,
+			height: 370,
 			colNames:[' ', 'ID','栏目名称','是否发布','路径'],
 			colModel:[
 				{name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,

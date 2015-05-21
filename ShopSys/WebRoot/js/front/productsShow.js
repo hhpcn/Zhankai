@@ -2,6 +2,8 @@ $(function(){
   var pro_CTitle=localStorage.CTitle;
   var pro_CId=localStorage.CId;
   var pro_KId=localStorage.KId;
+  
+  
   //CId、KId空值的情况需要根据url路径的hash值做处理
   if(typeof(pro_CId) == "undefined"){
 	   var hash=window.location.hash;
@@ -76,6 +78,14 @@ $(function(){
   }
   
   
+  $("#searchBtn").click(function(){
+	  var searchParam=$("#searchParam").val();
+	  if (searchParam=="") return false;
+	  //根据搜索条件加载产品
+	  loadProductsBySearParam(searchParam,9,1);
+	  //根据搜搜条件加载分页栏
+	  initialPagination_products_search(searchParam);
+  });
   
 
 
@@ -170,3 +180,74 @@ function initialPagination_products(kindId){
 	});
 }
 
+
+//根据搜索参数搜索产品
+function  loadProductsBySearParam(searchParam,rows,page){
+	$.ajax({
+		url:"/ShopSys/productmanage/productAction_frontLoadProductsBySearch.action",
+		type:"post",
+		data:{
+			"searchString":searchParam,
+			"page":page,
+			"rows":rows
+		},
+		dataType:"json",
+		success:function(data){
+			//加载图片及各类信息
+			//var rowsSize=data.rowsSize;
+			var productList=data.rows;
+			var productHtml="";
+			for(var i=0;i<productList.length;i++){
+				productHtml=productHtml+"<div class='col-sm-6 col-md-4'>" +
+						"<a class='thumbnail' ><img  src='/ShopSys/"+productList[i].guideImageUrl+"'></a>" +
+						"<div style='margin:-18px 5px 5px 5px;'>" +
+							 "<p class='tit'>"+productList[i].productName+"</p>" +
+							 "<p class='text'>"+productList[i].price+"</p>" +
+						"</div>" +
+					"</div>";
+			}
+			productHtml="<div class='col-md-12'><div class='row' >"+productHtml+"</div></div>";
+			
+			$("#productlist").empty().html(productHtml);
+		}
+	});
+}
+
+
+//初始化分页栏
+function initialPagination_products_search(searchParam){
+	$.ajax({
+		url:"/ShopSys/productmanage/productAction_frontCountPageNumberBySearch.action",
+		type:"post",
+		data:{
+			"searchString":searchParam,
+			"rows":9
+		},
+		dataType:"json",
+		success:function(data){
+			$("#pagination_parent").empty().html("<ul style='float:left;'id='pagination-products' class='pagination'></ul>");
+			
+			var totalPages=data.pageNumber;
+			var visiblePages=0;
+			if(totalPages>7){
+				visiblePages=7;
+			}else if(totalPages>0){
+				visiblePages=totalPages;
+			}else{
+				totalPages=1;
+				visiblePages=1;
+			}
+			$('#pagination-products').twbsPagination({
+		        totalPages: totalPages,
+		        visiblePages: visiblePages,
+		        first:"首页",
+		        prev:"上一页",
+		        next:"下一页",
+		        last:"尾页",
+		        onPageClick: function (event, page) {
+		        	loadProductsBySearParam(searchParam,9,page);
+		        }
+	         });
+		}
+	});
+}
