@@ -84,7 +84,7 @@ public class BaseDaoImpl implements BaseDao {
 	public <T> List<T> listPageRowsByClassAndParams(Class<?> entityClass,int currentPage,
 			int pageSize,String whereParams) {
 		Query query=this.getSession().createQuery("from "+entityClass.getSimpleName()+" "+whereParams);
-		System.out.println("from "+entityClass.getSimpleName()+" "+whereParams);
+		//System.out.println("from "+entityClass.getSimpleName()+" "+whereParams);
 		query.setFirstResult((currentPage-1)*pageSize);
 		query.setMaxResults(pageSize);
 		return query.list();

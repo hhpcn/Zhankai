@@ -127,10 +127,44 @@ public class ProductAction extends BaseAction {
 		return "dataMap";
 	}
 	
+/***************************前台调用的方法，不进行拦截********************************************************************/
+    //datamap 会不会有访问互相干扰的情形。spring类变量的管理
+	public String frontLoadProducts() {
+		dataMap=new HashMap<String, Object>();
+		Integer kindId= Integer.parseInt(id);
+		Integer currentPage=Integer.parseInt(page);
+		Integer pageSize=Integer.parseInt(rows);
+		String hql="from Product where kindId = "+kindId;
+		List<Product> productList = productService.listPageRowsByHQL(hql, currentPage, pageSize);
+		List<Map<String, Object>> productMapList= new ArrayList<Map<String,Object>>();
+		for (int i = 0; i < productList.size(); i++) {
+			Map<String, Object> productMap = new HashMap<String, Object>();
+			productMap.put("id", productList.get(i).getId());
+			productMap.put("productName", productList.get(i).getProductName());
+			productMap.put("price", productList.get(i).getPrice());
+			productMap.put("kindId", productList.get(i).getKindId());
+			
+			String guideImageUrls= productList.get(i).getGuideMap();
+			if (guideImageUrls!=null && guideImageUrls != "") {
+				String[] guideImageUrlsArray = guideImageUrls.split(";");
+				if (guideImageUrlsArray.length>0) {
+					productMap.put("guideImageUrl", guideImageUrlsArray[0]);
+				}else {
+					productMap.put("guideImageUrl", "");
+				}
+			}else {
+				productMap.put("guideImageUrl", "");
+			}
+			
+			productMapList.add(productMap);
+		}
+		dataMap.put("rowsSize", productList.size());
+		dataMap.put("rows", productMapList);
+		
+		return "dataMap";
+	}
 	
-
-	
-	
+/***************************前台调用的方法，不进行拦截*********************************************************************/
 	
 	
 	

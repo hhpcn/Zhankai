@@ -22,6 +22,7 @@ $(function(){
   }
   
   
+  
   var kinds=JSON.parse(localStorage.kinds);
   //var categories=JSON.parse(localStorage.categories);
   $("#ps_CTitle").empty().html("<b>"+pro_CTitle+"</b>");
@@ -40,19 +41,21 @@ $(function(){
   if ( typeof(selectKinds) != "undefined"){
 	  var navhtml="";
 	  for(var j=0;j<selectKinds.length;j++){
-		  
+		  //0是点击顶级栏目时触发的
 		  if(pro_KId==0){
 			  if(j==0){
 				  navhtml += "<li id='K"+selectKinds[j].id+"' class=\"active\">" +
 					"<a  onclick=\"change(\'"+selectKinds[j].id+"\')\">"+selectKinds[j].kindName+"</a>" +
 				 "</li>";
+				  localStorage.KId = selectKinds[j].id;//选择的子栏目id存在这里
 			  }
-			  pro_KId=-1;
+			  pro_KId=-1;//这样设值后，后面的判断必然不会再选择其他子栏目
 		  }else{
 			  if(selectKinds[j].id==pro_KId){
 				  navhtml += "<li id='K"+selectKinds[j].id+"' class=\"active\">" +
 					"<a  onclick=\"change(\'"+selectKinds[j].id+"\')\">"+selectKinds[j].kindName+"</a>" +
 				 "</li>";
+				  localStorage.KId = selectKinds[j].id;//选择的子栏目id存在这里
 			  }else{
 				  navhtml += "<li id='K"+selectKinds[j].id+"'>" +
 					"<a  onclick=\"change(\'"+selectKinds[j].id+"\')\">"+selectKinds[j].kindName+"</a>" +
@@ -66,6 +69,10 @@ $(function(){
 	  }
 	  navhtml="<ul class=\"nav nav-tabs\" style=\"font-size: 14px\"> "+navhtml+"</ul>";
 	  $("#navtabs").empty().html(navhtml);
+	  
+	  
+	  //根据选中的二级栏目加载相对的产品
+	  loadProducts(localStorage.KId);
   }
   
   
@@ -74,8 +81,39 @@ $(function(){
 
 }); 
 
+
+//点击子界面栏目时触发的事件
 function change(id){
 	  $("li").removeClass("active");
-	  $("#K"+id).addClass("active");
+	  $("#K"+id).addClass("active"); 
+	  
+	//将选中的二级栏目id存在localStorage中
+	 localStorage.KId = id;
+	 
+	 loadProducts(id);
+	  
+	  
+}
+
+//根据类别加载产品
+function loadProducts(kindId){
+	
+	
+	$.ajax({
+		url:"/ShopSys/productmanage/productAction_frontLoadProducts.action",
+		type:"post",
+		data:{
+			"id":kindId,
+			"page":1,
+			"rows":9
+		},
+		dataType:"json",
+		success:function(data){
+			
+		}
+	});
+	
+	
+	
 }
 
