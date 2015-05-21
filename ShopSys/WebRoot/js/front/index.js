@@ -3,7 +3,7 @@ $(function(){
 	var categoryPageUrls = new Array();
 	var categoryNames = new Array();
 	var categoryPlace = new Array();//中间位置
-	var startCategoryPlace = 320;//第三个栏目离左边的距离
+	var startCategoryPlace = 252;//第二个栏目离左边的距离
 	//取消异步加载
 	$.ajaxSettings.async = false;
 	//加载顶级栏目

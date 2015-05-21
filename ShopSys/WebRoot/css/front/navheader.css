@@ -9,7 +9,7 @@ a:link,a:visited{text-decoration:none}
 
 .head-v3{position:relative;z-index:100;min-width:1000px}
 .head-v3 .navigation-inner{margin:0 auto;width:980px;}
-.navigation-up{height:60px;background:#9ab9ff}
+.navigation-up{height:60px;background:#36613b}
 .navigation-up .navigation-v3{float:left;}
 .navigation-up .navigation-v3 ul{float:left}
 .navigation-up .navigation-v3 li{float:left;font:normal 16px/59px "microsoft yahei";color:#fff}
@@ -27,3 +27,5 @@ a:link,a:visited{text-decoration:none}
 .navigation-down .menu-1 dd a{color:#fff;font:normal 14px "microsoft yahei"}
 .navigation-down .menu-1 dd a:hover{color:#60aff6}
 .navigation-down .menu-2 dd a,.navigation-down .menu-3 dd a{color:#fff;font:normal 16px "microsoft yahei"}
+
+#myCarousel img:hover{opacity:0.8}

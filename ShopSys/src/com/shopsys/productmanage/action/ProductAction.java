@@ -164,6 +164,21 @@ public class ProductAction extends BaseAction {
 		return "dataMap";
 	}
 	
+	
+	/**
+	 * 根据id、查询条件、以及每页几条，统计页数
+	 * @return
+	 */
+    public String frontCountPageNumber() {
+    	Integer pageSize=Integer.parseInt(rows);
+    	dataMap=new HashMap<String, Object>();
+    	String hql="select count(*) from Product where kindId = "+id;
+    	Integer allRecordNumbers=productService.countByHQL(hql);
+    	Integer pageNumber=JqgridUtil.countPageNumbers(pageSize, allRecordNumbers);
+    	dataMap.put("pageNumber", pageNumber);
+		return "dataMap";
+	}
+	
 /***************************前台调用的方法，不进行拦截*********************************************************************/
 	
 	
