@@ -36,8 +36,6 @@ $(function(){
 			categoryNames.push(categories[i].categoryName);
 		  }
 			$("#headnav li:last").after(navli);
-			
-			
 		}
 	});
 	
@@ -108,21 +106,31 @@ function initialKinds(ids,categoryIds,categoryPageUrls,categoryNames,categoryPla
 			var kindsLength = new Array();//每个二级导航栏navigation-down的div长度
 			for(var i=0;i<rows.length;i++){
 				
+				//二级栏目的hash值有两种情况，第一种加载的页面和父栏目一样，第二种加载的页面是自己特定的，根据二级栏目的pageUrl是否为空来判断
+				
+				
+				
+				
 				var list=rows[i].list;
 				
 				var dls="";
 				kindsLength[i]=0;
 				for(var j=0;j<list.length;j++){
+					var  catePageUrl=categoryPageUrls[i];
+					if(list[j].pageUrl != ""){
+						catePageUrl=list[j].pageUrl;
+					}
+					//这里j==0是代表第一个二级栏目，要计算起始位置
 					if(j==0){
 						dls=dls+ 
 					     "<dd>" +
-					          "<a href='"+categoryPageUrls[i]+"_K"+list[j].id+"' onclick=\"changeTitle(\'"+categoryNames[i]+"\',"+categoryIds[i]+","+list[j].id+")\">"+list[j].kindName+"</a>" +
+					          "<a href='"+catePageUrl+"_K"+list[j].id+"' onclick=\"changeTitle(\'"+categoryNames[i]+"\',"+categoryIds[i]+","+list[j].id+")\">"+list[j].kindName+"</a>" +
 					      "</dd>" +
 					    "</dl>";
 					}else{
 						dls=dls+ "<dl>" +
 					     "<dd>" +
-					          "<a href='"+categoryPageUrls[i]+"_K"+list[j].id+"' onclick=\"changeTitle(\'"+categoryNames[i]+"\',"+categoryIds[i]+","+list[j].id+")\">"+list[j].kindName+"</a>" +
+					          "<a href='"+catePageUrl+"_K"+list[j].id+"' onclick=\"changeTitle(\'"+categoryNames[i]+"\',"+categoryIds[i]+","+list[j].id+")\">"+list[j].kindName+"</a>" +
 					      "</dd>" +
 					    "</dl>";
 					}
