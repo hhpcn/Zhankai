@@ -31,23 +31,5 @@ $(function(){
           }
       });
 	  
-	 /* $("#searchParam").keydown(function(){
-		  
-		  
-		     if (event.keyCode == "13") {//keyCode=13是回车键
-		    	 alert("fff");
-		    	 var searchParam=$("#searchParam").val();
-				  if (searchParam=="") return false;
-				  //初始搜索结果界面元素
-				  InitialSearchResutlPage("product_pagecontent");
-				  //触发搜索前，更换子导航栏
-				  changeChildNav("products_childnav");
-			
-				  //根据搜索条件加载产品
-				  loadProductsBySearParam(searchParam,9,1);
-				  //根据搜搜条件加载分页栏
-				  initialPagination_products_search(searchParam);
-             }
-	  });*/
 	  
 });
