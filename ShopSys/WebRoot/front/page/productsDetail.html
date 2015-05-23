@@ -18,26 +18,39 @@
 	}
 
 
+#productlist	img{-webkit-backface-visibility:hidden;-webkit-transition:opacity 0.3s ease-out;-moz-transition:opacity 0.3s ease-out;-o-transition:opacity 0.3s ease-out;transition:opacity 0.3s ease-out;}
+    img:hover{opacity:0.8}
+    #productlist .tit{font-family:'微软雅黑','黑体';font-size:14px;line-height:22px;margin-top:10px;}
+    #productlist .text{color:#929292;font-family:'微软雅黑','黑体';font-size:12px;margin-top:5px;padding-right:10px;}
+    #productlist img{
+        height:160px;
+}
+    
+    
+    
+    
+  #nav_ul a:hover{
+  	background-color: #334455;
+  }
+  #nav_ul {
+  	height:40px;
+  	
+  }
+  #nav_fli{
+  	margin-left: 150px;
+  }
+  
+  #nav_ul li a{
+  	line-height: 10px;
+  }
 
 </style>
 
-<script  type="text/javascript">
-$(function(){
-   
-});
-function change(id){
-  $("li").removeClass("active");
-  $("#"+id).addClass("active");
-}
 
-</script>
 
 
 <div style="margin:0 auto;">
    <div class="row">
-     
-   
-    
    <div class="col-md-3 " >
      <div class="row  " style="margin-right:-10px;min-height: 610px;background-color: #ffffff;border: 1px solid #000;">
         <div class="col-md-12  " style="margin-bottom:10px;min-height: 160px;background-color: #ffffff;" >
@@ -66,8 +79,8 @@ function change(id){
            <div style="margin-left:0px;margin-top:20px;margin-bottom: 10px; ">
 	           
 				<div class="form-group">
-					 <input class="form-control" style="float:left;width:130px;height: 30px;margin-left: 5px"  type="text" size="20" autocomplete="off" >
-					 <input class="btn btn-default" style="float:right;height: 30px;margin-right: 10px;padding:3px 12px;" type="button" value="搜索" >
+					 <input id="searchParam" class="form-control" style="float:left;width:170px;height: 30px;margin-left: 5px"  type="text" size="20" autocomplete="off" >
+					 <input class="btn btn-default" id="searchBtn" style="float:right;height: 30px;margin-right: 10px;padding:3px 12px;" type="button" value="搜索" >
 				</div>
 							
 		  </div>		
@@ -120,10 +133,8 @@ function change(id){
 
 
    
-   <div class="col-md-9  " style=" min-height: 900px;background-color: #ffffff;border: 1px solid #000000;">
-     <div class="row">
-	       <div class="col-md-12">
-	       
+   <div class="col-md-9"  id="product_pagecontent" style=" min-height: 900px;background-color: #ffffff;border: 1px solid #000000;">
+     <div class="row"  id="products_pageNav">
 	       <div style="border-bottom:1px  dashed  #005c2e;min-height: 30px;margin-left: 10px;margin-right: 10px; ">
 		       <ol class="breadcrumb" style="margin-bottom:0px;background-color: #fff">
 				  <li><a href="#">
@@ -132,10 +143,12 @@ function change(id){
 				  <li><a href="#page/productsShow" style="font-size: 14px;">训练指挥器材</a></li>
 				  <li class="active" style="font-size: 14px;">标图画笔</li>
 				</ol>
-		      
-		       
 		   </div>
-	       
+	 </div>
+	 
+	  <div class="row">
+	    
+	   <div class="col-md-12">  
 	   <div style="float:left;min-height: 430px;width:60%;margin-top: 10px;margin-left: 10px;">
 	          
 			<style>
@@ -553,9 +566,7 @@ function change(id){
 	          
 	       
 	     </div>
-	        
-	        
-	        
+	              
 	        
 	        <div  style="float:right;border: 1px solid #000000;min-height: 430px;width:35%;margin-top: 10px;margin-right: 10px;">
 	        
@@ -565,7 +576,8 @@ function change(id){
 	       
 	        
 	        </div>
-	      </div>
+	    </div>
+	      
 	      <div class="col-md-12">
             <div style="border: 1px solid #000000;min-height:200px;margin-top: 0px;margin-right: 10px;margin-left: 10px; ">
 	           <div style="border-bottom:1px  dashed  #005c2e;margin-left: 10px;font-size: 14px;margin-top: 10px;margin-right: 10px">
@@ -589,4 +601,5 @@ function change(id){
 
 </div>
 <script src="/ShopSys/js/front/jquery.twbsPagination.min.js" type="text/javascript"></script>
-
+<script src="/ShopSys/js/front/loadSearchPage.js" type="text/javascript"></script>
+<script src="/ShopSys/js/front/productsDetail.js" type="text/javascript"></script>

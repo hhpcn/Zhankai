@@ -12,7 +12,8 @@ $(function(){
 		    var linkPlace=hash.indexOf("_", 0);
 		    if(linkPlace>0){
 		    	hash=hash.substring(linkPlace+1, hash.length);
-		    	pro_CId=hash.replace("C", "");
+		    	pro_CId = hash.replace(/[^0-9]/ig,""); 
+		    	//pro_CId=hash.replace("C", "");
 		    	localStorage.CId=pro_CId;
 		    }
 	    }
@@ -71,7 +72,11 @@ $(function(){
 	  }
 	  navhtml="<ul class=\"nav nav-tabs\" style=\"font-size: 14px\"> "+navhtml+"</ul>";
 	  $("#navtabs").empty().html(navhtml);
+	  
+	  
+	  
 	  var nowKId=localStorage.KId;
+	  //初始化分页栏
 	  initialPagination_products(nowKId);
 	  //根据选中的二级栏目加载相对的产品
 	  loadProducts(nowKId,1);
@@ -81,13 +86,32 @@ $(function(){
   $("#searchBtn").click(function(){
 	  var searchParam=$("#searchParam").val();
 	  if (searchParam=="") return false;
+	  //初始搜索结果界面元素
+	  InitialSearchResutlPage("product_pagecontent");
 	  //触发搜索前，更换子导航栏
-	  //changeChildNav(navId);
-	  
+	  changeChildNav("products_childnav");
 	  //根据搜索条件加载产品
 	  loadProductsBySearParam(searchParam,9,1);
 	  //根据搜搜条件加载分页栏
 	  initialPagination_products_search(searchParam);
+  });
+  
+  //搜索输入框回车事件
+  $('#searchParam').bind('keypress',function(event){
+      if(event.keyCode == "13")    
+      {
+    	  var searchParam=$("#searchParam").val();
+		  if (searchParam=="") return false;
+		  //初始搜索结果界面元素
+		  InitialSearchResutlPage("product_pagecontent");
+		  //触发搜索前，更换子导航栏
+		  changeChildNav("products_childnav");
+	
+		  //根据搜索条件加载产品
+		  loadProductsBySearParam(searchParam,9,1);
+		  //根据搜搜条件加载分页栏
+		  initialPagination_products_search(searchParam);
+      }
   });
   
 
@@ -184,80 +208,5 @@ function initialPagination_products(kindId){
 }
 
 
-//根据搜索参数搜索产品
-function  loadProductsBySearParam(searchParam,rows,page){
-	$.ajax({
-		url:"/ShopSys/productmanage/productAction_frontLoadProductsBySearch.action",
-		type:"post",
-		data:{
-			"searchString":searchParam,
-			"page":page,
-			"rows":rows
-		},
-		dataType:"json",
-		success:function(data){
-			//加载图片及各类信息
-			//var rowsSize=data.rowsSize;
-			var productList=data.rows;
-			var productHtml="";
-			for(var i=0;i<productList.length;i++){
-				productHtml=productHtml+"<div class='col-sm-6 col-md-4'>" +
-						"<a class='thumbnail' ><img  src='/ShopSys/"+productList[i].guideImageUrl+"'></a>" +
-						"<div style='margin:-18px 5px 5px 5px;'>" +
-							 "<p class='tit'>"+productList[i].productName+"</p>" +
-							 "<p class='text'>"+productList[i].price+"</p>" +
-						"</div>" +
-					"</div>";
-			}
-			productHtml="<div class='col-md-12'><div class='row' >"+productHtml+"</div></div>";
-			
-			$("#productlist").empty().html(productHtml);
-		}
-	});
-}
 
 
-//根据搜索条件，初始化分页栏
-function initialPagination_products_search(searchParam){
-	$.ajax({
-		url:"/ShopSys/productmanage/productAction_frontCountPageNumberBySearch.action",
-		type:"post",
-		data:{
-			"searchString":searchParam,
-			"rows":9
-		},
-		dataType:"json",
-		success:function(data){
-			$("#pagination_parent").empty().html("<ul style='float:left;'id='pagination-products' class='pagination'></ul>");
-			
-			var totalPages=data.pageNumber;
-			var visiblePages=0;
-			if(totalPages>7){
-				visiblePages=7;
-			}else if(totalPages>0){
-				visiblePages=totalPages;
-			}else{
-				totalPages=1;
-				visiblePages=1;
-			}
-			$('#pagination-products').twbsPagination({
-		        totalPages: totalPages,
-		        visiblePages: visiblePages,
-		        first:"首页",
-		        prev:"上一页",
-		        next:"下一页",
-		        last:"尾页",
-		        onPageClick: function (event, page) {
-		        	loadProductsBySearParam(searchParam,9,page);
-		        }
-	         });
-		}
-	});
-}
-
-
-
-//点击搜索触发更换子导航栏
-function changeChildNav(navId){
-	
-}

@@ -24,6 +24,24 @@
     #productlist img{
         height:160px;
     }
+    
+    
+    
+    
+  #nav_ul a:hover{
+  	background-color: #334455;
+  }
+  #nav_ul {
+  	height:40px;
+  	
+  }
+  #nav_fli{
+  	margin-left: 150px;
+  }
+  
+  #nav_ul li a{
+  	line-height: 10px;
+  }
 </style>
 
 
@@ -58,7 +76,7 @@
            <div style="margin-left:0px;margin-top:20px;margin-bottom: 10px; ">
 	           
 				<div class="form-group">
-					 <input id="searchParam" class="form-control" style="float:left;width:130px;height: 30px;margin-left: 5px"  type="text" size="20" autocomplete="off" >
+					 <input id="searchParam" class="form-control" style="float:left;width:170px;height: 30px;margin-left: 5px"  type="text" size="20" autocomplete="off" >
 					 <input id="searchBtn" class="btn btn-default" style="float:right;height: 30px;margin-right: 10px;padding:3px 12px;" type="button" value="搜索" >
 				</div>	
 		  </div>		
@@ -111,38 +129,32 @@
 
 
    
-   <div class="col-md-9  " style=" min-height: 612px;background-color: #ffffff;border: 1px solid #000000;">
-       <div class="row" style="">
-       <div id="ps_CTitle" class="col-md-2 "style="border-bottom: 1px solid #36613b;height:44px;text-align: center;vertical-align: middle;line-height:43px;font-size: 16px;color: #36613b;"></div>
-	   <div id="navtabs" class="col-md-10 " style="margin-bottom:10px;background-color: #ffffff;border-bottom: 0px;padding-left:0px;padding-right: 0px;" >
-   
+   <div id="product_pagecontent" class="col-md-9  " style=" min-height: 610px;background-color: #ffffff;border: 1px solid #000000;">
+ <!--子导航栏  -->
+       <div class="row" id="products_childnav">
+	       <div id="ps_CTitle" class="col-md-2 "style="border-bottom: 1px solid #36613b;height:44px;text-align: center;vertical-align: middle;line-height:43px;font-size: 16px;color: #36613b;"></div>
+		   <div id="navtabs" class="col-md-10 " style="margin-bottom:10px;background-color: #ffffff;border-bottom: 0px;padding-left:0px;padding-right: 0px;" >
+	   
+	       </div>
        </div>
-       </div>
-       
-       
-    
   
- <!--  产品展示 -->
-	 <div id="productlist" class="row " style=" background-color: #ffffff;margin-top: 10px;">
-	        <div class="col-md-12">
-            <div class="row" >
-				<!--  <div class="col-sm-6 col-md-4">
-				    <a class="thumbnail" target="_blank" href="#page/productsDetail"><img  src="http://localhost:8080/ShopSys/demo/tupianliebiao/img/113064706.jpg" alt="...">
-				    </a>
-				   <div style="margin:-18px 5px 5px 5px;">
-				        <p class="tit">产品1</p>
-				        <p class="text">介绍</p>
-				   </div>
-				</div> -->
-            </div>
-	   </div>
-   
-   </div>
-     <div class="row"  style="margin-top: 30px;margin-left: 110px;">
-          <div id="pagination_parent" class="col-md-10 col-md-offset-1">
-          	<ul style="float:left;" id="pagination-products" class="pagination"></ul>
-          </div>
+ <!--  产品展示界面 -->
+     <div id="pageInfo">
+		 <div id="productlist" class="row " style=" background-color: #ffffff;margin-top: 10px;">
+		       <div class="col-md-12">
+	            <div class="row" >
+					
+	            </div>
+		       </div>
+	     </div>
+	     <div class="row"  style="margin-top: 30px;margin-left: 110px;">
+	          <div id="pagination_parent" class="col-md-10 col-md-offset-1">
+	          	<ul style="float:left;" id="pagination-products" class="pagination"></ul>
+	          </div>
+	  	 </div>
   	 </div>
+  	 
+  	 
    </div>
    
    </div>
@@ -152,5 +164,6 @@
 
 </div>
 <script src="/ShopSys/js/front/jquery.twbsPagination.min.js" type="text/javascript"></script>
+<script src="/ShopSys/js/front/loadSearchPage.js" type="text/javascript"></script>
 <script src="/ShopSys/js/front/productsShow.js" type="text/javascript"></script>
 
