@@ -81,6 +81,9 @@ $(function(){
   $("#searchBtn").click(function(){
 	  var searchParam=$("#searchParam").val();
 	  if (searchParam=="") return false;
+	  //触发搜索前，更换子导航栏
+	  //changeChildNav(navId);
+	  
 	  //根据搜索条件加载产品
 	  loadProductsBySearParam(searchParam,9,1);
 	  //根据搜搜条件加载分页栏
@@ -214,7 +217,7 @@ function  loadProductsBySearParam(searchParam,rows,page){
 }
 
 
-//初始化分页栏
+//根据搜索条件，初始化分页栏
 function initialPagination_products_search(searchParam){
 	$.ajax({
 		url:"/ShopSys/productmanage/productAction_frontCountPageNumberBySearch.action",
@@ -250,4 +253,11 @@ function initialPagination_products_search(searchParam){
 	         });
 		}
 	});
+}
+
+
+
+//点击搜索触发更换子导航栏
+function changeChildNav(navId){
+	
 }
