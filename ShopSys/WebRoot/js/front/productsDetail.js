@@ -31,5 +31,35 @@ $(function(){
           }
       });
 	  
+	 // alert("ss"+localStorage.ProId);
+	  $.ajax({
+		url:"/ShopSys/productmanage/productAction_frontGetProcuctById.action",
+		type:"post",
+		data:{
+			"id":localStorage.ProId
+		},
+		dataType:"json",
+		success:function(data){
+			//加载图片及各类信息
+			/*
+			var productList=data.rows;
+			var productHtml="";
+			
+			productHtml="<div class='col-md-12'><div class='row' >"+productHtml+"</div></div>";
+			
+			$("#productlist").empty().html(productHtml);*/
+			
+			document.getElementById("productDis").innerHTML=
+			"<div style='margin-left: 10px;font-size: 14px;margin-top: 10px;margin-right: 10px'>产品名称："+data.product.productName+"</div>"+
+			"<div style='margin-left: 10px;font-size: 14px;margin-top: 10px;margin-right: 10px'>产品名称："+data.product.productName+"</div>"+
+			"<div style='margin-left: 10px;font-size: 14px;margin-top: 10px;margin-right: 10px'>产品名称："+data.product.productName+"</div>";
+			
+			
+			
+		}
+	});
+	
+	  
+	  
 	  
 });

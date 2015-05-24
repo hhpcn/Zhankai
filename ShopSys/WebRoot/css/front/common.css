@@ -44,3 +44,7 @@
   }
   
   
+  #navtabs li a {
+  	cursor: pointer;
+  }
+  
