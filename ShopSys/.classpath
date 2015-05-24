@@ -58,5 +58,10 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/strust2/tiles-api-2.0.6.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/strust2/tiles-core-2.0.6.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/strust2/tiles-jsp-2.0.6.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-codec-1.7.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/bcprov-jdk15on-147.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.1.12.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

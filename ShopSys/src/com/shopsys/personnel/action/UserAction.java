@@ -19,6 +19,8 @@ import com.shopsys.common.SearchRule;
 import com.shopsys.personnel.model.User;
 import com.shopsys.personnel.service.UserService;
 import com.xmut.base.BaseAction;
+import com.xmut.util.PublicKeyMap;
+import com.xmut.util.RSAUtils;
 import com.xmut.util.WebUtil;
 
 /**
@@ -43,6 +45,23 @@ public class UserAction extends BaseAction {
     private String status;
 	private User user;
 	
+	
+	
+	 /**
+     * 获取系数和指数
+     * @return
+     * @throws Exception
+     */
+    public String keyPair() throws Exception{
+        PublicKeyMap publicKeyMap = RSAUtils.getPublicKeyMap();
+        System.out.println(publicKeyMap);
+        
+        dataMap=new HashMap<String, Object>();
+        dataMap.put("publicKeyMap", publicKeyMap);
+        //setJson(publicKeyMap);
+        
+        return "dataMap";
+    }
 	
 	public String login() {
 		
