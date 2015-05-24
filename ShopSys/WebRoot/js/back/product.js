@@ -386,7 +386,8 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 			var productNo = $("#addProductform input[name='productNo']").val();
 			var productName=$("#addProductform input[name='productName']").val();
 			var price=$("#addProductform input[name='price']").val();
-			var color=$("#addProductform input[name='color']").val();
+			var stock=$("#addProductform input[name='stock']").val();
+			var material=$("#addProductform input[name='material']").val();
 			var brandId=$("#addProductform select[name='brand'] option:selected").val();
 			var kindId=$("#kind").val(); //类别id
 			var url=$("#addProductform input[name='url']").val();
@@ -419,7 +420,7 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         				"product.productNo":productNo,
         				"product.productName":productName,
         				"product.price":price,
-        				"product.color":brandId,
+        				"product.material":material,
         				"product.url":url,
         				"product.brandId":brandId,
         				"product.kindId":kindId,
@@ -429,7 +430,7 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         				"product.priority":priority,
         				"product.isPublish":isPublish,
         				"product.guideMap":guideMap,
-        				"product.color":color
+        				"product.stock":stock
         				
         				
         		},
@@ -459,7 +460,8 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 			$("#addProductform input[name='productNo']").val("");
 			$("#addProductform input[name='productName']").val("");
 			$("#addProductform input[name='price']").val("");
-			$("#addProductform input[name='color']").val("");
+			$("#addProductform input[name='material']").val("");
+			$("#addProductform input[name='stock']").val("");
 			$("#addProductform input[name='url']").val();
 			$("#createTime").val(getNowTime());
 			$("#addProductform input[name='priority']").val(10);
@@ -588,7 +590,8 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
 			var productNo = $("#editProductform input[name='productNo']").val();
 			var productName=$("#editProductform input[name='productName']").val();
 			var price=$("#editProductform input[name='price']").val();
-			var color=$("#editProductform input[name='color']").val();
+			var stock=$("#editProductform input[name='stock']").val();
+			var material=$("#editProductform input[name='material']").val();
 			var brandId=$("#editProductform select[name='brand'] option:selected").val();
 			var kindId=$("#editkind").val(); //类别id
 			var url=$("#editProductform input[name='url']").val();
@@ -621,7 +624,7 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         				"product.productNo":productNo,
         				"product.productName":productName,
         				"product.price":price,
-        				"product.color":brandId,
+        				"product.stock":stock,
         				"product.url":url,
         				"product.brandId":brandId,
         				"product.kindId":kindId,
@@ -631,7 +634,7 @@ var scripts = [null,"/ShopSys/common/ace/assets/js/dropzone.js",
         				"product.priority":priority,
         				"product.isPublish":isPublish,
         				"product.guideMap":guideMap,
-        				"product.color":color
+        				"product.material":material
         				
         				
         		},
@@ -680,8 +683,9 @@ function loadEditData(){
 			$("#editProductform input[name='productNo']").val(product.productNo);
 			$("#editProductform input[name='productName']").val(product.productName);
 			$("#editProductform input[name='price']").val(product.price);
-			$("#editProductform input[name='color']").val(product.color);
+			$("#editProductform input[name='stock']").val(product.stock);
 			
+			$("#editProductform input[name='material']").val(product.material);
 			$("#editProductform select option").removeAttr('selected');
 			$("#editbrand option[value='"+product.brandId+"']").attr("selected", "selected");
 			$("#editkind option[value='"+product.kindId+"']").attr("selected", "selected");

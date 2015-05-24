@@ -30,6 +30,9 @@
         <property name="color" type="java.lang.String" >
             <column name="color" length="45" />
         </property>
+        <property name="material" type="java.lang.String" >
+            <column name="material" length="80" />
+        </property>
          <property name="brandId" type="java.lang.Integer" >
             <column name="brandId"  />
         </property>

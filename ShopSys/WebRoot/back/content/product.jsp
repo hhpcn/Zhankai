@@ -81,24 +81,26 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 		             		<!-- #section:elements.form -->
 		            <input name="id" value="" style="display:none;"/>
 					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" > 产品名称 ：</label>
+						<div class="col-sm-4">
+							<input name="productName" type="text"  placeholder="产品名称" class="col-xs-10 col-sm-9" />
+						</div>
+					
 						<label class="col-sm-2 control-label no-padding-right" > 产品编号： </label>
 		
 						<div class="col-sm-4">
 							<input name="productNo" type="text"  placeholder="产品编号" class="col-xs-10 col-sm-9" />
 						</div>
-						<label class="col-sm-2 control-label no-padding-right" > 产品名称 ：</label>
-						<div class="col-sm-4">
-							<input name="productName" type="text"  placeholder="产品名称" class="col-xs-10 col-sm-9" />
-						</div>
+						
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 价格： </label>
 						<div class="col-sm-4">
 							<input name="price" type="text"  placeholder="价格" class="col-xs-10 col-sm-9" />
 						</div>
-						<label class="col-sm-2 control-label no-padding-right" > 颜色： </label>
+						<label class="col-sm-2 control-label no-padding-right" > 库存： </label>
 						<div class="col-sm-4">
-							<input name="color" type="text"  placeholder="颜色" class="col-xs-10 col-sm-9" />
+							<input name="stock" type="text"  placeholder="库存" class="col-xs-10 col-sm-9" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -134,6 +136,12 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 						
 					</div>
 					<div class="form-group">
+					
+						<label class="col-sm-2 control-label no-padding-right" > 材质： </label>
+						<div class="col-sm-4">
+							<input name="material" type="text"  placeholder="材质" class="col-xs-10 col-sm-9" />
+						</div>
+					
 						<label class="col-sm-2 control-label no-padding-right" > 是否发布： </label>
 						<div class="col-sm-4">
 							<div class="control-group">
@@ -154,6 +162,12 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 						   </div>
 						</div>
 						
+						
+						
+						
+					</div>
+					
+					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 创建时间： </label>
 						<div class="col-sm-4">
 							<div class="input-group">
@@ -164,6 +178,11 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 							</div>
 						</div>
 					</div>
+					
+					
+					
+					
+					
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > URL： </label>
 						<div class="col-sm-10">
@@ -237,24 +256,25 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 		             		<!-- #section:elements.form -->
 		            <input name="id" value="" style="display:none;"/>
 					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" > 产品名称 ：</label>
+						<div class="col-sm-4">
+							<input name="productName" type="text"  placeholder="产品名称" class="col-xs-10 col-sm-9" />
+						</div>
 						<label class="col-sm-2 control-label no-padding-right" > 产品编号： </label>
 		
 						<div class="col-sm-4">
 							<input name="productNo" type="text"  placeholder="产品编号" class="col-xs-10 col-sm-9" />
 						</div>
-						<label class="col-sm-2 control-label no-padding-right" > 产品名称 ：</label>
-						<div class="col-sm-4">
-							<input name="productName" type="text"  placeholder="产品名称" class="col-xs-10 col-sm-9" />
-						</div>
+						
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 价格： </label>
 						<div class="col-sm-4">
 							<input name="price" type="text"  placeholder="价格" class="col-xs-10 col-sm-9" />
 						</div>
-						<label class="col-sm-2 control-label no-padding-right" > 颜色： </label>
+						<label class="col-sm-2 control-label no-padding-right" > 库存： </label>
 						<div class="col-sm-4">
-							<input name="color" type="text"  placeholder="颜色" class="col-xs-10 col-sm-9" />
+							<input name="stock" type="text"  placeholder="库存" class="col-xs-10 col-sm-9" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -289,6 +309,14 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 						
 					</div>
 					<div class="form-group">
+					
+						<label class="col-sm-2 control-label no-padding-right" > 材质： </label>
+						<div class="col-sm-4">
+							<input name="material" type="text"  placeholder="材质" class="col-xs-10 col-sm-9" />
+						</div>
+					
+					
+					
 						<label class="col-sm-2 control-label no-padding-right" > 是否发布： </label>
 						<div class="col-sm-4">
 							<div class="control-group">
@@ -308,6 +336,13 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 							 </div>
 						   </div>
 						</div>
+						
+						
+					</div>
+					
+					
+					
+					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > 创建时间： </label>
 						<div class="col-sm-4">
 							<div class="input-group">
@@ -317,8 +352,11 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 									</span>
 							</div>
 						</div>
-						
 					</div>
+					
+					
+					
+					
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" > URL： </label>
 						<div class="col-sm-10">

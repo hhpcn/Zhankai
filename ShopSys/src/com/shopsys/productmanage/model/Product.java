@@ -11,6 +11,7 @@ public class Product implements java.io.Serializable{
 	private String url;
 	private Integer stock;
 	private String color;
+	private String material;
 	private Integer brandId;
 	private String brandName;
 	private String guideMap;
@@ -124,6 +125,12 @@ public class Product implements java.io.Serializable{
 	}
 	public void setIsPublish(Boolean isPublish) {
 		this.isPublish = isPublish;
+	}
+	public String getMaterial() {
+		return material;
+	}
+	public void setMaterial(String material) {
+		this.material = material;
 	}
 	
 	
