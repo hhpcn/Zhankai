@@ -249,7 +249,7 @@ public class ProductAction extends BaseAction {
 		productMap.put("detailInfo", product.getDetailInfo());
 		productMap.put("url", product.getUrl());
 		productMap.put("guideMap", product.getGuideMap());
-		productMap.put("color", product.getColor());
+		productMap.put("material", product.getMaterial());
 		productMap.put("stock", product.getStock());
 		dataMap.put("product", productMap);
     	return "dataMap";
