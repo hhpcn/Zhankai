@@ -32,7 +32,7 @@ function InitialSearchResutlPage(pageContentId){
 						"<div id='ps_CTitle' class='col-md-2' style='border-bottom: 1px solid #36613b;height:44px;text-align: center;vertical-align: middle;line-height:43px;font-size: 16px;color: #36613b;'></div>" +
 						"<div id='navtabs' class='col-md-10 ' style='margin-bottom:10px;background-color: #ffffff;border-bottom: 0px;padding-left:0px;padding-right: 0px;' ></div>" +
 					"</div>";
-	var pagelistHtml=" <div id='pageInfo'><div id='productlist' class='row ' style=' background-color: #ffffff;margin-top: 10px;'>" +
+	var pagelistHtml=" <div id='pageInfo'><div id='productlist' class='row ' style=' background-color: #ffffff;'>" +
 							" <div class='col-md-12'>" +
 								"<div class='row' >" +
 								"</div>" +
@@ -45,7 +45,9 @@ function InitialSearchResutlPage(pageContentId){
 						  "</div>" +
 					  "</div>";
 	
+	
 	$("#"+pageContentId).empty().html(pageNavHtml+pagelistHtml);
+	$("#"+pageContentId).css({"min-height":"610px","background-color":"#ffffff","border":"1px solid #000000"});
 	
 }
 

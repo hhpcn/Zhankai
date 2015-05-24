@@ -27,7 +27,7 @@ $(function(){
 				//构建栏目的html代码
 				navli=navli+"<li data-navPlace='C"+categories[i].id+"'>" +
 			"<h2>" +
-				"<a href='"+categories[i].pageUrl+"_C"+categories[i].id+"' onclick=\"changeTitle(\'"+categories[i].categoryName+"\',"+categories[i].id+",0)\">"+categories[i].categoryName+"</a>"+
+				"<a href='"+categories[i].pageUrl+"_C"+categories[i].id+"' onclick=\"changeTitle(\'"+categories[i].categoryName+"\',"+categories[i].id+",0,\'"+categories[i].pageUrl+"_C"+categories[i].id+"\')\">"+categories[i].categoryName+"</a>"+
 			"</h2>" +
 			"</li>";
 				
@@ -124,13 +124,13 @@ function initialKinds(ids,categoryIds,categoryPageUrls,categoryNames,categoryPla
 					if(j==0){
 						dls=dls+ 
 					     "<dd>" +
-					          "<a href='"+catePageUrl+"_K"+list[j].id+"' onclick=\"changeTitle(\'"+categoryNames[i]+"\',"+categoryIds[i]+","+list[j].id+")\">"+list[j].kindName+"</a>" +
+					          "<a href='"+catePageUrl+"_K"+list[j].id+"' onclick=\"changeTitle(\'"+categoryNames[i]+"\',"+categoryIds[i]+","+list[j].id+",\'"+catePageUrl+"_K"+list[j].id+"\')\">"+list[j].kindName+"</a>" +
 					      "</dd>" +
 					    "</dl>";
 					}else{
 						dls=dls+ "<dl>" +
 					     "<dd>" +
-					          "<a href='"+catePageUrl+"_K"+list[j].id+"' onclick=\"changeTitle(\'"+categoryNames[i]+"\',"+categoryIds[i]+","+list[j].id+")\">"+list[j].kindName+"</a>" +
+					          "<a href='"+catePageUrl+"_K"+list[j].id+"' onclick=\"changeTitle(\'"+categoryNames[i]+"\',"+categoryIds[i]+","+list[j].id+",\'"+catePageUrl+"_K"+list[j].id+"\')\">"+list[j].kindName+"</a>" +
 					      "</dd>" +
 					    "</dl>";
 					}

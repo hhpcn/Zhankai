@@ -40,8 +40,18 @@ function loadPage(hash){
 
 
 
-function changeTitle(CTitle,CId,KId){
+function changeTitle(CTitle,CId,KId,clickHash){
 	localStorage.CTitle=CTitle;
 	localStorage.CId=CId;
 	localStorage.KId=KId;
+	
+	//如果当前的hash值和所点击的a的href是一样的则通过调用方法触发局部加载;首先排除clickhash为空的情况
+	if(typeof(clickHash) != "undefined"){
+		 var preHash=window.location.hash;
+		 if(clickHash==preHash){
+			 hashChangeFire();
+		 }
+		 
+	}
+		
 }

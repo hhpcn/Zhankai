@@ -233,6 +233,26 @@ public class ProductAction extends BaseAction {
     	dataMap.put("pageNumber", pageNumber);
 		return "dataMap";
 	}
+    
+    
+    public String frontGetProcuctById() {
+    	dataMap=new HashMap<String, Object>();
+    	Integer productId=Integer.parseInt(id);
+    	Product product = productService.getByClassNameAndId(Product.class, productId);
+    	
+    	Map<String, Object> productMap = new HashMap<String, Object>();
+		productMap.put("id", product.getId());
+		productMap.put("productName", product.getProductName());
+		productMap.put("price", product.getPrice());
+		productMap.put("kindId", product.getKindId());
+		productMap.put("brandName", product.getBrandName());
+		productMap.put("detailInfo", product.getDetailInfo());
+		productMap.put("url", product.getUrl());
+		productMap.put("guideMap", product.getGuideMap());
+		productMap.put("color", product.getColor());
+		dataMap.put("prodcut", productMap);
+    	return "dataMap";
+	}
 	
 /***************************前台调用的方法，不进行拦截*********************************************************************/
 	

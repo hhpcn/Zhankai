@@ -12,8 +12,8 @@ $(function(){
 		    var linkPlace=hash.indexOf("_", 0);
 		    if(linkPlace>0){
 		    	hash=hash.substring(linkPlace+1, hash.length);
+		    	//去掉字符
 		    	pro_CId = hash.replace(/[^0-9]/ig,""); 
-		    	//pro_CId=hash.replace("C", "");
 		    	localStorage.CId=pro_CId;
 		    }
 	    }
