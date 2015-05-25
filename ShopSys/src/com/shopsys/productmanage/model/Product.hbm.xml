@@ -40,7 +40,7 @@
             <column name="brandName" length="45" />
         </property>
         <property name="guideMap" type="java.lang.String" >
-            <column name="guideMap" length="600" />
+            <column name="guideMap" length="2000" />
         </property>
         <property name="imgUrls" type="java.lang.String" >
             <column name="imgUrls" length="200" />
