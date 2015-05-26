@@ -115,9 +115,7 @@ $(function(){
 			},
 			dataType:"json",
 			success:function(data){
-				
 				 imgMap=data.product.guideMap;
-				 alert(imgMap);
 				 var imgSrc=imgMap.split([";"]);
 				 var img=new Array();
 				 for(var i=0;i<imgSrc.length;i++){
@@ -180,11 +178,11 @@ function loadImg(img){
 	$('#detailImg-box').append('<a'+'\" class=\"detailImg_1\"><img alt=\"'+img[0].alt+'\" src=\"'+img[i].src+'\"></a><p>');
 	//大图	
 	$('#detailImg-next').click(function(){
-		++i;
+		--i;
 		detailImg_click($s_next,i,len,img);
 	})
 	$('#detailImg-pre').click(function(){
-		--i;
+		++i;
 		detailImg_click($s_pre,i,len,img);
 	})
 	//小图
@@ -259,12 +257,12 @@ function loadImg(img){
 
 //大图图片信息
 function img_info(i,img){
-	var href=img[i].href,
-		alt=img[i].alt,
+
+	var alt=img[i].alt,
 		src=img[i].src,
 		/* title=img[i].title, */
 		$main=$('#detailImg-box');
-	$main.find('a').attr({'href':href,'class':'detailImg_'+(i+1)});
+	$main.find('a').attr({'class':'detailImg_'+(i+1)});
 	$main.find('img').attr({'alt':alt,'src':src});
 	/* $main.find('p').text(title); */
 }
@@ -273,14 +271,19 @@ function s_a_r(o,c){
 }
 //大图左右点击
 function i_cur(i,len){
-	i=i%len;
+
+	i=i % len
 	if(i<0){
-		i=len+i;
+		i=len+i;	
 	}
 	return i;	
 }
+
+
 function detailImg_click($pn,i,len,img){
-	i_cur(i,len);
+	
+	i=i_cur(i,len);
+	
 	img_info(i,img);
 	var imgCur=$('.smallImg_'+(i+1));
 	if(!imgCur.html()){
