@@ -105,53 +105,69 @@ $(function(){
 	  
 });
 
-
-$.ajax({
-	url:"/ShopSys/productmanage/productAction_frontGetProcuctById.action",
-	type:"post",
-	data:{
-		"id":localStorage.ProId
-	},
-	dataType:"json",
-	success:function(data){
+		var imgMap;
 		
-		var imgGuideMap=data.product.guideMap;
+		$.ajax({
+			url:"/ShopSys/productmanage/productAction_frontGetProcuctById.action",
+			type:"post",
+			data:{
+				"id":localStorage.ProId
+			},
+			dataType:"json",
+			success:function(data){
+				
+				 imgMap=data.product.guideMap;
+				 alert(imgMap);
+				 var imgSrc=imgMap.split([";"]);
+				 var img=new Array();
+				 for(var i=0;i<imgSrc.length;i++){
+					 img[i]={
+							    'alt':"图片"+i,
+								'src':"/ShopSys/"+imgSrc[i],
+								'smallSrc':"/ShopSys/"+imgSrc[i],
+								'title':"标题"+i	 
+					 };
+					 
+					 
+				 }
+				 loadImg(img);
+			}
+		});
 		
+	
+	
+		/*var img=[
+			{
+				'href':'http://sc.chinaz.com/jiaoben/',
+				'alt':'图片1',
+				'src':'/ShopSys/image/DetailImg/1_b.jpg',
+				'smallSrc':'/ShopSys/image/DetailImg/1_s.jpg',
+				'title':'标题111'
+			},{
+				'href':'www.baidu1.com',
+				'alt':'图片2',
+				'src':'/ShopSys/image/DetailImg/2_b.jpg',
+				'smallSrc':'/ShopSys/image/DetailImg/2_s.jpg',
+				'title':'标题222'
+			},{
+				'href':'http://sc.chinaz.com/jiaoben/',
+				'alt':'图片3',
+				'src':'/ShopSys/image/DetailImg/3_b.jpg',
+				'smallSrc':'/ShopSys/image/DetailImg/3_s.jpg',
+				'title':'标题333'
+			},{
+				'href':'http://sc.chinaz.com/jiaoben/',
+				'alt':'图片4',
+				'src':'/ShopSys/image/DetailImg/4_b.jpg',
+				'smallSrc':'/ShopSys/image/DetailImg/4_s.jpg',
+				'title':'标题444'
+			}
+		]*/
+	
 
-var img=[
-	{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片1',
-		'src':'/ShopSys/image/DetailImg/1_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/1_s.jpg',
-		'title':'标题111'
-	},{
-		'href':'www.baidu1.com',
-		'alt':'图片2',
-		'src':'/ShopSys/image/DetailImg/2_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/2_s.jpg',
-		'title':'标题222'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片3',
-		'src':'/ShopSys/image/DetailImg/3_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/3_s.jpg',
-		'title':'标题333'
-	},{
-		'href':'http://sc.chinaz.com/jiaoben/',
-		'alt':'图片4',
-		'src':'/ShopSys/image/DetailImg/4_b.jpg',
-		'smallSrc':'/ShopSys/image/DetailImg/4_s.jpg',
-		'title':'标题444'
-	}
-]
-	}
-});
-
-$(function(){
-
-	var i=0,//大图编号
-		len=img.length,//img数组的长度
+function loadImg(img){
+	//大图编号
+	var i=0,len=img.length,//img数组的长度
 		cur=0;//当前图片编号
 		j=4,//默认显示小图个数
 		page=0,//小图的页码
@@ -161,20 +177,20 @@ $(function(){
 		$ul=$('#smallImg-ul'),//小图外层
 		$imgLi=$ul.find('li'),//小图li
 		html=_html='';//存放载入的代码		
-	$('#detailImg-box').append('<a href=\"'+img[0].href+'\" class=\"detailImg_1\"><img alt=\"'+img[0].alt+'\" src=\"'+img[i].src+'\"></a><p>');
+	$('#detailImg-box').append('<a'+'\" class=\"detailImg_1\"><img alt=\"'+img[0].alt+'\" src=\"'+img[i].src+'\"></a><p>');
 	//大图	
 	$('#detailImg-next').click(function(){
 		++i;
-		detailImg_click($s_next,i,len);
+		detailImg_click($s_next,i,len,img);
 	})
 	$('#detailImg-pre').click(function(){
 		--i;
-		detailImg_click($s_pre,i,len);
+		detailImg_click($s_pre,i,len,img);
 	})
 	//小图
 	for(var k=0;k<j;k++){
 		var _k=k%len;
-		s_html(_k);
+		s_html(_k,' ',img);
 		html+=h;
 	}
 	$ul.append(html);
@@ -186,7 +202,7 @@ $(function(){
 			page++;
 			var a=page*j,_a,c;
 			for(var k=0;k<j;k++,a++){
-				smallImg_click(a,_a,len,i);
+				smallImg_click(a,_a,len,i,img);
 				_html+=h;
 			}
 			$ul.append(_html);
@@ -199,7 +215,7 @@ $(function(){
 			$('#smallImg-ul li').click(function(){//三处一样，不知道这个要怎么优化？？？
 				var _this=$(this);
 				i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
-				img_info(i);
+				img_info(i,img);
 				s_a_r(_this,'cur');
 				cur=i;
 			})
@@ -211,7 +227,7 @@ $(function(){
 			page--;
 			var a=(page-1)*j,_a,c;
 			for(var k=0;k<j;k++,a--){
-				smallImg_click(a,_a,len,i);
+				smallImg_click(a,_a,len,i,img);
 				_html=h+_html;
 			}
 			$ul.prepend(_html).css({'right':box,'left':'auto'});
@@ -222,7 +238,7 @@ $(function(){
 			$('#smallImg-ul li').click(function(){
 				var _this=$(this);
 				i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
-				img_info(i);
+				img_info(i,img);
 				s_a_r(_this,'cur');
 				cur=i;
 			})
@@ -233,16 +249,16 @@ $(function(){
 	$('#smallImg-ul li').click(function(){
 		var _this=$(this);
 		i=_this.attr('class').replace(/[^0-9]/ig,'')-1;
-		img_info(i);
+		img_info(i,img);
 		s_a_r(_this,'cur');
 		cur=i;
 	})
-})
+}
 
 
 
 //大图图片信息
-function img_info(i){
+function img_info(i,img){
 	var href=img[i].href,
 		alt=img[i].alt,
 		src=img[i].src,
@@ -263,9 +279,9 @@ function i_cur(i,len){
 	}
 	return i;	
 }
-function detailImg_click($pn,i,len){
+function detailImg_click($pn,i,len,img){
 	i_cur(i,len);
-	img_info(i);
+	img_info(i,img);
 	var imgCur=$('.smallImg_'+(i+1));
 	if(!imgCur.html()){
 		$pn.click();
@@ -273,16 +289,16 @@ function detailImg_click($pn,i,len){
 	s_a_r($('.smallImg_'+(i+1)),'cur');//小图选中
 }
 //小图左右点击
-function smallImg_click(a,_a,len,i){
+function smallImg_click(a,_a,len,i,img){
 	_a=a;
 	_a=a%len;
 	if(_a<0){
 		_a+=len;
 	}
 	c=_a==i?'cur':'';
-	s_html(_a,c);
+	s_html(_a,c,img);
 }
-function s_html(_a,c){
+function s_html(_a,c,img){
 	return h='<li class=\"smallImg_'+(_a+1)+' '+c+'\"><a><img   alt=\"'+img[_a].alt+'\" src=\"'+img[_a].smallSrc+'\"></a></li>';
 }
 
