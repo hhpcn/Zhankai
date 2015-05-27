@@ -147,7 +147,7 @@ function loadImg(img){
 		detailImg_click($s_pre,i,len,img);
 	});
 	//小图
-	for(var k=0;k<j;k++){
+	for(var k=0;k<img.length;k++){
 		var _k=k%len;
 		s_html(_k,' ',img);
 		html+=h;
