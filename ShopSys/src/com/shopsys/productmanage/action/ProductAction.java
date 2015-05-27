@@ -234,7 +234,10 @@ public class ProductAction extends BaseAction {
 		return "dataMap";
 	}
     
-    
+    /**
+     * 根据id获取产品信息
+     * @return
+     */
     public String frontGetProcuctById() {
     	dataMap=new HashMap<String, Object>();
     	Integer productId=Integer.parseInt(id);
@@ -253,6 +256,43 @@ public class ProductAction extends BaseAction {
 		productMap.put("stock", product.getStock());
 		dataMap.put("product", productMap);
     	return "dataMap";
+	}
+    
+    /**
+     * 加载首页滚动图片
+     * @return
+     */
+    public String frontLoadProductsMainIndex() {
+		dataMap=new HashMap<String, Object>();
+		Integer pageSize=Integer.parseInt(rows);
+		String hql="from Product where 1 = 1 order by priority desc , id desc";
+		List<Product> productList = productService.listPageRowsByHQL(hql, 0, pageSize);
+		List<Map<String, Object>> productMapList= new ArrayList<Map<String,Object>>();
+		for (int i = 0; i < productList.size(); i++) {
+			Map<String, Object> productMap = new HashMap<String, Object>();
+			productMap.put("id", productList.get(i).getId());
+			productMap.put("productName", productList.get(i).getProductName());
+			productMap.put("price", productList.get(i).getPrice());
+			productMap.put("kindId", productList.get(i).getKindId());
+			
+			String guideImageUrls= productList.get(i).getGuideMap();
+			if (guideImageUrls!=null && guideImageUrls != "") {
+				String[] guideImageUrlsArray = guideImageUrls.split(";");
+				if (guideImageUrlsArray.length>0) {
+					productMap.put("guideImageUrl", guideImageUrlsArray[0]);
+				}else {
+					productMap.put("guideImageUrl", "");
+				}
+			}else {
+				productMap.put("guideImageUrl", "");
+			}
+			
+			productMapList.add(productMap);
+		}
+		dataMap.put("rowsSize", productList.size());
+		dataMap.put("rows", productMapList);
+		
+		return "dataMap";
 	}
 	
 /***************************前台调用的方法，不进行拦截*********************************************************************/

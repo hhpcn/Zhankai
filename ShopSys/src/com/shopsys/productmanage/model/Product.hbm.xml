@@ -16,7 +16,7 @@
             <column name="productName" length="45" not-null="true" />
         </property>
         <property name="detailInfo" type="java.lang.String" >
-            <column name="detailInfo"  length="800" />
+            <column name="detailInfo"  length="5000" />
         </property>
          <property name="price" type="java.lang.Double" >
             <column name="price"  />
