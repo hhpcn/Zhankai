@@ -136,33 +136,7 @@ $(function(){
 		
 	
 	
-		/*var img=[
-			{
-				'href':'http://sc.chinaz.com/jiaoben/',
-				'alt':'图片1',
-				'src':'/ShopSys/image/DetailImg/1_b.jpg',
-				'smallSrc':'/ShopSys/image/DetailImg/1_s.jpg',
-				'title':'标题111'
-			},{
-				'href':'www.baidu1.com',
-				'alt':'图片2',
-				'src':'/ShopSys/image/DetailImg/2_b.jpg',
-				'smallSrc':'/ShopSys/image/DetailImg/2_s.jpg',
-				'title':'标题222'
-			},{
-				'href':'http://sc.chinaz.com/jiaoben/',
-				'alt':'图片3',
-				'src':'/ShopSys/image/DetailImg/3_b.jpg',
-				'smallSrc':'/ShopSys/image/DetailImg/3_s.jpg',
-				'title':'标题333'
-			},{
-				'href':'http://sc.chinaz.com/jiaoben/',
-				'alt':'图片4',
-				'src':'/ShopSys/image/DetailImg/4_b.jpg',
-				'smallSrc':'/ShopSys/image/DetailImg/4_s.jpg',
-				'title':'标题444'
-			}
-		]*/
+		
 	
 
 function loadImg(img){
