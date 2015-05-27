@@ -123,12 +123,6 @@ $(function(){
 		});
 		
 	
-<<<<<<< HEAD
-	
-		
-	
-=======
->>>>>>> refs/remotes/origin/master
 
 function loadImg(img){
 	//大图编号
