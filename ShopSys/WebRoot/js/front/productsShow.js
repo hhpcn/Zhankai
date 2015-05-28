@@ -1,4 +1,6 @@
 $(function(){
+	broadcast();
+	
   var pro_CTitle=localStorage.CTitle;
   var pro_CId=localStorage.CId;
   var pro_KId=localStorage.KId;

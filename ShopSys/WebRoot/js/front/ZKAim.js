@@ -31,6 +31,6 @@ $(function(){
     		  initialPagination_products_search(searchParam);
           }
       });
-	  
+	  broadcast();
 	  
 });

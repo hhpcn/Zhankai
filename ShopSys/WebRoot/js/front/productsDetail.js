@@ -1,4 +1,6 @@
 $(function(){
+	broadcast();
+	
 	  $("#searchBtn").click(function(){
 		  var searchParam=$("#searchParam").val();
 		  if (searchParam=="") return false;

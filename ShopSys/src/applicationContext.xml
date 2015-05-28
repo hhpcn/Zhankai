@@ -166,10 +166,11 @@
 			<ref bean="baseDao" />
 		</property>
 	</bean>
-	<bean id="baseAction" class="com.xmut.base.BaseAction">
+	<bean id="baseAction" class="com.xmut.base.BaseAction" scope="prototype">
         <property name="baseService">
            <ref bean="baseService"/>
         </property>
+        
     </bean>
 	
 	<bean id="ckeditorUploadAction" class="com.xmut.base.CkeditorUploadAction" parent="baseAction">

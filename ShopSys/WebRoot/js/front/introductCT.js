@@ -1,4 +1,7 @@
 $(function(){
+	
+	broadcast();
+	
 	var result=$("#title").val();
   $("#aboutUs").html(result);
   

@@ -263,6 +263,7 @@ public class ProductAction extends BaseAction {
      * @return
      */
     public String frontLoadProductsMainIndex() {
+    	System.out.println("man:"+rows);
 		dataMap=new HashMap<String, Object>();
 		Integer pageSize=Integer.parseInt(rows);
 		String hql="from Product where 1 = 1 order by priority desc , id desc";
@@ -301,6 +302,7 @@ public class ProductAction extends BaseAction {
      * @return
      */
 	public String frontLoadProductsByKindAndRows() {
+		System.out.println("xini："+rows);
 		dataMap=new HashMap<String, Object>();
 		Integer kindId= Integer.parseInt(id);
 		Integer currentPage=1;
