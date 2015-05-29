@@ -22,7 +22,7 @@ function loadProducts(){
 				
 				$("#marqueImg").append(
 					"<td align='center' valign='middle'>" +
-					"<a href='#page/productsDetail_P"+productList[i].id+"' onclick='saveProId("+productList[i].id+")'><img src= '/ShopSys/"
+					"<a href='#page/productsDetail_P"+productList[i].id+"' onclick='saveProId("+productList[i].id+")'><img src= '"+getImageUrl()+"/"
 				        +productList[i].guideImageUrl +  "' alt='"+productList[i].productName +"'title='"+productList[i].productName+"' height='130px' width='154px'/></a></td>");
 				
 			}
@@ -64,7 +64,7 @@ function loadNewProducts(){
 						  "<a >" +
 						      "<div class='col-md-5'>" +
 						           "<img alt='"
-						   	  		  +newProductList[i].productName +"' title='"+newProductList[i].productName +"' src='/ShopSys/"
+						   	  		  +newProductList[i].productName +"' title='"+newProductList[i].productName +"' src='"+getImageUrl()+"/"
 						   	  		   +newProductList[i].guideImageUrl +"' style='width:130px;height:100px;margin-top:5px;'/>" +
 						   	  "</div>" +
 						   	"</a>"+

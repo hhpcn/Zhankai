@@ -71,7 +71,7 @@ function  loadProductsBySearParam(searchParam,rows,page){
 			var productHtml="";
 			for(var i=0;i<productList.length;i++){
 				productHtml=productHtml+"<div class='col-sm-6 col-md-4'>" +
-						"<a class='thumbnail' ><img  src='/ShopSys/"+productList[i].guideImageUrl+"'></a>" +
+						"<a class='thumbnail' ><img  src='"+getImageUrl()+"/"+productList[i].guideImageUrl+"'></a>" +
 						"<div style='margin:-18px 5px 5px 5px;'>" +
 							 "<p class='tit'>"+productList[i].productName+"</p>" +
 							 "<p class='text'>"+productList[i].price+"</p>" +
