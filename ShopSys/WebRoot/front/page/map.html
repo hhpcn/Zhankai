@@ -16,7 +16,7 @@
 
 <body>
   <!--百度地图容器-->
-  <div style="width:850px;height:360px;border:#ccc solid 1px;" id="dituContent"></div>
+  <div style="width:850px;height:340px;border:#ccc solid 1px;" id="dituContent"></div>
 </body>
 <script type="text/javascript">
     //创建和初始化地图函数：
@@ -25,12 +25,14 @@
         setMapEvent();//设置地图事件
         addMapControl();//向地图添加控件
         addMarker();//向地图中添加marker
+        addPolyline();//向地图中添加线
+        addRemark();//向地图中添加文字标注
     }
     
     //创建地图函数：
     function createMap(){
         var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(119.281339,26.088984);//定义一个中心点坐标
+        var point = new BMap.Point(119.273644,26.082705);//定义一个中心点坐标
         map.centerAndZoom(point,16);//设定地图的中心点和坐标并将地图显示在地图容器中
         window.map = map;//将map变量存储在全局
     }
@@ -57,7 +59,9 @@
     }
     
     //标注点数组
-    var markerArr = [{title:"战凯军科",content:"位于祭酒岭不啊盛大盛大",point:"119.284735|26.088627",isOpen:1,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+    var markerArr = [{title:"福州战凯军科",content:"福州市鼓楼区西洪路茶城公寓<br/>Tel：18959106682",point:"119.276977|26.087321",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"金牛山公园",content:"我的备注",point:"119.267635|26.082567",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"福州大学东门（志诚学院）",content:"我的备注",point:"119.278342|26.084311",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
 		 ];
     //创建marker
     function addMarker(){
@@ -111,6 +115,41 @@
     function createIcon(json){
         var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
         return icon;
+    }
+//标注线数组
+    var plPoints = [{style:"solid",weight:3,color:"#00f",opacity:0.6,points:["119.278298|26.084384","119.277615|26.084108","119.277363|26.084709","119.277004|26.085942","119.27686|26.086461","119.276788|26.087256","119.276681|26.087077","119.276788|26.08724","119.276932|26.087094"]}
+		 ,{style:"solid",weight:3,color:"#00f",opacity:0.6,points:["119.26759|26.08238","119.268093|26.082348","119.268479|26.082867","119.268632|26.083062","119.268802|26.083354","119.269081|26.0838","119.269566|26.084522","119.26971|26.084692"]}
+		 ,{style:"solid",weight:3,color:"#00f",opacity:0.6,points:["119.269719|26.084692","119.269898|26.084822","119.270599|26.084936","119.27236|26.085228","119.273779|26.085447","119.273788|26.085447"]}
+		 ,{style:"solid",weight:3,color:"#00f",opacity:0.6,points:["119.273806|26.085455","119.275648|26.085731","119.277004|26.085958"]}
+		 ];
+    //向地图中添加线函数
+    function addPolyline(){
+		for(var i=0;i<plPoints.length;i++){
+			var json = plPoints[i];
+			var points = [];
+			for(var j=0;j<json.points.length;j++){
+				var p1 = json.points[j].split("|")[0];
+				var p2 = json.points[j].split("|")[1];
+				points.push(new BMap.Point(p1,p2));
+			}
+			var line = new BMap.Polyline(points,{strokeStyle:json.style,strokeWeight:json.weight,strokeColor:json.color,strokeOpacity:json.opacity});
+			map.addOverlay(line);
+		}
+	}
+//文字标注数组
+    var lbPoints = [{point:"119.275917|26.085747",content:"祭酒岭公交站<br/>（100；112；113；118；160路）"}
+		 ,{point:"119.278253|26.084652",content:"福大北门站"}
+		 ];
+    //向地图中添加文字标注函数
+    function addRemark(){
+        for(var i=0;i<lbPoints.length;i++){
+            var json = lbPoints[i];
+            var p1 = json.point.split("|")[0];
+            var p2 = json.point.split("|")[1];
+            var label = new BMap.Label("<div style='padding:2px;'>"+json.content+"</div>",{point:new BMap.Point(p1,p2),offset:new BMap.Size(3,-6)});
+            map.addOverlay(label);
+            label.setStyle({borderColor:"#999"});
+        }
     }
     
     initMap();//创建和初始化地图

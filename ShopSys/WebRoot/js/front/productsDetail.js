@@ -89,9 +89,9 @@ $(function(){
 			}
 			
 			document.getElementById("fuji").innerHTML=	
-		     " <a  style='font-size: 14px;' href='"+catUrl+"_C"+CGId+"'>"+catName+"</a>";
+		     " <a  style='font-size: 14px;' href='"+catUrl+"_C"+CGId+"' onclick=\"changeTitle(\'"+catName+"\',"+CGId+","+kindId+",\'"+catUrl+"_C"+CGId+"\')\">"+catName+"</a>";
 			document.getElementById("ziji").innerHTML=	
-			     " <a  style='font-size: 14px;' href='"+catUrl+"_K"+kindId+"'>"+kindName+"</a>";
+			     " <a  style='font-size: 14px;' href='"+catUrl+"_K"+kindId+"'   onclick=\"changeTitle(\'"+catName+"\',"+CGId+","+kindId+",\'"+catUrl+"_K"+kindId+"\')\" >"+kindName+"</a>";
 			
 		}
 	});
