@@ -177,3 +177,14 @@ function initialKinds(ids,categoryIds,categoryPageUrls,categoryNames,categoryPla
 		
 		return marginPlace;
   }
+  
+  
+  
+  
+  function getImageUrl(){
+		var hostname=window.location.hostname;
+		var protocal=window.location.protocol;
+		var port=window.location.port;
+		var imagesUrl= protocal+"//"+hostname+":"+port+"/images";
+		return imagesUrl;
+	}

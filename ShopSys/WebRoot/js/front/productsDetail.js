@@ -113,8 +113,8 @@ $(function(){
 				 for(var i=0;i<imgSrc.length;i++){
 					 img[i]={
 							    'alt':"图片"+i,
-								'src':"/ShopSys/"+imgSrc[i],
-								'smallSrc':"/ShopSys/"+imgSrc[i],
+								'src':getImageUrl()+"/"+imgSrc[i],
+								'smallSrc':getImageUrl()+"/"+imgSrc[i],
 								'title':"标题"+i	 
 					 };
 					 
