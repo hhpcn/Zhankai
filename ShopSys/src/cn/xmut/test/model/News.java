@@ -1,6 +1,9 @@
 package cn.xmut.test.model;
 
-public class News {
+import java.io.Serializable;
+
+public class News implements Serializable{
+	private static final long serialVersionUID = -3537421123789108202L;
 	Integer id;
 	String title;
 	String content;
