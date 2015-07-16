@@ -12,8 +12,9 @@ import org.hibernate.SessionFactory;
 
 
 
-public class BaseDaoImpl implements BaseDao {
+public class BaseDaoImpl implements BaseDao,Serializable {
 
+	private static final long serialVersionUID = -9148205067918778556L;
 	private SessionFactory sessionFactory;
 	
 	public SessionFactory getSessionFactory() {

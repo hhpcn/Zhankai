@@ -14,18 +14,22 @@
            http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
   
    
-    <context:property-placeholder location="classpath:jdbctest.properties"/>
+<!--     <context:property-placeholder location="classpath:jdbctest.properties"/> -->
    
      <!-- 定义使用C3P0连接池的数据源 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"> 
 	    <!-- 指定驱动 -->
-	    <property name="driverClass" value="${driverClass}"/>
+	   <!--  <property name="driverClass" value="${driverClass}"/> -->
 	    <!--连接数据库URL -->
-	    <property name="jdbcUrl" value="${jdbcUrl}"/>
+	   <!--  <property name="jdbcUrl" value="${jdbcUrl}"/> -->
 	    <!-- 用户名 -->
-	    <property name="user" value="${user}"/>
+	    <!-- <property name="user" value="${user}"/> -->
 	    <!-- 密码 -->
-	    <property name="password" value="${password}"/>
+	   <!--  <property name="password" value="${password}"/> -->
+	    <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+	    <property name="jdbcUrl" value="jdbc:mysql://121.41.90.62:3306/zktest?useUnicode=true&amp;characterEncoding=utf8"/>
+		<property name="user" value="lktest"/>
+	  	<property name="password" value="asdf1234"/>
 	    <!-- 设置数据库连接池最大连接数 -->
 	  <!--   <property name="maxPoolSize" value="${maxPoolSize}"/> -->
 	    <!-- 设置数据库连接池最小连接数 -->
@@ -74,7 +78,7 @@
 		<!-- 初始化时创建的连接数，应在minPoolSize与maxPoolSize之间取值。默认为3 -->
 		<property name="initialPoolSize"><value>10</value></property>
 		<!-- 最大空闲时间，超过空闲时间的连接将被丢弃。为0或负数则永不丢弃。默认为0 -->
-		<property name="maxIdleTime"><value>20</value></property>
+		<property name="maxIdleTime"><value>360</value></property>
 		<!-- JDBC的标准参数，用以控制数据源内加载的PreparedStatement数量。
 			但由于预缓存的Statement属 于单个Connection 而不是整个连接池。所以设置这个参数需要考虑到多方面的因素，
 			如果maxStatements与 maxStatementsPerConnection均为0，则缓存被关闭。默认为0 -->
@@ -116,6 +120,8 @@
 			    <prop key="hibernate.format_sql">true</prop>
 			    <prop key="hibernate.jdbc.batch_size">50</prop>
 			    <prop key="hibernate.autoReconnect">true</prop>
+			  	<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop> 
+			   
 			    <!-- 二级缓存 -->
 			<!--     <prop key="hibernate.cache.use_second_level_cache">true</prop>
 		    	<prop key="hibernate.cache.use_query_cache">false</prop>

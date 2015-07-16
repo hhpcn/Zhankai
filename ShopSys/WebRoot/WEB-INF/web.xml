@@ -39,6 +39,11 @@
     <url-pattern>*.jsp</url-pattern>
   </filter-mapping>
   
+   <filter>
+    <filter-name>openSessionInViewFilter</filter-name>
+    <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+  </filter>
+  
     <!-- 字符编码统一为UTF-8-->
   <filter>
     <filter-name>Set Character Encoding</filter-name>

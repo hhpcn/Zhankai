@@ -9,8 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.xmut.test.model.News;
 
 @Transactional //事务控制
-public class BaseServiceImpl implements BaseService {
+public class BaseServiceImpl implements BaseService,Serializable {
 
+	private static final long serialVersionUID = 7156954649272824869L;
 	protected BaseDao baseDao;
 	
 	public BaseDao getBaseDao() {
