@@ -18,7 +18,26 @@
    
      <!-- 定义使用C3P0连接池的数据源 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"> 
-	    <!-- 指定驱动 -->
+	  
+	  	  <!-- 本地测试环境数据库 -->
+<!-- 	    <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+	    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/zktest?useUnicode=true&amp;characterEncoding=utf8"/>
+		<property name="user" value="root"/>
+	  	<property name="password" value="1234"/> -->
+	  
+	  <!-- 远程测试环境数据库 -->
+<!-- 	    <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+	    <property name="jdbcUrl" value="jdbc:mysql://121.41.90.62:3306/zktest?useUnicode=true&amp;characterEncoding=utf8"/>
+		<property name="user" value="lktest"/>
+	  	<property name="password" value="asdf1234"/> -->
+	  	
+	  	<!-- 正式环境数据库 -->
+	  	<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+	    <property name="jdbcUrl" value="jdbc:mysql://121.41.90.62:3306/ZhanKai?useUnicode=true&amp;characterEncoding=utf8"/>
+		<property name="user" value="lk"/>
+	  	<property name="password" value="Lk@asdf_1234"/>
+	  	
+	  	  <!-- 指定驱动 -->
 	   <!--  <property name="driverClass" value="${driverClass}"/> -->
 	    <!--连接数据库URL -->
 	   <!--  <property name="jdbcUrl" value="${jdbcUrl}"/> -->
@@ -26,10 +45,7 @@
 	    <!-- <property name="user" value="${user}"/> -->
 	    <!-- 密码 -->
 	   <!--  <property name="password" value="${password}"/> -->
-	    <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-	    <property name="jdbcUrl" value="jdbc:mysql://121.41.90.62:3306/zktest?useUnicode=true&amp;characterEncoding=utf8"/>
-		<property name="user" value="lktest"/>
-	  	<property name="password" value="asdf1234"/>
+	   
 	    <!-- 设置数据库连接池最大连接数 -->
 	  <!--   <property name="maxPoolSize" value="${maxPoolSize}"/> -->
 	    <!-- 设置数据库连接池最小连接数 -->
@@ -115,7 +131,7 @@
 		    <props>
 		        
 			    <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-			    <prop key="hibernate.show_sql">true</prop>
+			    <!-- <prop key="hibernate.show_sql">true</prop> -->
 			    <prop key="hibernate.hbm2ddl.auto">update</prop>
 			    <prop key="hibernate.format_sql">true</prop>
 			    <prop key="hibernate.jdbc.batch_size">50</prop>
