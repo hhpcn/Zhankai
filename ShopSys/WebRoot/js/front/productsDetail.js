@@ -50,7 +50,7 @@ $(function(){
 			"<div style='margin-left: 10px;font-size: 16px;margin-top: 10px;margin-right: 10px'>库存："+data.product.stock+"</div>"+
 			"<div style='margin-left: 10px;font-size: 16px;margin-top: 10px;margin-right: 10px'>材质："+data.product.material+"</div>"+
 			"<div style='margin-left: 10px;font-size: 16px;margin-top: 10px;margin-right: 10px'>淘宝链接：" 
-			+"<a href='http://"+data.product.url+"'>购买产品请点击</a></div>";
+			+"<a href='"+data.product.url+"'>购买产品请点击</a></div>";
 			
 			document.getElementById("productXQ").innerHTML=
 				"<div style='margin-left: 10px;margin-top: 10px;margin-right: 10px'>"+data.product.detailInfo+"</div>";
